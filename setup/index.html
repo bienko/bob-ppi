@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="IBM Bob Premium Package for i Level 3">
+        <meta name="description" content="IBM Bob Premium Package for i Hands-on Lab">
       
       
         <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Registration and Setup - IBM Bob Premium Package for i Level 3</title>
+        <title>Registration and Setup - IBM Bob Premium Package for i Hands-on Lab</title>
       
     
     
@@ -105,7 +105,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="IBM Bob Premium Package for i Level 3" class="md-header__button md-logo" aria-label="IBM Bob Premium Package for i Level 3" data-md-component="logo">
+    <a href=".." title="IBM Bob Premium Package for i Hands-on Lab" class="md-header__button md-logo" aria-label="IBM Bob Premium Package for i Hands-on Lab" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -119,7 +119,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IBM Bob Premium Package for i Level 3
+            IBM Bob Premium Package for i Hands-on Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -203,13 +203,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="IBM Bob Premium Package for i Level 3" class="md-nav__button md-logo" aria-label="IBM Bob Premium Package for i Level 3" data-md-component="logo">
+    <a href=".." title="IBM Bob Premium Package for i Hands-on Lab" class="md-nav__button md-logo" aria-label="IBM Bob Premium Package for i Hands-on Lab" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 
     </a>
-    IBM Bob Premium Package for i Level 3
+    IBM Bob Premium Package for i Hands-on Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix="">
@@ -1208,7 +1208,7 @@
 <li>Have Bob install <code>tn5250</code> on the partition so that a <strong>5250 terminal</strong> opens inside the IDE</li>
 <li>Upload the Flight400 save file to the IFS, restore it into the <code>FLGHT400</code> library and add that library to your library list</li>
 </ul>
-<p>Afterwards, you will be ready to begin <a href="https://pages.github.ibm.com/cdbienko/bob-ibmi-rpg/1-1/" target="_blank"><strong>Module 1 | Analyze</strong></a>.</p>
+<p>Afterwards, you will be ready to begin <a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank"><strong>Module 1 | Analyze</strong></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">THIS LAB REQUIRES THE PREMIUM PACKAGE FOR i</p>
 <p>Without the <strong>IBM Bob Premium Package for i</strong> (PPi) entitlement, IBM Bob can still open and read RPG, CL and DDS source, but the <em>IBM i Developer</em> and <em>IBM i Database</em> modes and the specifically-trained capabilities that the package provides will be unavailable. If neither mode appears in your Agentic Sidebar by the end of this chapter, the entitlement has <strong>not</strong> been linked to your Bob account.</p>
@@ -1629,8 +1629,8 @@
 <p><strong>You should have the following in place before starting this section:</strong></p>
 <ul>
 <li><strong>IBM Bob IDE</strong> — installed and authenticated (from your registration path)</li>
-<li><strong><code>ssh_private_key.pem</code></strong> — downloaded from IBM Technology Zone (<a href="https://pages.github.ibm.com/cdbienko/bob-ibmi-rpg/setup/#v-reserve-the-ibm-i-76-virtual-machine" target="_blank">section v</a>)</li>
-<li><strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong> — downloaded from the Flight400 distribution package (<a href="https://pages.github.ibm.com/cdbienko/bob-ibmi-rpg/setup/#vi-download-the-lab-assets" target="_blank">section vi</a>)</li>
+<li><strong><code>ssh_private_key.pem</code></strong> — downloaded from IBM Technology Zone (<a href="https://bienko.github.io/bob-ppi/setup/#v-reserve-the-ibm-i-76-virtual-machine" target="_blank">section v</a>)</li>
+<li><strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong> — downloaded from the Flight400 distribution package (<a href="https://bienko.github.io/bob-ppi/setup/#vi-download-the-lab-assets" target="_blank">section vi</a>)</li>
 </ul>
 </div>
 <p>With your IBM i environment provisioned and the Deployment SSH private key downloaded, the next step is to prepare a local workspace, open it in <strong>IBM Bob IDE</strong>, and lock down permissions on the SSH key so it can be used for authentication.</p>
@@ -1705,7 +1705,7 @@
 <p>In the <strong>IBM i Login</strong> form, fill in the connection details:</p>
 <ul>
 <li><strong>Connection Name:</strong> <code>IBM i Modernization</code></li>
-<li><strong>Host or IP Address:</strong> the <em>Virtual machine 1 public IP address</em> from <a href="https://pages.github.ibm.com/cdbienko/bob-ibmi-rpg/setup/#v-reserve-the-ibm-i-76-virtual-machine" target="_blank">section v</a></li>
+<li><strong>Host or IP Address:</strong> the <em>Virtual machine 1 public IP address</em> from <a href="https://bienko.github.io/bob-ppi/setup/#v-reserve-the-ibm-i-76-virtual-machine" target="_blank">section v</a></li>
 <li><strong>Port (SSH):</strong> <code>22</code> (default)</li>
 <li><strong>Username:</strong> <code>ITZUSER</code></li>
 </ul>
