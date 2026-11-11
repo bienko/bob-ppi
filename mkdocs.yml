@@ -1,0 +1,98 @@
+# Project info
+site_name: IBM Bob Premium Package for i Hands-on Lab
+site_description: IBM Bob Premium Package for i Hands-on Lab
+site_author: Christopher Bienko (cdbienko@us.ibm.com)
+copyright: Copyright &copy; 2026 IBM
+
+# Repository
+repo_name: bienko/bob-ppi
+#repo_url: https://github.com/bienko/bob-ppi
+#edit_uri: edit/master/docs
+docs_dir: docs
+
+nav:
+  - Table of Contents: toc.md
+  - Introduction: 'index.md'
+  - Registration and Setup: 'setup.md'
+  - 1. Analyze:
+    - Legacy IBM i to Living Documentation: 1-1.md
+  - 2. Modernize:
+    - Modernizing OPM RPG to Free-Format ILE: 2-1.md
+    - Extending Business Logic Across the Stack: 2-2.md
+  - 3. Optimize:
+    - Reviewing and Tuning Db2 for i SQL: 3-1.md
+  - 4. Test:
+    - Planning and Implementing RPGUnit Tests: 4-1.md
+  - 5. Operate:
+    - Operating IBM i with Natural Language: 5-1.md
+  - 6. Extend (optional):
+    - Generating a React Carbon App from a Green Screen: 6-1.md
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.footer
+  palette:
+      scheme: default
+  color_mode: auto
+
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
+  - macros
+  - search
+  - glightbox
+  - print-site:
+      add_to_navigation: false
+      print_page_title: 'IBM Bob Premium Package for i Hands-on Lab'
+      add_print_site_banner: false
+      # Table of contents
+      add_table_of_contents: false
+      toc_title: 'Table of Contents'
+      toc_depth: 6
+      # Content-related
+      add_full_urls: false
+      enumerate_headings: false
+      enumerate_figures: false
+      add_cover_page: false
+      cover_page_template: ""
+      path_to_pdf: ""
+      include_css: true
+      enabled: true
+
+markdown_extensions:
+  #- markdown_fenced_code_tabs
+  - sane_lists
+  - pymdownx.details
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.keys
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - tables
+
+extra_css:
+  - styles/override-print.css
+
+extra_javascript:
+  - _static/hide-toc-nav.js

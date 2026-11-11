@@ -1,0 +1,1409 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="IBM Bob Premium Package for i Hands-on Lab">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../5-1/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Generating a React Carbon App from a Green Screen - IBM Bob Premium Package for i Hands-on Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generating-a-react-carbon-app-from-a-green-screen" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IBM Bob Premium Package for i Hands-on Lab" class="md-header__button md-logo" aria-label="IBM Bob Premium Package for i Hands-on Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Bob Premium Package for i Hands-on Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generating a React Carbon App from a Green Screen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IBM Bob Premium Package for i Hands-on Lab" class="md-nav__button md-logo" aria-label="IBM Bob Premium Package for i Hands-on Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    IBM Bob Premium Package for i Hands-on Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Analyze
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Analyze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy IBM i to Living Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Modernize
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Modernize
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modernizing OPM RPG to Free-Format ILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extending Business Logic Across the Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Optimize
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Optimize
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reviewing and Tuning Db2 for i SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planning and Implementing RPGUnit Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Operate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating IBM i with Natural Language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Extend (optional)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Extend (optional)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generating a React Carbon App from a Green Screen
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generating a React Carbon App from a Green Screen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-from-the-green-screen-to-the-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. From the green screen to the browser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-extending-flight400-with-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Extending FLIGHT400 with IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-preparing-nodejs-on-the-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Preparing Node.js on the partition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-creating-the-helper-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Creating the helper skill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-generating-the-react-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. Generating the React application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vii-opening-the-application-from-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vii. Opening the application from your laptop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viii-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        viii. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-from-the-green-screen-to-the-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. From the green screen to the browser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-extending-flight400-with-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Extending FLIGHT400 with IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-preparing-nodejs-on-the-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Preparing Node.js on the partition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-creating-the-helper-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Creating the helper skill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-generating-the-react-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. Generating the React application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vii-opening-the-application-from-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vii. Opening the application from your laptop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viii-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        viii. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>MODULE 6 | EXTEND (OPTIONAL)</strong></p>
+<h1 id="generating-a-react-carbon-app-from-a-green-screen"><strong>GENERATING A REACT CARBON APP FROM A GREEN SCREEN</strong></h1>
+<hr>
+<h2 id="i-from-the-green-screen-to-the-browser"><strong>i. From the green screen to the browser</strong></h2>
+<p>The five required modules are complete, and the accreditation instructions in <em>Module 5</em> are where the course formally ends. This optional module is for the participant with time and token budget to spare, and it covers the one layer the earlier modules did not touch: the user interface.</p>
+<p>Every screen in FLIGHT400 is a 5250 display file. The <em>Create Order</em> screen (<code>FRS001DF</code>, driven by <code>FRS001</code>) is a good example: two boxed panels of flight and ticket information, a row of function keys along the bottom and a set of fields whose valid values live in lookup programs reached with F4 through F7. Its business logic is sound. Clients usually raise modernization because of the 5250 interface.</p>
+<p>Throughout this module, you will give Bob a <strong>helper skill</strong> that captures how to build and run a React and Vite application inside IBM i PASE, then switch to <em>IBM i Developer</em> mode and ask Bob to generate a single-page React application styled with <strong>IBM Carbon</strong> from a screenshot of the 5250 screen. Bob reads the display file and the RPG program behind it, scaffolds the project in the IFS, builds it on the partition and starts its development server there. You open the result in your own browser through an SSH tunnel.</p>
+<div class="admonition warning">
+<p class="admonition-title">THIS MODULE IS OPTIONAL</p>
+<p>Expect about 30 minutes, most of it spent waiting for <code>npm install</code> to finish on the partition. The module installs Node.js in PASE if it is not already present, which is a change to the partition beyond the <code>FLGHT400</code> library. Nothing here is required for accreditation.</p>
+</div>
+<hr>
+<h2 id="ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
+<p>A modern front end is the most visible modernization outcome. On IBM i it is often handed to an outside team, because the toolchain is unfamiliar to RPG developers.</p>
+<div class="admonition note">
+<p>Building a web front end for a 5250 transaction by hand requires engineers to:</p>
+<ul>
+<li>Read the display file DDS and the RPG program to learn which fields exist, which are input and which carry lookups</li>
+<li>Know the quirks of running Node.js, npm and a bundler inside PASE on a big-endian POWER system</li>
+<li>Choose and configure a design system so that the result looks like an enterprise application rather than a prototype</li>
+<li>Keep the development server running in the background without tying up the session that started it</li>
+<li>Reach the server from a developer's laptop through whatever network path the partition allows</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>TASK</th>
+<th>WITH: Manual Development</th>
+<th>WITH: IBM Bob Premium Package for i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understanding the screen</td>
+<td>Reading <code>FRS001DF</code> and <code>FRS001</code> by hand</td>
+<td>The <em>dds-primer-basics</em> and <em>rpg-primer-basics</em> skills parse the layout, fields and pricing logic</td>
+</tr>
+<tr>
+<td>PASE toolchain pitfalls</td>
+<td>Discovered one failed build at a time</td>
+<td>Recorded in a helper skill that Bob applies on each run</td>
+</tr>
+<tr>
+<td>Scaffolding and styling</td>
+<td>Hours of boilerplate and Carbon configuration</td>
+<td>A generated project with the theme, components and launch scripts in place</td>
+</tr>
+<tr>
+<td>Running on the partition</td>
+<td>Shell scripts written by hand</td>
+<td>Start and stop on request, with the server detached from the chat session</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="iii-extending-flight400-with-ibm-bob"><strong>iii. Extending FLIGHT400 with IBM Bob</strong></h2>
+<p>The work in this module combines three things you have already used (a skill, the <em>IBM i Developer</em> mode and Bob's IFS and PASE tools) with one you author yourself. The skill is the new element. React and Vite run well inside PASE, but only once a handful of platform-specific problems are solved:</p>
+<ul>
+<li>The native <code>esbuild</code> binary does not exist for <code>os400</code></li>
+<li><code>npm</code> postinstall scripts hang</li>
+<li>An interactive scaffolding prompt freezes the tool channel</li>
+<li><code>nohup npm run dev &amp;</code> leaves a pipe open that cancels the call</li>
+</ul>
+<p>A skill records those solutions so that Bob applies them without being told.</p>
+<p>Using <em>IBM i Developer</em> mode with the helper skill in place, Bob can:</p>
+<ul>
+<li>Read <code>FRS001DF.DSPF</code> for the screen layout and field names, and <code>FRS001.RPG</code> for the pricing logic and field definitions</li>
+<li>Scaffold a React 18 and Vite 4 project in the IFS and install its dependencies with <code>npm</code></li>
+<li>Patch <code>esbuild</code> for <code>os400</code> and configure Vite and Sass for the Carbon theme</li>
+<li>Write the launch scripts and start the development server in the background on a port you choose</li>
+<li>Stop the server again when you are done</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<p>Bob's responses are non-deterministic, and this module asks Bob to design a user interface, which leaves more room for variation than any earlier prompt. The layout, component choices and lookup values you see will differ from the screenshot, and the build may need a second attempt if a step of the skill is skipped.</p>
+<p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to capture platform knowledge in a skill, how Bob combines it with the Premium Package's own skills to read a 5250 screen, and how a generated application is built and run on the partition. Whether your page matches the one shown is of less importance than the fact that it renders the <em>Create Order</em> screen in a browser.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">PREREQUISITES</p>
+<ul>
+<li>The SSH private key from <em>Setup</em> is still in your local workspace folder, and an SSH client is available in the Bob IDE's integrated terminal</li>
+<li>Port <code>3001</code> is free on your laptop (the tunnel binds it) and on the partition (the development server binds it)</li>
+<li>The <em>IBM i Modernization</em> connection is active and <code>FLGHT400</code> is on the library list</li>
+</ul>
+</div>
+<hr>
+<h2 id="iv-preparing-nodejs-on-the-partition"><strong>iv. Preparing Node.js on the partition</strong></h2>
+<p>The Certified PowerVS Base VM ships without Node.js. As with <code>tn5250</code> during <em>Setup</em>, you will have Bob install it rather than doing so by hand. PASE packages come from <code>yum</code>, and the Node.js packages are versioned (<code>nodejs20</code>, <code>nodejs22</code> and so on) rather than published under a generic name.</p>
+<hr>
+<ol>
+<li>
+<p>In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send the following prompt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Check whether Node.js and npm are installed in PASE on this partition by running /QOpenSys/pkgs/bin/node --version and /QOpenSys/pkgs/bin/npm --version. If Node.js is missing, list the nodejs packages available from yum, install the newest version that is 18 or later (for example yum install nodejs22), and report both versions when done.
+</code></pre></div>
+<p>Approve the PASE command requests as they appear. The install takes a few minutes and ends with Bob reporting a Node.js version of 18 or later and an npm version of 9 or later.</p>
+<div class="admonition info">
+<p class="admonition-title">WHY THE FULL PATH</p>
+<p>PASE shells do not add <code>/QOpenSys/pkgs/bin</code> to the <code>PATH</code> automatically, so <code>node</code> on its own reports <em>No such file or directory</em> even when Node.js is installed. The helper skill you create next tells Bob to use the fully qualified path everywhere and to export the <code>PATH</code> at the top of every script it writes, which avoids a whole class of confusing failures.</p>
+</div>
+<!-- SCREENSHOT: Bob reporting the installed Node.js and npm versions -->
+</li>
+</ol>
+<hr>
+<h2 id="v-creating-the-helper-skill"><strong>v. Creating the helper skill</strong></h2>
+<p>A skill is a Markdown file with a short frontmatter (a name and a description that tells Bob when to apply it) followed by the instructions themselves. You met the Premium Package's own skills in <em>Module 1</em>, when <code>understand-app-overview</code> answered a question from the scan. You create this one yourself. Its text is provided with the lab; you will paste it into a chat and ask Bob to turn it into a skill.</p>
+<hr>
+<ol>
+<li>
+<p>Open the skill text: <strong><a href="_attachments/ibmi-react-vite-SKILL.txt" target="_blank">ibmi-react-vite-SKILL.txt</a></strong>. Save it into your local workspace folder (<code>~/ibmiflight400</code>) or open it in the Bob IDE's editor, then select its entire content and copy it.</p>
+<div class="admonition info">
+<p class="admonition-title">WHAT THE SKILL ENCODES</p>
+<p>Read it before you paste it; it is a compact account of what goes wrong when a toolchain written for Linux runs in PASE. It tells Bob to:</p>
+<ul>
+<li>Gather the screen name, target path, theme and port before writing a file</li>
+<li>Scaffold non-interactively</li>
+<li>Install with <code>npm install --ignore-scripts</code></li>
+<li>Patch <code>esbuild/lib/main.js</code> so that Vite falls back to <code>esbuild-wasm</code> on <code>os400</code></li>
+<li>Declare the Carbon theme before the component styles and wrap the app in <code>&lt;Theme&gt;</code></li>
+<li>Start the development server through a <code>start-dev.sh</code> launcher that resolves its environment before forking, rather than through <code>nohup npm run dev &amp;</code></li>
+</ul>
+<p>Each rule prevents a failure that occurred in earlier builds.</p>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>In the Bob chat panel, switch the mode selector to <strong>Agent</strong>. Click <strong>+</strong> and choose <strong>Local Workspace</strong> (your <code>ibmiflight400</code> folder) as the task context. Paste the copied skill text into the prompt, append the following instruction on a new line and send it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Create a skill from the pasted text.
+</code></pre></div>
+<p>Bob writes the skill file and confirms where it saved it. If Bob asks whether to save the skill globally or in the workspace, choose <strong>global</strong>, so that it is available from the library-list task in the next section.</p>
+<!-- SCREENSHOT: Bob confirming the ibmi-react-vite skill was created and where it was saved -->
+</li>
+</ol>
+<hr>
+<h2 id="vi-generating-the-react-application"><strong>vi. Generating the React application</strong></h2>
+<p>With Node.js in place and the skill saved, the generation itself is a single prompt with an image attached. The image is a screenshot of the 5250 <em>Create Order</em> screen; the Premium Package's <code>dds-primer-basics</code> and <code>rpg-primer-basics</code> skills do the rest of the reading from the display file and the program.</p>
+<hr>
+<ol>
+<li>
+<p>Save the screenshot of the <em>Create Order</em> screen to your laptop: <strong><a href="_attachments/ppi-create-order-screen.png" target="_blank">ppi-create-order-screen.png</a></strong> (right-click the image and save it). If you prefer your own capture, sign on to the 5250 terminal, start the application with <code>GO FLGHT400/FRSMAIN</code> and take a screenshot of the order entry screen.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-create-order-screen.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-create-order-screen.png" width="600"></a></p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>Switch the mode selector back to <strong>IBM i Developer</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task is scoped to <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>Drag the screenshot into the prompt field (or paste it from the clipboard), then paste the following prompt beneath it and send it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Given this screenshot of the 5250 flight order screen from the application FLIGHT400 in @FLGHT400, build a single-page React 18 + Vite 4 app on IBM i (PASE) using @carbon/react ^1.x with the g100 dark theme that modernises the IBM i 5250 screen shown in the attached screenshot. Create the app in the IFS at $HOME/flight400-frontend-apps/create-order/. Use the g100 dark theme. All fields should have a list of values to select from. The dev server must run in the background using nohup ... &amp; and write output to /tmp/vite-dev.log. Pin the Vite dev server to port 3001 if available.
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">THE @ MENTION</p>
+<p><code>@FLGHT400</code> attaches the library to the task's context, which is how Bob knows where to find <code>FRS001DF</code> and <code>FRS001</code> without being told their source files. Type the <code>@</code> and pick the library from the list that appears, so that it is highlighted as a mention rather than left as plain text.</p>
+</div>
+<!-- SCREENSHOT: the prompt with the screenshot attached and @FLGHT400 highlighted -->
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Bob drafts a to-do list and pauses for approval. In the documented run, it activated the <strong>ibmi-react-vite</strong> skill together with <strong>dds-primer-basics</strong> (to parse <code>FRS001DF.DSPF</code> for the layout, field names and subfile windows) and <strong>rpg-primer-basics</strong> (to read <code>FRS001.RPG</code> for the pricing logic and field definitions), then listed the steps of the skill: scaffold, write <code>package.json</code>, install, patch <code>esbuild</code>, configure Vite and the theme, write the components and the launch scripts, and build.</p>
+<p>Click <strong>Approve todo tools for task</strong>, then approve the PASE command and IFS write requests as they appear. The <code>npm install</code> step is the long one; expect the whole task to take ten to fifteen minutes.</p>
+<details class="warning">
+<summary>TROUBLESHOOTING: THE BUILD FAILS</summary>
+<p>Most failures trace back to a step of the skill being skipped. <em>Unsupported platform: os400 ppc64 BE</em> means the <code>esbuild</code> patch did not run; ask Bob to <em>re-run node patch-esbuild.cjs and build again</em>. A hang during <code>npm install</code> means <code>--ignore-scripts</code> was omitted. A page that renders in the white theme means the theme <code>@use</code> landed after the component styles. In each case, point Bob to the relevant section of the skill instead of describing the fix, since the skill already contains it.</p>
+</details>
+<!-- SCREENSHOT: Bob's to-do list for the React application, with the skills activated -->
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>When the build completes, ask Bob to start the server:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Please start the dev server for the app you just created.
+</code></pre></div>
+<p>Bob runs the <code>start-dev.sh</code> launcher, which detaches the Vite server with <code>nohup</code> and records its process ID. It reports the PID and the port the server is listening on. If port <code>3001</code> was taken, Vite moves to the next free port and Bob tells you which; use that port in the tunnel below.</p>
+<!-- SCREENSHOT: Bob reporting the started dev server, its PID and port -->
+</li>
+</ol>
+<hr>
+<h2 id="vii-opening-the-application-from-your-laptop"><strong>vii. Opening the application from your laptop</strong></h2>
+<p>The development server listens on the partition, and the partition's public interface does not expose port <code>3001</code>. An SSH tunnel carries the port to your laptop over the same connection Bob uses.</p>
+<hr>
+<ol>
+<li>
+<p>In the Bob IDE, open a local terminal (<strong>Terminal → New Terminal</strong>) at the root of your workspace, where <code>ssh_private_key.pem</code> lives. Run the following, replacing <code>&lt;public-ip&gt;</code> with the <em>Virtual machine 1 public IP address</em> from your TechZone reservation, and leave the terminal open:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>ssh_private_key.pem<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span><span class="m">3001</span>:localhost:3001<span class="w"> </span>ITZUSER@&lt;public-ip&gt;
+</code></pre></div>
+<p><code>-N</code> opens the tunnel without starting a remote shell, so the command appears to hang. The command is holding the tunnel open, which is expected. Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to close it when you are finished.</p>
+<!-- SCREENSHOT: the integrated terminal with the tunnel command running -->
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>Open <strong><code>http://localhost:3001</code></strong> in your browser. The <em>Create Order</em> screen renders as a Carbon page in the g100 dark theme, with the <em>Flight Information</em> and <em>Ticket Order Information</em> panels as tiles. The lookups become dropdowns and the class of service becomes a set of radio buttons. The function keys appear as a row of buttons along the bottom, with <em>F10 – Make Reservation</em> as the primary action.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-react-app.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-react-app.png" width="600"></a></p>
+<details class="warning">
+<summary>TROUBLESHOOTING: NOTHING SHOWING IN THE BROWSER</summary>
+<p>Check three things in order. The tunnel terminal is still open and reported no error. The port in the tunnel matches the port Bob reported in the previous section; if Vite moved to another port, change both ends of the <code>-L</code> argument. And the server is still running: ask Bob <em>"Is the dev server for the create-order app still running? Show the last lines of its log."</em> The log is at <code>/tmp/vite-create-order.log</code> (the skill names it after the screen) or at <code>/tmp/vite-dev.log</code>.</p>
+</details>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>When you have finished exploring, ask Bob to stop the server:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Stop the web service for FLIGHT400 on port 3001.
+</code></pre></div>
+<p>Bob reads the recorded PID and ends the process. Close the tunnel with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> in the terminal. A Node.js server left running would show up as a PASE job in the active-jobs list from <em>Module 5</em>, which is a useful check if you are unsure whether it stopped.</p>
+<div class="admonition info">
+<p class="admonition-title">SAMPLE DATA ONLY</p>
+<p>The generated application runs with sample data; its dropdowns are populated from what Bob read in the display file and the RPG program, and <em>Make Reservation</em> does not write an order. The natural next step is a REST layer that connects the page to the real business logic and to Db2 for i. FLIGHT400 already has the beginnings of one: the six ILE service programs that the Understand scan reported in <em>Module 1</em> are its REST API layer, and the <code>AGENTS</code> member records how they must be compiled.</p>
+</div>
+</li>
+</ol>
+<hr>
+<h2 id="viii-key-takeaways"><strong>viii. Key takeaways</strong></h2>
+<hr>
+<ul>
+<li>A <strong>skill</strong> you author yourself works the same way as the Premium Package's own: a Markdown file with a description that tells Bob when to apply it, which Bob then combines with the platform skills (<code>dds-primer-basics</code>, <code>rpg-primer-basics</code>) that a task needs</li>
+<li>Platform knowledge belongs in a skill. The <code>esbuild</code> patch, <code>--ignore-scripts</code>, the non-interactive scaffold and the detached launcher are recorded there and applied on each run</li>
+<li>Bob can read a 5250 screen from its DDS and its RPG program and produce a React application styled with IBM Carbon that preserves the fields, lookups and function keys of the original</li>
+<li>The application is built and served on the partition itself, in PASE, and reached from a laptop through an SSH tunnel; only the browser runs outside the IBM i</li>
+<li>A generated front end on sample data is a starting point; connecting it to the application's REST layer and to Db2 for i is the modernization work that follows</li>
+<li>Human review remains essential. A page that renders is a prototype; compare the generated fields and lookups with the display file before it is shown as finished work</li>
+</ul>
+<p></p>
+<p>This concludes the optional module and the <em>IBM Bob Premium Package for i</em> Hands-on lab. If you have not yet done so, return to the <strong><a href="../5-1/#v-earn-accreditation" target="_blank">accreditation instructions in Module 5</a></strong> to record your Stand &amp; Deliver or complete the skills evaluation quiz.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../5-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Operating IBM i with Natural Language">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Operating IBM i with Natural Language
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

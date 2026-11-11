@@ -1,2 +1,2 @@
-# bob-ppi
-IBM Bob Premium Package for i
+# bob-ppz
+IBM Bob Premium Package for i Hands-on Lab
