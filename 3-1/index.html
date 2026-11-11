@@ -1,0 +1,1465 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="IBM Bob Premium Package for i Level 3">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../2-2/">
+      
+      
+        <link rel="next" href="../4-1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Reviewing and Tuning Db2 for i SQL - IBM Bob Premium Package for i Level 3</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reviewing-and-tuning-db2-for-i-sql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IBM Bob Premium Package for i Level 3" class="md-header__button md-logo" aria-label="IBM Bob Premium Package for i Level 3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Bob Premium Package for i Level 3
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reviewing and Tuning Db2 for i SQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IBM Bob Premium Package for i Level 3" class="md-nav__button md-logo" aria-label="IBM Bob Premium Package for i Level 3" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    IBM Bob Premium Package for i Level 3
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Analyze
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Analyze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy IBM i to Living Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Modernize
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Modernize
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modernizing OPM RPG to Free-Format ILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extending Business Logic Across the Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Optimize
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Optimize
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reviewing and Tuning Db2 for i SQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reviewing and Tuning Db2 for i SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-from-source-code-to-the-database-beneath-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. From source code to the database beneath it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-optimizing-flight400-queries-with-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Optimizing FLIGHT400 queries with IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-reviewing-a-query-with-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Reviewing a query with /review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-running-the-sql-index-strategy-advisor-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Running the SQL Index Strategy Advisor workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planning and Implementing RPGUnit Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Operate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating IBM i with Natural Language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Extend (optional)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Extend (optional)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generating a React Carbon App from a Green Screen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-from-source-code-to-the-database-beneath-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. From source code to the database beneath it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-optimizing-flight400-queries-with-ibm-bob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. Optimizing FLIGHT400 queries with IBM Bob
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-reviewing-a-query-with-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. Reviewing a query with /review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-running-the-sql-index-strategy-advisor-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. Running the SQL Index Strategy Advisor workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>MODULE 3 | OPTIMIZE</strong></p>
+<h1 id="reviewing-and-tuning-db2-for-i-sql"><strong>REVIEWING AND TUNING DB2 FOR i SQL</strong></h1>
+<hr>
+<h2 id="i-from-source-code-to-the-database-beneath-it"><strong>i. From source code to the database beneath it</strong></h2>
+<p>In the previous <strong>Modernize</strong> module, you used IBM Bob to convert a fixed-format OPM RPG program into free-format ILE and to extend a new business field end to end across DDS, logical files, RPG and a display file. Both are changes to the application's source. The database those programs use needs the same attention, and on IBM i that work is done in SQL.</p>
+<p>FLIGHT400's files were defined in DDS in the 1990s, but the reports and integrations written against them today are SQL. They join <code>FLIGHTS</code>, <code>ORDERS</code>, <code>AGENTS</code> and <code>CUSTOMERS</code>, aggregate by flight and filter by date. Those statements are written by developers who may never have seen the DDS, against column names such as <code>FLIGH00001</code> that the system generated from the original field names. A statement that is logically wrong on a strict SQL engine, or that forces Db2 for i to scan the largest file in the application for every request, is easy to write, and a reviewer can miss it.</p>
+<p>Throughout this module, you will switch Bob into <strong>IBM i Database</strong> mode and use it in two ways. First you will review a query handed to you by a junior developer with the <strong><code>/review</code></strong> slash command, which checks the statement against the live catalog and reports what it finds. Then you will run the <strong>SQL Index Strategy Advisor</strong> workflow, which captures performance data from the plan cache, reads the Index Advisor's recommendations and proposes a permanent index for the query.</p>
+<hr>
+<h2 id="ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
+<p>Database performance on IBM i depends on access paths, and few people understand the optimizer well enough to choose them.</p>
+<div class="admonition note">
+<p>Reviewing and tuning a Db2 for i statement by hand requires engineers to:</p>
+<ul>
+<li>Map system-generated column names back to the business fields they represent</li>
+<li>Spot statements that are logically incorrect even when they happen to run</li>
+<li>Read Visual Explain output and plan cache snapshots to find the table and predicate that dominate the cost</li>
+<li>Interpret the Index Advisor's recommendations and the maintained temporary indexes (MTIs) the system has already built on its own</li>
+<li>Choose an index that helps the workload without burdening every insert and update</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>TASK</th>
+<th>WITH: Manual Tuning</th>
+<th>WITH: IBM Bob Premium Package for i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query review</td>
+<td>A senior DBA's time, when one is available</td>
+<td><code>/review</code> checks correctness, security and performance against the live catalog in one pass</td>
+</tr>
+<tr>
+<td>Finding the bottleneck</td>
+<td>Visual Explain and plan cache dumps read by hand</td>
+<td>A plain-language answer to <em>"which table is the bottleneck and why?"</em></td>
+</tr>
+<tr>
+<td>Choosing an index</td>
+<td>Index Advisor rows interpreted by an expert</td>
+<td>A guided workflow that turns plan cache evidence into <code>CREATE INDEX</code> statements you approve</td>
+</tr>
+<tr>
+<td>Keeping the knowledge</td>
+<td>Held by the DBA alone</td>
+<td>A workflow summary that records the data source, the findings and the indexes created</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="iii-optimizing-flight400-queries-with-ibm-bob"><strong>iii. Optimizing FLIGHT400 queries with IBM Bob</strong></h2>
+<p>The work in this module runs in <strong>IBM i Database</strong> mode, the second of the two modes the Premium Package contributes. Where <em>IBM i Developer</em> is built around source members and compiles, <em>IBM i Database</em> is built around Db2 for i. It generates, modernizes, tunes and reviews SQL, and it carries the catalog skills and the index-advisory workflow you are about to use.</p>
+<p>Using <em>IBM i Database</em> mode, Bob can:</p>
+<ul>
+<li>Review a SQL statement for correctness, security, performance and style, verifying names and data types against the connected system's catalog</li>
+<li>Explain which table and which predicate dominate a statement's cost</li>
+<li>Capture performance data from the SQL plan cache into a database monitor file</li>
+<li>Read the Index Advisor's recommendations and the system's temporary index activity</li>
+<li>Generate <code>CREATE INDEX</code> statements, explain the expected benefit of each and create the ones you approve</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<p>Bob's responses are non-deterministic, and the optimizer's advice depends on the statements that have run on your partition. The findings from <code>/review</code>, the bottleneck explanation and the index recommendations you see may differ from those shown here, in wording and in detail.</p>
+<p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to review a statement with the slash command, how to run the SQL Index Strategy Advisor workflow and how to read what it recommends. Expect the highest-priority recommendation to involve <code>ORDERS</code> and its date column; the exact column order and index name may differ.</p>
+</div>
+<hr>
+<h2 id="iv-reviewing-a-query-with-review"><strong>iv. Reviewing a query with /review</strong></h2>
+<p>The statement below was written to report ticket sales by flight and agent for a three-day window in February 2004. It joins four files, aggregates by class of service and has been handed to you for review before it goes into a report. It contains at least one logical fault.</p>
+<hr>
+<ol>
+<li>
+<p>In the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Database</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> to start a clean task scoped to <code>QGPL</code>, <code>QTEMP</code> and <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</p>
+<!-- SCREENSHOT: mode selector with IBM i Database selected -->
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>. Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
+<div class="admonition note">
+<p class="admonition-title">THE COMMAND NAME MAY DIFFER BY RELEASE</p>
+<p>In the documented run the command appeared as <code>/review</code>. Later releases of the Premium Package list it as <code>/review_SQL</code>, alongside a <code>/review_rpg</code> counterpart for RPG source. Either way, type <code>/review</code> and pick the SQL entry from the list; typing the whole command without selecting it from the list leaves it as plain text, and Bob will treat the query as a question rather than a review.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-review-1.jpeg" data-desc-position="bottom"><img alt="" src="_attachments/ppi-review-1.jpeg" width="600"></a></p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>With the command highlighted, paste the following query after it and send the prompt. The pasted statement appears as a <em>Pasted text</em> chip beside the command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FLIGH00001</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">FLIGHT_NUMBER</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DEPARTURE</span><span class="w">                                     </span><span class="k">AS</span><span class="w"> </span><span class="n">FROM_CITY</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">ARRIVAL</span><span class="w">                                       </span><span class="k">AS</span><span class="w"> </span><span class="n">TO_CITY</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">AIRLINES</span><span class="w">                                      </span><span class="k">AS</span><span class="w"> </span><span class="n">AIRLINE</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DAY_O00001</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">DAY_OF_WEEK</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DEPAR00002</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">DEPARTURE_TIME</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">ARRIV00002</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">ARRIVAL_TIME</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">MILEAGE</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">TICKE00001</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">TICKET_PRICE</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">SEATS00001</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">SEATS_AVAILABLE</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">ag</span><span class="p">.</span><span class="n">AGENT_NAME</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">CUSTO00001</span><span class="p">)</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">UNIQUE_CUSTOMERS</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">TICKE00001</span><span class="p">)</span><span class="w">                               </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_TICKETS_SOLD</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="k">CLASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'F'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">TICKE00001</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">FIRST_CLASS_TICKETS</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="k">CLASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'B'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">TICKE00001</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">BUSINESS_TICKETS</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="k">CLASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'E'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">TICKE00001</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ECONOMY_TICKETS</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">DEPAR00001</span><span class="p">)</span><span class="w">                               </span><span class="k">AS</span><span class="w"> </span><span class="n">EARLIEST_BOOKING_DATE</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">DEPAR00001</span><span class="p">)</span><span class="w">                               </span><span class="k">AS</span><span class="w"> </span><span class="n">LATEST_BOOKING_DATE</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">FROM</span><span class="w"> </span><span class="n">FLGHT400</span><span class="o">/</span><span class="n">FLIGHTS</span><span class="w">       </span><span class="n">f</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">FLGHT400</span><span class="o">/</span><span class="n">ORDERS</span><span class="w">        </span><span class="n">o</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">FLIGH00001</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">FLIGH00001</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">FLGHT400</span><span class="o">/</span><span class="n">AGENTS</span><span class="w">        </span><span class="n">ag</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ag</span><span class="p">.</span><span class="n">AGENT_NO</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">AGENT_NO</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">FLGHT400</span><span class="o">/</span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">c</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">CUSTO00001</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">CUSTO00001</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">DEPAR00001</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">(</span><span class="s1">'2004-02-08-00.00.00'</span><span class="p">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">DEPAR00001</span><span class="w"> </span><span class="o">&lt;</span><span class="w">  </span><span class="k">TIMESTAMP</span><span class="p">(</span><span class="s1">'2004-02-11-00.00.00'</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FLIGH00001</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">DEPARTURE</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">ARRIVAL</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">AIRLINES</span><span class="p">,</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DAY_O00001</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">DEPAR00002</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">ARRIV00002</span><span class="p">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">MILEAGE</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">TICKE00001</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">SEATS00001</span><span class="p">,</span><span class="w"> </span><span class="n">ag</span><span class="p">.</span><span class="n">AGENT_NAME</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="n">o</span><span class="p">.</span><span class="n">DEPAR00001</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">FLIGH00001</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="k">FETCH</span><span class="w"> </span><span class="k">FIRST</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">ROWS</span><span class="w"> </span><span class="k">ONLY</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">THE FAULT TO LOOK FOR</p>
+<p><code>o.DEPAR00001</code> appears in the <code>ORDER BY</code> clause but not in the <code>GROUP BY</code> clause. Ordering an aggregated result by a column that is neither grouped nor aggregated is logically incorrect, and strict SQL engines reject it with <code>SQL0122</code>. Read the review with that in mind and check whether Bob catches it on its own.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-review-2.jpeg" data-desc-position="bottom"><img alt="" src="_attachments/ppi-review-2.jpeg" width="600"></a></p>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Bob reviews the statement. It may inspect the connected system's catalog to verify the column names and data types, so approve the tool requests as they appear. In the documented run, the findings included:</p>
+<div class="admonition quote">
+<ul>
+<li>❌ <code>ORDER BY o.DEPAR00001</code> uses a column that is neither grouped nor aggregated and may fail with <code>SQL0122</code>; Bob proposed replacing it with <code>MIN(o.DEPAR00001)</code></li>
+<li>⚠️ The <code>LEFT JOIN</code> to <code>CUSTOMERS</code> contributes no columns to the result and can be removed</li>
+<li>⚠️ <code>o.DEPAR00001</code> is the order's <code>DEPARTURE_DATE</code>, so the <code>EARLIEST_BOOKING_DATE</code> and <code>LATEST_BOOKING_DATE</code> aliases are misleading</li>
+<li>⚠️ <code>TICKET_PRICE</code> is stored as <code>VARCHAR(22)</code> and requires validation before it is used in numeric calculations</li>
+<li>✅ The <code>CASE</code>-based class-of-service breakdown is a clear, set-based approach</li>
+<li>✅ <code>FETCH FIRST 100 ROWS ONLY</code> is a useful safeguard while testing</li>
+<li>💡 Bob recommended descriptive SQL column names in place of the generated IBM i system names</li>
+</ul>
+</div>
+<p>The last point has consequences beyond this one statement. <code>FLIGH00001</code> is the system name Db2 for i generated for a field whose DDS name was longer than ten characters; the same column also carries an SQL name (<code>FLIGHT_NUMBER</code>) that matches the business name of the field. Bob's corrected statement uses the SQL names, which is why the index recommendations later in this module name <code>DEPARTURE_DATE</code> and <code>FLIGHT_NUMBER</code> rather than <code>DEPAR00001</code> and <code>FLIGH00001</code>.</p>
+<!-- SCREENSHOT: Bob's /review findings for the ticket sales query -->
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>The Index Advisor records advice only for statements that the optimizer has processed, and the query above has not yet been executed. Ask Bob to apply its corrections and execute the result:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Apply the corrections you recommended and run the corrected statement against FLGHT400, keeping FETCH FIRST 100 ROWS ONLY. Show me the first few rows of the result and confirm that the statement ran without error.
+</code></pre></div>
+<p>Bob rewrites the statement, runs it through its SQL tool and returns the first rows. Approve the tool request when it appears. The run takes a few seconds; it also leaves an entry in the SQL plan cache, which is what the workflow in the next section analyzes.</p>
+<!-- SCREENSHOT: the corrected statement and the first rows of its result -->
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p>With the statement in context, ask the question a DBA would ask next:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Is any table a performance bottleneck in this query, and why?
+</code></pre></div>
+<p>In the documented run, Bob identified four things:</p>
+<ul>
+<li><code>ORDERS</code> is the largest file in the join</li>
+<li>The query filters it on <code>DEPARTURE_DATE</code></li>
+<li>Only a small fraction of its rows qualify for the three-day window</li>
+<li>The date-range predicate is therefore highly selective and a strong candidate for index optimization</li>
+</ul>
+<p>The answer is informational and will vary with the optimizer's statistics on your partition. Its value is in naming the file and the predicate that an index would help.</p>
+<!-- SCREENSHOT: Bob's bottleneck explanation naming ORDERS and the DEPARTURE_DATE predicate -->
+</li>
+</ol>
+<hr>
+<h2 id="v-running-the-sql-index-strategy-advisor-workflow"><strong>v. Running the SQL Index Strategy Advisor workflow</strong></h2>
+<p>Db2 for i records the indexes it would benefit from. Every time the optimizer processes a statement, it notes in the <strong>Index Advisor</strong> the access paths that would have made the statement cheaper, and when the benefit is large enough it builds a <strong>maintained temporary index</strong> (MTI) on its own. The <strong>SQL Index Strategy Advisor</strong> workflow collects that evidence from the plan cache, analyzes it and proposes permanent indexes, which you approve one at a time before Bob creates them.</p>
+<div class="admonition info">
+<p class="admonition-title">WHAT THE CAPTURE DOES</p>
+<p>The workflow's <em>Capture New Performance Data</em> option calls the <code>DUMP_PLAN_CACHE_TOPN</code> procedure, which writes the top <em>N</em> statements from the SQL plan cache (ranked by the category you choose) into a database monitor file in an output library. The analysis then runs against that file: the Index Advisor recommendations, the MTI activity and the query statistics for each captured statement. Nothing is created until you approve it.</p>
+</div>
+<hr>
+<ol>
+<li>
+<p>Still in <strong>IBM i Database</strong> mode, click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>. In the workflow catalog, click <strong>Start</strong> on <strong>SQL Index Strategy Advisor</strong>, then <strong>Get Started</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-workflows-icon.png" width="600"></a></p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p>The workflow asks for its data source and capture settings. Use the following values and continue through each prompt:</p>
+<table>
+<thead>
+<tr>
+<th>SETTING</th>
+<th>VALUE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Source</td>
+<td><strong>Capture New Performance Data</strong></td>
+</tr>
+<tr>
+<td>Capture Method</td>
+<td><code>DUMP_PLAN_CACHE_TOPN</code></td>
+</tr>
+<tr>
+<td>Output Library</td>
+<td><code>FLGHT400</code></td>
+</tr>
+<tr>
+<td>Output Object Name</td>
+<td><code>FLGHT400P</code></td>
+</tr>
+<tr>
+<td>Top N Queries</td>
+<td><code>20</code></td>
+</tr>
+<tr>
+<td>Top N Category</td>
+<td><strong>Runtime</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">WHY THESE VALUES</p>
+<p>The output library and object name decide where the monitor file lands; keeping it in <code>FLGHT400</code> keeps the lab's objects together. <em>Runtime</em> ranks the plan cache by the statements that have consumed the most time, which is where the ticket sales query sits after its run. Twenty statements is enough to cover everything Bob has executed in this lab without burying the one this module is about.</p>
+</div>
+<!-- SCREENSHOT: the SQL Index Strategy Advisor settings form filled in -->
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p>Bob captures the performance data and works through the analysis, pausing for tool approvals along the way. The documented run performed the following steps; yours may group them differently:</p>
+<div class="admonition quote">
+<ul>
+<li>Captured the top 20 statements from the plan cache into <code>FLGHT400/FLGHT400P</code></li>
+<li>Examined the plan cache information for each statement</li>
+<li>Reviewed the Index Advisor's recommendations</li>
+<li>Examined the temporary index (MTI) activity</li>
+<li>Identified candidate permanent indexes</li>
+<li>Generated <code>CREATE INDEX</code> statements</li>
+<li>Explained the expected performance benefit of each index</li>
+</ul>
+</div>
+<!-- SCREENSHOT: the workflow's progress through capture and analysis -->
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p>Review the recommendations. In the documented run, the highest-priority candidate was an index on <code>ORDERS</code> keyed by the date and flight columns that the ticket sales query filters and joins on:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">FLGHT400</span><span class="p">.</span><span class="n">ORDERS_IDX_DEPDT_FLT</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">FLGHT400</span><span class="p">.</span><span class="n">ORDERS</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">DEPARTURE_DATE</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">FLIGHT_NUMBER</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">);</span>
+</code></pre></div>
+<p>A second candidate, keyed on the agent and the date, may appear alongside it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">FLGHT400</span><span class="p">.</span><span class="n">ORDERS_IDX_AGT_DEP</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">FLGHT400</span><span class="p">.</span><span class="n">ORDERS</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">AGENT_NO</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="n">DEPARTURE_DATE</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">);</span>
+</code></pre></div>
+<p>The first directly supports the selective date-range predicate, with the flight number available for the join, and is the one to create. Leave the others as documented recommendations.</p>
+<div class="admonition warning">
+<p class="admonition-title">CREATE ONE INDEX AT A TIME</p>
+<p>An index speeds up the statements that use it and adds cost to every insert, update and delete on the file it covers. The advisor's list is a set of candidates ranked by evidence from the capture, so approve the one with the clearest benefit and leave the rest as documentation. On a shared partition the same caution applies to scope: create indexes only in your own library.</p>
+</div>
+<!-- SCREENSHOT: Bob's recommended indexes with their expected benefit -->
+</li>
+</ol>
+<hr>
+<ol start="5">
+<li>
+<p>When Bob asks which recommendations to apply, respond with the following prompt (or select the equivalent option in the workflow):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Apply the highest-priority index only, in FLGHT400.
+</code></pre></div>
+<p>Bob runs the <code>CREATE INDEX</code> statement and reports success. The workflow closes with a summary covering the data source, the findings, the index created and the recommended next steps.</p>
+<!-- SCREENSHOT: the CREATE INDEX statement executed and the workflow summary -->
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>
+<p>Confirm the result from the catalog:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>List the indexes that exist on FLGHT400/ORDERS, with their key columns.
+</code></pre></div>
+<p>The new index appears among the keyed access paths over <code>ORDERS</code>. In the Object Browser, refresh the <code>FLGHT400</code> filter: an SQL index is an IBM i file object with the logical-file attribute, so <code>ORDERS_IDX_DEPDT_FLT</code> is listed alongside the application's own logical files. Run the corrected ticket sales query once more and the optimizer will pick the new access path for the date range.</p>
+<!-- SCREENSHOT: the index listed by Bob, and in the Object Browser -->
+</li>
+</ol>
+<hr>
+<h2 id="vi-key-takeaways"><strong>vi. Key takeaways</strong></h2>
+<hr>
+<ul>
+<li><strong>IBM i Database</strong> mode gives Bob the Db2 for i skills, the catalog tools and the index-advisory workflow; switch to it whenever the subject is SQL rather than source members</li>
+<li><strong><code>/review</code></strong> checks a statement against the live catalog and reports correctness, security, performance and style findings in one pass. Select the command from the list so that it is highlighted; as plain text it has no effect</li>
+<li>A statement that runs may still be wrong. Strict SQL engines reject an <code>ORDER BY</code> on a non-grouped column, while lenient ones accept it without warning</li>
+<li>Prefer the SQL names of columns (<code>DEPARTURE_DATE</code>, <code>FLIGHT_NUMBER</code>) over the generated system names (<code>DEPAR00001</code>, <code>FLIGH00001</code>). Both reach the same column, and the SQL name is the meaningful one</li>
+<li>The optimizer records index advice for the statements it runs, so a query must be executed at least once before the advisor has anything to say about it</li>
+<li>The <strong>SQL Index Strategy Advisor</strong> workflow captures the plan cache with <code>DUMP_PLAN_CACHE_TOPN</code>, reads the Index Advisor recommendations and the MTI activity, and proposes permanent indexes that you approve individually</li>
+<li>Create the index with the clearest benefit and leave the rest as documented candidates; every index adds cost to every insert, update and delete</li>
+<li>Human review remains essential. The advisor's recommendations are based on captured evidence, but they are still only recommendations. The decision to add an access path to a production file belongs to the team that owns the file</li>
+</ul>
+<p></p>
+<p>In the next module, you will add tests to the application. Using IBM Bob's RPGUnit workflows, you will create a small SQLRPGLE service module and have Bob plan, write and run a test suite for it until the tests pass. Continue to <strong><a href="../4-1/" target="_blank">Module 4 | Planning and Implementing RPGUnit Tests</a></strong>.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../2-2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Extending Business Logic Across the Stack">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Extending Business Logic Across the Stack
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../4-1/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning and Implementing RPGUnit Tests">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Planning and Implementing RPGUnit Tests
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
