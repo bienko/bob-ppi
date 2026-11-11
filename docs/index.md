@@ -10,24 +10,26 @@
 
 For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world. It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of **RPG**, **CL** and **DDS** code. Some of it was written decades ago, and a great deal of it is still in production.
 
-Typical IBM i workloads include:
+!!! quote ""
+    **Typical IBM i workloads include:**
 
-- Order entry, inventory and distribution systems
-- Manufacturing and ERP applications
-- Airline and travel reservation systems
-- Banking core systems and payment processing
-- Insurance policy administration
-- Retail point-of-sale and back-office operations
-- Government and public-sector recordkeeping
+    - Order entry, inventory and distribution systems
+    - Manufacturing and ERP applications
+    - Airline and travel reservation systems
+    - Banking core systems and payment processing
+    - Insurance policy administration
+    - Retail point-of-sale and back-office operations
+    - Government and public-sector recordkeeping
 
-Despite their stability, many of these applications now face modernization challenges:
+!!! failure ""
+    **Despite their stability, many of these applications now face modernization challenges:**
 
-- Fixed-format OPM RPG that predates modern language features
-- DDS-defined databases that limit SQL performance and portability
-- Green-screen 5250 interfaces that constrain the user experience
-- Sparse or outdated documentation
-- A shrinking pool of RPG and CL expertise
-- Growing demand for REST APIs, web and mobile front ends and cloud integration
+    - Fixed-format OPM RPG that predates modern language features
+    - DDS-defined databases that limit SQL performance and portability
+    - Green-screen 5250 interfaces that constrain the user experience
+    - Sparse or outdated documentation
+    - A shrinking pool of RPG and CL expertise
+    - Growing demand for REST APIs, web and mobile front ends and cloud integration
 
 As a result, IBM i organizations increasingly seek ways to modernize their applications while preserving the business logic that has been trusted and refined for years. That is the challenge IBM Bob was designed to address.
 
@@ -111,7 +113,7 @@ Together, these components demonstrate the IBM i development patterns found in m
 
 Although FLIGHT400 is intentionally focused, it contains many of the same patterns found in real IBM i systems running today in airlines, distribution, manufacturing and financial services. Because the lab uses one application from start to finish, you see Bob work the way it would in a client's modernization project.
 
-!!! info "WHAT IS `IBM i`?"
+!!! info "WHAT IS IBM i?"
     **IBM i** is the integrated operating system of IBM Power servers. Programs and files live as objects inside **libraries** (`FLGHT400` is one), and a job finds objects by searching its **library list** in order. Source code is stored as **members** of source physical files such as `QRPGSRC` and `QDDSSRCF`, while the **IFS** (Integrated File System) holds stream files in Unix-style directories. **DDS** (Data Description Specifications) describes database files and 5250 display files in fixed columns; **RPG** comes in the older fixed-format **OPM** flavor and the modern **ILE** free-format flavor; **CL** is the control language. **Db2 for i** is the integrated database, and **PASE** is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.
 
 ---
@@ -163,13 +165,13 @@ What you ***do*** need:
     - The two Flight400 distribution files, **`FLGHT400.FILE`** and **`Install-Flight400.sql`**, downloaded from the links in the *Setup* chapter
     - A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)
 
-!!! warning "A WORD ON WORKING WITH GENERATIVE AI"
+!!! warning "A WORD ON WORKING WITH *GENERATIVE AI*"
 
     IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are *non-deterministic* — unlike the *deterministic* tools most IBM i developers are accustomed to. In practice, that means the same prompt can produce different code, DDS or SQL from one run to the next. This is both a strength and a quirk of the technology, and it is something to work *with* rather than against.
 
     **Precision is what tips the odds in your favor.** The more clearly you describe what you want — the exact library, source file, member, field name and constraints — the more closely Bob's output will mirror your intent. The smallest change in wording can meaningfully change the generated code. Throughout this lab, your results may differ from the examples shown — and that is expected, not a defect. Whenever an output diverges, you have three good options: refine the prompt and try again, edit the generated source by hand, or simply proceed if the variation still compiles and runs correctly on your LPAR. Human review remains essential at every step, and never more so than while you are still learning the tool.
 
-!!! info "A WORD ON BOBCOINS"
+!!! info "MANAGING CONSUMPTION OF *BOBCOINS*"
     The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The `AGENTS` member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.
 
 ---

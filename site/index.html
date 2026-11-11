@@ -1068,7 +1068,8 @@
 <p>This course assumes you have completed the <a href="https://ibm.github.io/bob-l3/" target="_blank"><strong>Climbing the AI Maturity Curve with IBM Bob</strong></a> Level 3 curriculum and that its concepts are familiar ground: the Agentic Sidebar and its modes, the plan-first delegation discipline, Bob Rules and custom configuration, and the context window and its economics. The material ahead builds on those foundations and refers to them throughout. As in that course, Bob does the building and the developer stays in control.</p>
 </div>
 <p>For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world. It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of <strong>RPG</strong>, <strong>CL</strong> and <strong>DDS</strong> code. Some of it was written decades ago, and a great deal of it is still in production.</p>
-<p>Typical IBM i workloads include:</p>
+<div class="admonition quote">
+<p><strong>Typical IBM i workloads include:</strong></p>
 <ul>
 <li>Order entry, inventory and distribution systems</li>
 <li>Manufacturing and ERP applications</li>
@@ -1078,7 +1079,9 @@
 <li>Retail point-of-sale and back-office operations</li>
 <li>Government and public-sector recordkeeping</li>
 </ul>
-<p>Despite their stability, many of these applications now face modernization challenges:</p>
+</div>
+<div class="admonition failure">
+<p><strong>Despite their stability, many of these applications now face modernization challenges:</strong></p>
 <ul>
 <li>Fixed-format OPM RPG that predates modern language features</li>
 <li>DDS-defined databases that limit SQL performance and portability</li>
@@ -1087,6 +1090,7 @@
 <li>A shrinking pool of RPG and CL expertise</li>
 <li>Growing demand for REST APIs, web and mobile front ends and cloud integration</li>
 </ul>
+</div>
 <p>As a result, IBM i organizations increasingly seek ways to modernize their applications while preserving the business logic that has been trusted and refined for years. That is the challenge IBM Bob was designed to address.</p>
 <hr>
 <h2 id="ii-what-is-ibm-bob"><strong>ii. What is IBM Bob?</strong></h2>
@@ -1234,7 +1238,7 @@
 </ul>
 <p>Although FLIGHT400 is intentionally focused, it contains many of the same patterns found in real IBM i systems running today in airlines, distribution, manufacturing and financial services. Because the lab uses one application from start to finish, you see Bob work the way it would in a client's modernization project.</p>
 <div class="admonition info">
-<p class="admonition-title">WHAT IS <code>IBM i</code>?</p>
+<p class="admonition-title">WHAT IS IBM i?</p>
 <p><strong>IBM i</strong> is the integrated operating system of IBM Power servers. Programs and files live as objects inside <strong>libraries</strong> (<code>FLGHT400</code> is one), and a job finds objects by searching its <strong>library list</strong> in order. Source code is stored as <strong>members</strong> of source physical files such as <code>QRPGSRC</code> and <code>QDDSSRCF</code>, while the <strong>IFS</strong> (Integrated File System) holds stream files in Unix-style directories. <strong>DDS</strong> (Data Description Specifications) describes database files and 5250 display files in fixed columns; <strong>RPG</strong> comes in the older fixed-format <strong>OPM</strong> flavor and the modern <strong>ILE</strong> free-format flavor; <strong>CL</strong> is the control language. <strong>Db2 for i</strong> is the integrated database, and <strong>PASE</strong> is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.</p>
 </div>
 <hr>
@@ -1317,12 +1321,12 @@
 </ul>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">A WORD ON WORKING WITH GENERATIVE AI</p>
+<p class="admonition-title">A WORD ON WORKING WITH <em>GENERATIVE AI</em></p>
 <p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most IBM i developers are accustomed to. In practice, that means the same prompt can produce different code, DDS or SQL from one run to the next. This is both a strength and a quirk of the technology, and it is something to work <em>with</em> rather than against.</p>
 <p><strong>Precision is what tips the odds in your favor.</strong> The more clearly you describe what you want — the exact library, source file, member, field name and constraints — the more closely Bob's output will mirror your intent. The smallest change in wording can meaningfully change the generated code. Throughout this lab, your results may differ from the examples shown — and that is expected, not a defect. Whenever an output diverges, you have three good options: refine the prompt and try again, edit the generated source by hand, or simply proceed if the variation still compiles and runs correctly on your LPAR. Human review remains essential at every step, and never more so than while you are still learning the tool.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">A WORD ON BOBCOINS</p>
+<p class="admonition-title">MANAGING CONSUMPTION OF <em>BOBCOINS</em></p>
 <p>The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The <code>AGENTS</code> member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.</p>
 </div>
 <hr>
