@@ -2890,13 +2890,13 @@
 <hr>
 <h2 id="2-1-i-from-understanding-to-transformation"><strong>i. From understanding to transformation</strong></h2>
 <p>In the previous <strong>Analyze</strong> module, you used IBM Bob to examine and understand the FLIGHT400 application. Bob wrote its own <code>AGENTS</code> member for the library and scanned the application into the Understand Dashboard. It then extracted business rules from <code>FRS401</code>, generated an architecture overview and produced an entity relationship diagram.</p>
-<p>Module 1 established what the application does and how its programs and files relate to one another. This section changes one of those programs.</p>
+<p><strong><a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank">Module 1</a></strong> established what the application does and how its programs and files relate to one another. This section changes one of those programs.</p>
 <p>Throughout this section, you will use IBM Bob to modernize the OPM RPG program <code>FRS409</code>, the <em>Order Modification Confirmation Window</em>. You will first ask Bob to explain what the program does, then run the <strong>RPG Modernization</strong> workflow to convert it into free-format ILE RPG, compile it and produce a modernization summary report.</p>
 <hr>
 <h2 id="2-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>A fixed-to-free conversion can change a program's behavior without changing its apparent purpose.</p>
-<div class="admonition note">
-<p>Successfully converting fixed-format OPM RPG to free-format ILE requires more than translating syntax. Engineers must:</p>
+<div class="admonition success">
+<p><strong>Successfully converting fixed-format OPM RPG to free-format ILE requires more than translating syntax. Practitioners must:</strong></p>
 <ul>
 <li>Preserve business rules encoded in indicators, subroutines and workstation data structures</li>
 <li>Maintain the exact behavior of <code>DOUEQ</code> / <code>CASEQ</code> dispatch loops</li>
@@ -2949,20 +2949,22 @@
 <li>Compile the modernized source using <code>CRTBNDRPG</code> on your LPAR</li>
 <li>Produce a Modernization Summary Report documenting every change</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the exact analysis, conversion patterns and even compilation messages you see may differ from those shown here.</p>
 <p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are non-deterministic — unlike the deterministic tools most IBM i developers are accustomed to. In practice, the same prompt can produce different free-format code from one run to the next.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway from this workflow is that you understand how to use the RPG Modernization workflow and review the output it produces. Whether or not you arrive at the exact same RPGLE source is of less importance — Bob will produce a compilable, functionally equivalent program either way. The exact conversion decisions, however, may differ from those documented here.</p>
-</div>
+</details>
 <hr>
 <h2 id="2-1-iv-understanding-frs409"><strong>iv. Understanding FRS409</strong></h2>
-<p>Before modernizing a program, it is good practice to ask Bob what it does. This gives you a baseline to compare against after the conversion, and a sanity check that Bob is reading the right source.</p>
+<p>Before modernizing a program, it is good practice to ask Bob what it does. This gives you a baseline to compare against after the conversion, and a sanity check that Bob is reading from the correct source.</p>
 <hr>
 <ol>
 <li>
 <p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter › <code>qrpgsrc</code> source file, and click <strong><code>frs409.rpg</code></strong> to open the source in the editor.</p>
-<p>Notice the classic fixed-format OPM RPG style: F-specs at the top, indicator definitions, a workstation data structure (<code>WSDS</code>), <code>*ENTRY PLIST</code> with two parameters (<code>ORDER#</code> and <code>ENDYN</code>), and a <code>DOUEQ</code> / <code>CASEQ</code> dispatch loop handling the F3, F12 and Enter keys.</p>
+<div class="admonition quote">
+<p>Notice the classic fixed-format OPM RPG style: F-specs at the top, indicator definitions, a workstation data structure (<code>WSDS</code>), <code>*ENTRY PLIST</code> with two parameters (<code>ORDER#</code> and <code>ENDYN</code>), and a <code>DOUEQ</code> / <code>CASEQ</code> dispatch loop handling the <span class="keys"><kbd class="key-f3">F3</kbd></span>, <span class="keys"><kbd class="key-f12">F12</kbd></span>, and <span class="keys"><kbd class="key-enter">Enter</kbd></span> keys.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/0059e80b-f20f-44fd-86bd-9958112756ef/user_cropped_screenshot_7f63d4e4e4664d2fa5ba912167cff3ab_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/0059e80b-f20f-44fd-86bd-9958112756ef/user_cropped_screenshot_7f63d4e4e4664d2fa5ba912167cff3ab_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2971,7 +2973,11 @@
 <hr>
 <ol start="2">
 <li>
-<p>With <code>FRS409.RPG</code> open in the editor, open the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Developer</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task starts clean, and check the <strong>Permissions</strong> menu to confirm that <em>Documentation</em> and <em>Understand</em> are enabled.</p>
+<p>With <code>FRS409.RPG</code> open in the editor, open the Agentic Sidebar chat, click the <strong>mode selector</strong> at the bottom, and choose <strong>IBM i Developer</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task starts clean</li>
+<li>Check the <strong>Permissions</strong> menu to confirm that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/fd1d2c6a-c415-4644-b822-28cab1f377f9/user_cropped_screenshot_ad52bedfeac544818f8a2f29dc9fa2de_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/fd1d2c6a-c415-4644-b822-28cab1f377f9/user_cropped_screenshot_ad52bedfeac544818f8a2f29dc9fa2de_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2980,7 +2986,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>In the Bob chat prompt, type the following and send it:</p>
+<p>In the Bob chat prompt, type the following and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#2-1-__codelineno-0-1"></a>What does this program do?
 </code></pre></div>
 <p></p><p align="left">
@@ -3019,11 +3025,14 @@
 <hr>
 <ol>
 <li>
-<p>In the Bob chat prompt, type the following and send it:</p>
+<p>Within the Agentic Sidebar chat, copy &amp; paste the following, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#2-1-__codelineno-1-1"></a>Can you modernize this program?
 </code></pre></div>
-<p>Bob recognizes the fixed-format OPM RPG code and offers to run the <strong>RPG Modernization</strong> workflow — <em>"Modernizes RPG source into free-format RPG leveraging best practices for modern RPG, including OPM RPG to ILE free-format conversion and ILE fixed-format to ILE free-format conversion."</em></p>
-<p>Click <strong>Start workflow</strong>.</p>
+<div class="admonition quote">
+<p>Bob recognizes the fixed-format OPM RPG code and offers to run the <strong>RPG Modernization</strong> workflow:</p>
+<p><em>"Modernizes RPG source into free-format RPG leveraging best practices for modern RPG, including OPM RPG to ILE free-format conversion and ILE fixed-format to ILE free-format conversion."</em></p>
+</div>
+<p>Click <strong>Start workflow</strong> to continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/02f32927-24b5-41cf-b069-d1cf646c2357/user_cropped_screenshot_410f7a2e59d1405aa8f301d3bcc17f65_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/02f32927-24b5-41cf-b069-d1cf646c2357/user_cropped_screenshot_410f7a2e59d1405aa8f301d3bcc17f65_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3077,13 +3086,18 @@
 <ol start="5">
 <li>
 <p>Bob analyzes the intermediate source file and generates a detailed conversion plan presented as a Todo List. Review the proposed plan carefully to ensure it aligns with your intended modernization approach.</p>
-<p>Once the plan has been reviewed, click <strong>Approve todo tools for task</strong>. Bob will begin executing the conversion workflow. During implementation, Bob may request approval before performing certain actions such as writing files, running compile commands or fixing errors. Review these requests and approve them as needed to allow Bob to continue.</p>
+<p>Once the plan has been reviewed, click <strong>Approve todo tools for task</strong>. Bob will begin executing the conversion workflow. During implementation, Bob may request approval before performing certain actions such as writing files, running compile commands or fixing errors.</p>
+<p><strong>Review these requests and approve them as needed</strong> to allow Bob to continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f1d7fda0-b37a-4e8f-a159-98b780dd9739/user_cropped_screenshot_ce514617495b4d8db61c980a6573fcbc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f1d7fda0-b37a-4e8f-a159-98b780dd9739/user_cropped_screenshot_ce514617495b4d8db61c980a6573fcbc_text_export.jpeg" alt="" width="600"></a>
 </p>
 </li>
 </ol>
 <hr>
+<div class="admonition note">
+<p class="admonition-title">SEQUENCING THE SUB-TASKS</p>
+<p>In the steps ahead, you will examine in detail what each Sub-Task is performing and understand the rationale for the change. With your approval, Bob will then go ahead and implement the work on your behalf.</p>
+</div>
 <p>Bob will generate a Todo List with the following (or similar) sub-tasks:</p>
 <table>
 <thead>
@@ -3115,14 +3129,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">SEQUENCING THE SUB-TASKS</p>
-<p>In the steps ahead, you will examine in detail what each Sub-Task is performing and understand the rationale for the change. With your approval, Bob will then go ahead and implement the work on your behalf.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">AI MATURITY CURVE</p>
-<p>Throughout <strong>Module 2 | Delegate</strong> of the previous course, you practiced approving Bob's <em>plan</em> before any code was written. Here the same discipline is applied at a finer grain: an explicit approval gate before each of the five sub-tasks, with Bob working autonomously between them.</p>
-</div>
 <hr>
 <div class="admonition tip">
 <p class="admonition-title">Sub-Task 1: Read and analyze the source file</p>
@@ -3138,10 +3144,12 @@
 <ol start="7">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 1 until the Bob chat panel has reported back with a summary of <code>Sub-Task 1 is done. Here's what has changed.</code></p>
+<div class="admonition quote">
 <ul>
 <li><strong>Source File Analysis:</strong> Identified program structure, the <code>WORKSTN</code>/<code>INFDS</code> pattern, named constants, the <code>WSDS</code> data structure, entry parameters and four subroutines</li>
 <li><strong>Conversion Plan:</strong> Mapped every fixed-format construct to its free-format equivalent — <code>TAG</code> to structured flow, <code>CAS</code> to <code>IF</code>/<code>ELSEIF</code>, <code>MOVE</code> to <code>EVAL</code>, <code>PLIST</code> to a procedure interface</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
