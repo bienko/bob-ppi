@@ -1292,18 +1292,17 @@
 <li>
 <p>Type <strong><code>/init</code></strong> into the prompt field. The command list above the field narrows to the <code>/init</code> entry; select it so that the command is highlighted, then press <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
 <div class="admonition note">
-<p>Bob scans the library (source files, member types, service programs, IWS web services, naming conventions and database objects), creates a <strong><code>QBOBSRC</code></strong> source physical file in <code>FLGHT400</code> if one does not exist and writes an <strong><code>AGENTS</code></strong> member into it in Markdown format.</p>
+<p>Bob scans the library (source files, member types, service programs, IWS web services, naming conventions and database objects), creates a <strong><code>QBOBSRC</code></strong> source physical file in <code>FLGHT400</code> if one does not exist, and writes an <strong><code>AGENTS</code></strong> member into it in Markdown format.</p>
 </div>
 <p><strong>Approve</strong> the tool requests as they appear; the scan takes a minute or two.</p>
-<!-- SCREENSHOT: Bob chat after /init, showing the scan summary and the QBOBSRC/AGENTS member written -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
 <p>In the Object Browser, expand <strong><code>FLGHT400</code></strong> › <strong><code>QBOBSRC</code></strong> and click the <strong><code>AGENTS</code></strong> member (shown as <code>agents.md</code>) to open it.</p>
-<p>The member contains IBM i-specific facts discovered directly from the source. In the documented run, Bob recorded, among other things:</p>
-<div class="admonition quote">
+<div class="admonition note">
+<p><strong>The member contains IBM i-specific facts discovered directly from the source. In the documented run, Bob recorded, among other things:</strong></p>
 <ul>
 <li>Which source file holds the IWS REST service programs (<code>EVFTEMPF01</code>) and why they must be compiled with <code>CRTSQLRPGI</code> instead of <code>CRTBNDRPG</code></li>
 <li>That the <code>*Z</code> logical files (<code>AGENTSZ</code>, <code>FLIGHTSZ</code> and the rest) exist only for legacy Query/400 and should not be used as access paths in new code</li>
