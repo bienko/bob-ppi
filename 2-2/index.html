@@ -1637,10 +1637,12 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Update FLGHT400/QDDSSRCD(FRS021DF) to add an input/output screen field named SFLHRS for Total Flight Hours. Requirements: four numeric digits; zero decimal positions; positioned immediately after Mileage; visible label: Flight Hours; use CHECK(RZ) to match the comparable numeric fields on this screen; preserve the existing display-file DDS style. Do not add COLHDG — it is not valid in a display file. Ensure that the label and field fit within the screen and do not overlap existing fields, message areas, or function-key text. Show the proposed diff and updated DDS preview. Do not save or compile anything until I review it.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob checks indicator usage (51 to 60 are already used) and selects the next available indicator (<strong>61</strong>). It produces a <strong>Proposed Diff — FRS021DF.DSPF</strong>: insert six lines after line 104 (after the last <code>DSPATR</code> line belonging to <code>SMILES</code>), before the <em>Airline</em> label on line 105. No existing lines are changed.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1654,7 +1656,9 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Row 16 | Flight Hours . . . . . . .   [FLHRS ]     ← NEW row 16, col 37, 4 digits
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Row 17 | Airline. . . . . .           [SAIRLN ]    ( F8 to Select )
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob confirms <strong>No overlaps</strong>: row 16 columns 2 to 35 (the label) are clear; row 16 columns 37 to 40 (<code>SFLHRS</code>, four digits) end at column 40, well inside the right margin; <code>SMILES</code> on row 15 and <code>SFLHRS</code> on row 16 are on different rows with no conflict; the <em>Airline</em> label on row 17 is unchanged.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1663,7 +1667,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>Once you have reviewed the proposed diff and screen preview, type the following approval and send it:</p>
+<p>Once you have reviewed the proposed diff and screen preview, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>I approve the display-file change. Save FRS021DF, but do not compile it yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -1696,10 +1700,10 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Update FLGHT400/QRPGSRC(FRS021) to handle Total Flight Hours using the existing Mileage implementation as the pattern. Make the minimum changes needed to: increase the program-described FLIGHTSZ record length for the new packed field; add FHRS to the input specification at the correct record positions; load SFLHRS from FHRS when an existing record is retrieved; move SFLHRS to FHRS during add and update processing; include FHRS in the add and update output specifications; validate the screen value consistently with the existing numeric screen fields. Preserve the existing OPM RPG style and fixed-column positioning. After every successful CHAIN used to load an existing flight for display, explicitly move FHRS to SFLHRS, following the same database-to-screen pattern used for Mileage. Do not assume that the display file maps FHRS to SFLHRS automatically. Do not modify any other programs during this demonstration. Show the proposed diff and explain each change briefly. Do not save or compile anything until I review it.
 </code></pre></div>
-<details class="tip">
+<details class="warning">
 <summary>ALIGNMENT TROUBLE? SPLIT THE RPG CHANGE INTO THREE DIFFS</summary>
 <p><code>FRS021</code> is fixed-form OPM RPG and the most alignment-sensitive member in this change. If Bob's single diff mis-pads a column, or if you prefer smaller approvals, ask for the change in three parts instead and approve each before the next. Do not compile at any of the three steps.</p>
 <p><strong>F-spec and I-spec</strong> (record length plus the packed input field):</p>
