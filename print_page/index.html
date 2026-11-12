@@ -2490,7 +2490,7 @@
 <ol start="4">
 <li>
 <p>In the Object Browser, expand <strong><code>FLGHT400</code></strong> › <strong><code>QBOBSRC</code></strong> and click the <strong><code>AGENTS</code></strong> member (shown as <code>agents.md</code>) to open it.</p>
-<div class="admonition note">
+<div class="admonition quote">
 <p><strong>The member contains IBM i-specific facts discovered directly from the source. In the documented run, Bob recorded, among other things:</strong></p>
 <ul>
 <li>Which source file holds the IWS REST service programs (<code>EVFTEMPF01</code>) and why they must be compiled with <code>CRTSQLRPGI</code> instead of <code>CRTBNDRPG</code></li>
@@ -2510,15 +2510,15 @@
 <hr>
 <h2 id="1-1-vi-scanning-the-application-with-the-understand-dashboard"><strong>vi. Scanning the application with the Understand Dashboard</strong></h2>
 <p>The <strong>Understand Dashboard</strong> scans an IBM i application library and builds a dependency graph of every program, file, service program, menu and command in it, with no source reading on your part. It works from the compiled objects on the system and stores what it finds in a metadata library of your choosing. Use it to answer <em>"what is this application made of?"</em> and <em>"what breaks if I change X?"</em> before any code is changed.</p>
-<div class="admonition info">
-<p class="admonition-title">ONE SCAN, SHARED BY THE TEAM</p>
-<p>The metadata library can be shared across a development team, so that everyone benefits from a single scan — provided each developer is granted authority to it. On this partition you are the only user, so you will create a dedicated <code>BOBLIB</code> library for the component. The dashboard's <em>Access Control</em> tab is where a team would audit and grant that authority later.</p>
-</div>
 <hr>
 <ol>
 <li>
 <p>Open the Command Palette (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>) and run <strong>Get Started with Understand</strong>.</p>
 <p>A short walkthrough opens. Its first step, <em>Connect to IBM i</em>, is already satisfied by your connection. The second, <em>Install the Understand component</em>, explains that Understand keeps its results in one IBM i library. Click <strong>Open the Understand Dashboard</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">ONE SCAN THAT IS SHARED BY THE TEAM</p>
+</div>
+<p>The metadata library can be shared across a development team, so that everyone benefits from a single scan — provided each developer is granted authority to it. On this partition you are the only user, so you will create a dedicated <code>BOBLIB</code> library for the component. The dashboard's <em>Access Control</em> tab is where a team would audit and grant that authority later.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-1.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-1.png" width="600"></a></p>
 </li>
 </ol>
@@ -2530,12 +2530,11 @@
 <li>If the card asks for an <strong>install library</strong>, enter <strong><code>BOBLIB</code></strong></li>
 <li>Click <strong>Install Understand</strong> and wait for the card to report the component as <strong>Installed</strong></li>
 </ul>
-<p>The install creates the <code>BOBLIB</code> library and the Db2 objects the scanner writes to. It takes under a minute.</p>
+<p>The install creates the <code>BOBLIB</code> library and the Db2 objects the scanner writes to. It should take under a minute to complete the task.</p>
 <div class="admonition warning">
 <p class="admonition-title">CHOOSE A DEDICATED LIBRARY</p>
 <p>Use a library that does not already exist as a user library, and restrict its access to authorized users. The scanned metadata describes every object in the application, so a user with authority to <code>BOBLIB</code> can see data about objects they have no direct authority to.</p>
 </div>
-<!-- SCREENSHOT: Overview tab with the Understand component card reading Installed, install library BOBLIB -->
 </li>
 </ol>
 <hr>
@@ -2552,7 +2551,6 @@
 <p class="admonition-title">LIBRARIES ARE SCANNED IN THE ORDER ADDED</p>
 <p>System libraries (<code>QSYS</code>, <code>QSYS2</code>, <code>SYSIBM</code> and the like) are excluded automatically. Add the library that holds the <em>compiled objects</em> (<code>FLGHT400</code>), which here is also the library that holds the source. Source physical files are not listed as objects in the scan.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-2.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-2.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -2560,7 +2558,6 @@
 <li>
 <p>Click <strong>Scan</strong> next to the new application. Progress appears in the lower part of the dashboard, and the scan runs in its own SQL jobs so you can keep using the other tabs while it works. It completes in 30 to 60 seconds, after which the application's status reads <strong>Scanned</strong>.</p>
 <p>Return to the <strong>Overview</strong> tab: the component card now reads <em>Installed</em> with <code>BOBLIB</code> as its install library, and the <em>Applications</em> table lists <code>FLIGHT400</code> as <strong>Active</strong> and <strong>Scanned</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-3.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-3.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -2597,8 +2594,9 @@
 </tr>
 </tbody>
 </table>
-<p>In the documented run, <code>FLGHT400</code> scanned to roughly <strong>42 programs</strong> (39 OPM and 3 ILE), <strong>15 physical files</strong>, <strong>6 ILE service programs</strong> (the REST API layer) and <strong>no</strong> objects using dynamic SQL. Those numbers confirm what the 1997 timestamp suggested: a classic OPM RPG application with a modern REST layer added on top.</p>
-<!-- SCREENSHOT: Insights tab, object and dependency counts for FLIGHT400 -->
+<div class="admonition tip">
+<p>In the documented run, <code>FLGHT400</code> scanned to roughly <strong>42 programs</strong> (39 OPM and 3 ILE), <strong>15 physical files</strong>, <strong>6 ILE service programs</strong> (the REST API layer) and <strong>no</strong> objects using dynamic SQL. Those numbers confirm what the 1997 timestamp suggested: <em>a classic OPM RPG application with a modern REST layer added on top.</em></p>
+</div>
 </li>
 </ol>
 <hr>
