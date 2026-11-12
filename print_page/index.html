@@ -4732,8 +4732,11 @@
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>. In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>. When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-workflows-icon.png" width="600"></a></p>
+<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>.</p>
+<ul>
+<li>In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>.</li>
+<li>When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</li>
+</ul>
 </li>
 </ol>
 <hr>
@@ -4743,7 +4746,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#4-1-__codelineno-2-1"></a>/home/ITZUSER/flght400
 </code></pre></div>
 <p>This is the directory that received the business-rules report in <em>Module 1</em>. The plan documents land in a subdirectory of it, and the implementation workflow reads them from the same place.</p>
-<!-- SCREENSHOT: the IFS project directory prompt -->
 </li>
 </ol>
 <hr>
@@ -4758,19 +4760,17 @@
 <li>Choose to <strong>validate the environment</strong></li>
 </ul>
 <p>If the validation reports RPGUnit or <code>QDEVTOOLS</code> as missing, accept the offer to install the component and add the library to your library list; you completed both earlier, so in most runs the validation passes without prompting.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">IF BOB OFFERS TO START OVER</p>
 <p>If Bob asks at any point whether to run the <em>RPGUnit Test Plan Creation</em> workflow again, select <strong>No thanks</strong>. The offer appears when the workflow's own summary mentions test planning; a second run would regenerate the same documents.</p>
 </div>
-<!-- SCREENSHOT: the workflow's candidate selection showing CUSTCHK.SQLRPGLE -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
 <p>Bob writes the test plan documents and stores them in the IFS directory you specified. At the bottom of the chat panel, review the files it created. In the documented run, the module document listed five cases for <code>checkCustomerExists</code>: an existing customer, a customer that does not exist, a zero customer number, the maximum customer number and a negative customer number.</p>
-<p>Open the module document from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
-<!-- SCREENSHOT: the test plan documents listed at the bottom of the chat and open in the IFS Browser -->
+<p><strong>Open the module document</strong> from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
 </li>
 </ol>
 <hr>
@@ -4779,24 +4779,26 @@
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>. The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
-<!-- SCREENSHOT: RPGUnit Test Suite Implementation welcome with Proceed -->
+<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>.</p>
+<p>The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Select <strong><code>FLGHT400</code></strong> as the library, enter the same IFS project directory (<code>/home/ITZUSER/flght400</code>) and confirm the path to the test suites, which Bob pre-fills with the correct default.</p>
-<p>Choose to <strong>validate the environment</strong>. If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</p>
-<!-- SCREENSHOT: the implementation workflow's directory and validation prompts -->
+<ul>
+<li>Choose to <strong>validate the environment</strong>.</li>
+<li>If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</li>
+</ul>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
 <p>Bob generates the test source member (<code>CUSTCHKT.SQLRPGLE</code> in the <code>QTESTSRC</code> source file, in the documented run) and compiles it through the IBM i Testing extension. It then runs the suite and iterates until the new tests pass or until it discovers an error in the code under test. Approve the tool requests as they appear.</p>
-<p>The <strong>Test Results</strong> panel at the bottom of the IDE reports the outcome. In the documented run:</p>
 <div class="admonition quote">
+<p><strong>The <em>Test Results</em> panel at the bottom of the IDE reports the outcome. In the documented run:</strong></p>
 <ul>
 <li><strong>Execution</strong>: 0 deployments; 1 compilation, successful</li>
 <li><strong>Results</strong>: 1 test file passed; 5 test cases passed, 0 failed, 0 errored; 5 assertions; <strong>PASS</strong></li>
