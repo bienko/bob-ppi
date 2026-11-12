@@ -1438,34 +1438,8 @@
 </tbody>
 </table>
 <hr>
-<h2 id="index-vi-lab-prerequisites"><strong>vi. Lab prerequisites</strong></h2>
-<p>The hands-on work ahead assumes you have completed the core curriculum of the <em>Climbing the AI Maturity Curve</em> L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the <em>Setup</em> chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.</p>
-<hr>
-<p>What you <strong><em>do</em></strong> need:</p>
-<div class="admonition success">
-<p class="admonition-title">REQUIREMENTS</p>
-<ul>
-<li><strong>IBM Bob</strong> installed and authenticated on your local machine</li>
-<li>Your <strong>IBMid</strong> credentials are at hand (IBM regular employees sign in with their w3id)</li>
-<li><strong>IBM regular employees:</strong> access to the <strong><a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a></strong> to request the Premium Package for i entitlement</li>
-<li><strong>Business Partners:</strong> access to <strong>IBM Technology Zone</strong> to request the Premium Package for i entitlement</li>
-<li>Access to <strong>IBM Technology Zone</strong> to reserve an <em>IBM i 7.6</em> virtual machine from the <em>Certified PowerVS Base VMs</em> collection, which takes 30 to 60 minutes to provision</li>
-<li>The two Flight400 distribution files, <strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong>, downloaded from the links in the <em>Setup</em> chapter</li>
-<li>A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">A WORD ON WORKING WITH <em>GENERATIVE AI</em></p>
-<p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most IBM i developers are accustomed to. In practice, that means the same prompt can produce different code, DDS or SQL from one run to the next. This is both a strength and a quirk of the technology, and it is something to work <em>with</em> rather than against.</p>
-<p><strong>Precision is what tips the odds in your favor.</strong> The more clearly you describe what you want — the exact library, source file, member, field name and constraints — the more closely Bob's output will mirror your intent. The smallest change in wording can meaningfully change the generated code. Throughout this lab, your results may differ from the examples shown — and that is expected, not a defect. Whenever an output diverges, you have three good options: refine the prompt and try again, edit the generated source by hand, or simply proceed if the variation still compiles and runs correctly on your LPAR. Human review remains essential at every step, and never more so than while you are still learning the tool.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">MANAGING CONSUMPTION OF <em>BOBCOINS</em></p>
-<p>The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The <code>AGENTS</code> member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.</p>
-</div>
-<hr>
-<h2 id="index-vii-next-steps"><strong>vii. Next steps</strong></h2>
-<p>In the chapter ahead, you will obtain the Premium Package for i entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:</p>
+<h2 id="index-vi-next-steps"><strong>vi. Next steps</strong></h2>
+<p>In the chapter ahead, you will obtain the <strong>IBM Bob Premium Package for i</strong> entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:</p>
 <div class="admonition quote">
 <ul>
 <li><strong>IBM regular employees</strong> request the entitlement through the w3 add-ons portal</li>
