@@ -1726,9 +1726,11 @@
 <ol start="2">
 <li>
 <p>Bob produces a <strong>Proposed Diff — FRS021.RPG</strong> with the following changes:</p>
+<div class="admonition quote">
 <p><strong>Change 1 — F-spec: record length 233 → 236</strong>: The F-spec line for <code>FFLIGHTSZUF</code> is updated from 233 to 236. <code>FFHRS</code> is <code>4P 0</code>, which is three bytes, appended after <code>FMILES</code> (bytes 230 to 233). The new total is 236.</p>
 <p><strong>Change 2 — I-spec: add <code>FFHRS P 234–236 0</code> after <code>FMILES</code></strong>: A new I-spec line maps the new packed-decimal bytes 234 to 236 to the RPG field <code>FFHRS</code>, four digits and zero decimals.</p>
 <p><strong>Change 3 — @ERRCK: validate <code>SFLHRS</code> after the <code>SMILES</code> block</strong>: A validation block for <code>SFLHRS</code> using indicator 61 and message <code>FRS0025</code>, following the same <code>SETON</code>/<code>MOVE</code>/<code>EXSR</code>/<code>GOTO</code> pattern.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1738,11 +1740,13 @@
 <ol start="3">
 <li>
 <p>Scroll down to review the remaining changes:</p>
+<div class="admonition quote">
 <p><strong>Change 4 — ADD branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTADDFLT</code></p>
 <p><strong>Change 5 — ELSE (UPDATE) branch</strong>: <code>Z-ADDFFHRS SFLHRS</code> — database to screen load after <code>CHAIN</code></p>
 <p><strong>Change 6 — UPDATE branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTUPDFLT</code></p>
 <p><strong>Change 7 — O-specs</strong>: <code>FFHRS 236P</code> in both the <code>ADDFLT</code> and <code>UPDFLT</code> exception output groups</p>
-<p>Once you have reviewed all proposed changes and are satisfied they are correct, type the following approval and send it:</p>
+</div>
+<p>Once you have reviewed all proposed changes and are satisfied they are correct, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>I approve the FRS021 changes. Save the source member, but do not compile yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -1855,7 +1859,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Build only the direct Flight Maintenance path in this order: 1. Apply the updated DDS for FLGHT400/FLIGHTS 2. Rebuild FLGHT400/FLIGHTSZ 3. Compile FLGHT400/FRS021DF 4. Compile FLGHT400/FRS021. Use the correct IBM i command for each source type. Stop if one of these four objects fails — report the compile error briefly and wait for my direction. Do not modify or compile unrelated programs. List additional impacted programs as follow-up work only.
 </code></pre></div>
 <p></p><p align="left">
@@ -1867,12 +1871,15 @@
 <ol start="2">
 <li>
 <p>Bob generates a <strong>Todo List</strong> with four steps and pauses for approval:</p>
+<div class="admonition success">
+<p class="admonition-title">TODO LIST</p>
 <ul>
 <li>Step 1: Apply updated DDS — <code>CHGPF FLGHT400/FLIGHTS</code></li>
 <li>Step 2: Rebuild logical file — <code>CRTLF FLGHT400/FLIGHTSZ</code></li>
 <li>Step 3: Compile display file — <code>CRTDSPF FLGHT400/FRS021DF</code></li>
 <li>Step 4: Compile RPG program — <code>CRTRPGPGM FLGHT400/FRS021</code></li>
 </ul>
+</div>
 <p>Click <strong>Approve todo tools for task</strong> to let Bob execute all four build steps.</p>
 <div class="admonition info">
 <p class="admonition-title">WHY CHGPF RATHER THAN CRTPF</p>
