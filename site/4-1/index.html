@@ -1094,7 +1094,7 @@
 <h2 id="ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Automated tests make modernization repeatable. Most IBM i estates have none.</p>
 <div class="admonition note">
-<p>Bringing unit tests to an RPG codebase by hand requires engineers to:</p>
+<p><strong>Bringing unit tests to an RPG codebase by hand requires practitioners to:</strong></p>
 <ul>
 <li>Learn the RPGUnit framework, its assertion procedures and its compile commands</li>
 <li>Decide, for every exported procedure, which branches and boundary values deserve a test case</li>
@@ -1145,58 +1145,73 @@
 <li>Generate RPGUnit test source members from the plan, together with a <code>testing.json</code> that the IBM i Testing extension reads</li>
 <li>Run the suites, read the results and correct the tests (or point to a fault in the code under test) until they pass</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the number of test cases it plans, the names it gives them and the order in which the workflow prompts you may differ from those shown here.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how the two workflows divide the work (a plan first, then an implementation that runs until it passes) and how to read the result in the <em>Test Results</em> panel. Whether Bob writes four test cases or six for <code>checkCustomerExists</code> is of less importance than the fact that they run and pass.</p>
-</div>
+</details>
 <hr>
 <h2 id="iv-installing-rpgunit-on-the-partition"><strong>iv. Installing RPGUnit on the partition</strong></h2>
 <p>RPGUnit is an open-source unit testing framework for ILE RPG. The IBM i Testing extension knows how to install it on a connected partition as a <em>component</em>, and the Premium Package's workflows expect to find it there, in a library named <code>RPGUNIT</code>.</p>
 <hr>
 <ol>
 <li>
-<p>Open the <strong>Extensions</strong> view (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>), search for <strong><code>IBM i Testing</code></strong> and confirm that the extension appears under <em>Installed</em>. It arrived with the IBM i Development Pack during <em>Setup</em>; if it is missing, click <strong>Install</strong> and reload when prompted.</p>
-<!-- SCREENSHOT: Extensions view with IBM i Testing under Installed -->
+<p>Open the <strong>Extensions</strong> view (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span> or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>), search for <strong><code>IBM i Testing</code></strong> and confirm that the extension appears under <em>Installed</em>. It would normally have been installed as part of the IBM i Development Pack during the <em>Setup</em> module.</p>
+<details class="warning">
+<summary>TROUBLESHOOTING: EXTENSION IS MISSING</summary>
+<p>If the <strong><code>IBM i Testing</code></strong> extension is missing, click <strong>Install</strong> and reload when prompted.</p>
+</details>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>Open the settings for your connection. In the status bar at the bottom of the window, click the gear icon labelled with your connection name (<strong>IBM i Modernization</strong>) and choose the connection settings from the options presented. A <strong>Settings: IBM i Modernization</strong> tab opens in the editor area, with tabs for <em>Mapepire</em>, <em>Features</em>, <em>Source Code</em>, <em>Terminals</em>, <em>Debugger</em>, <em>Temporary Data</em> and <em>Components</em>.</p>
-<div class="admonition note">
+<p>Open the settings for your connection. In the status bar at the bottom of the window, click the gear icon labelled with your connection name (<strong>IBM i Modernization</strong>) and choose the connection settings from the options presented.</p>
+<p>A <strong>Settings: IBM i Modernization</strong> tab opens in the editor area, with tabs for <em>Mapepire</em>, <em>Features</em>, <em>Source Code</em>, <em>Terminals</em>, <em>Debugger</em>, <em>Temporary Data</em> and <em>Components</em>.</p>
+<div class="admonition info">
 <p class="admonition-title">ANOTHER ROUTE TO THE SAME PAGE</p>
 <p>The same settings open from the IBM i sidebar: right-click the connection and choose its settings.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-components-1.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-components-1.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Click the <strong>Components</strong> tab. It lists the components that the installed extensions contribute and whether each is present on the partition. <em>Code for IBM i</em> contributes <strong>mapepire</strong> (installed, required). <em>IBM i Testing</em> contributes <strong>RPGUnit</strong>, shown as <em>NotInstalled (optional)</em>, and <strong>CODECOV</strong> (installed, required).</p>
+<p>Click the <strong>Components</strong> tab. It lists the components that the installed extensions contribute and whether each is present on the partition.</p>
+<div class="admonition quote">
+<ul>
+<li><em>Code for IBM i</em> contributes <strong>mapepire</strong> (installed, required).</li>
+<li><em>IBM i Testing</em> contributes <strong>RPGUnit</strong>, shown as <em>NotInstalled (optional)</em>, and <strong>CODECOV</strong> (installed, required).</li>
+</ul>
+</div>
 <p>Click <strong>Install component</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-components-2.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-components-2.png" width="600"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-components-3.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-components-3.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
-<p>In the <strong>Install component</strong> picker, tick <strong>RPGUnit</strong> and click <strong>OK</strong>. The extension creates the <code>RPGUNIT</code> library on the partition and installs the framework's service program and commands into it. When the <em>Components</em> tab reports RPGUnit as <em>Installed</em>, click <strong>Save settings</strong> and close the tab.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-components-4.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-components-4.png" width="600"></a></p>
+<p>In the <strong>Install component</strong> picker, tick <strong>RPGUnit</strong> and click <strong>OK</strong>.</p>
+<div class="admonition quote">
+<ul>
+<li>The extension creates the <code>RPGUNIT</code> library on the partition and installs the framework's service program and commands into it.</li>
+<li>When the <em>Components</em> tab reports RPGUnit as <em>Installed</em>, click <strong>Save settings</strong> and close the tab.</li>
+</ul>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
-<p>Add the two testing libraries to your library list, the same way you added <code>FLGHT400</code> during <em>Setup</em>. In the IBM i sidebar, hover over <strong>User Library List</strong>, click the <strong>+</strong> (Add library) icon, type <strong><code>RPGUNIT</code></strong> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>. Repeat for <strong><code>QDEVTOOLS</code></strong>.</p>
+<p>Add the two testing libraries to your library list, the same way you added <code>FLGHT400</code> during <em>Setup</em>.</p>
+<ul>
+<li>In the IBM i sidebar, hover over <strong>User Library List</strong>, click the <strong>+</strong> (Add library) icon, type <strong><code>RPGUNIT</code></strong> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</li>
+<li>Repeat for <strong><code>QDEVTOOLS</code></strong>.</li>
+</ul>
 <p>Your list should now read <code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>, <code>RPGUNIT</code> and <code>QDEVTOOLS</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">WHAT THE TWO LIBRARIES HOLD</p>
 <p><code>RPGUNIT</code> holds the framework: the assertion procedures that your tests call and the commands that compile and run a suite. <code>QDEVTOOLS</code> is the IBM-supplied library that the extension's code-coverage component draws on. The suites compile with both on the library list, which is why the workflows check for them and offer to add them if they are missing.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-testing-libraries.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-testing-libraries.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -1205,21 +1220,21 @@
 <hr>
 <ol>
 <li>
-<p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter and right-click the <strong><code>qrpglesrc</code></strong> source file. Choose <strong>New Member…</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-add-member.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-add-member.png" width="600"></a></p>
+<p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter and right-click the <strong><code>qrpglesrc</code></strong> source file.</p>
+<p>Select <strong>New Member…</strong>.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>When prompted for the member name, enter <strong><code>CUSTCHK.SQLRPGLE</code></strong> and confirm. If the extension asks for a description, enter <code>Customer existence check</code>. The new, empty member opens in the editor.</p>
-<!-- SCREENSHOT: New Member prompt with CUSTCHK.SQLRPGLE entered -->
+<p>When prompted for the member name, enter <strong><code>CUSTCHK.SQLRPGLE</code></strong> and confirm.</p>
+<p>If the extension asks for a description, enter <code>Customer existence check</code>. The new, empty member opens in the editor.</p>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Paste the following source into the member and save it with <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>:</p>
+<p>Paste the following source into the member and save it with <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> (or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>**free
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ctl-opt nomain;
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1243,13 +1258,12 @@
 <p class="admonition-title">WHY A NOMAIN MODULE</p>
 <p>RPGUnit tests exported procedures, and a <code>NOMAIN</code> module with one exported procedure is the smallest unit it can exercise. The procedure gives a test plan three things to work with: a boundary on its input (zero, negative and maximum customer numbers), two outcomes (found and not found) and an embedded SQL statement whose <code>SQLCODE</code> decides the result. The test suite Bob writes binds to this module and calls <code>checkCustomerExists</code> with each case.</p>
 </div>
-<!-- SCREENSHOT: CUSTCHK.SQLRPGLE saved in the editor -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
-<p>The test suite needs a compiled module to bind to. Ask Bob to build it. In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send:</p>
+<p>The test suite needs a compiled module to bind to. Ask Bob to build it. In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Compile FLGHT400/QRPGLESRC/CUSTCHK.SQLRPGLE as an ILE module in FLGHT400 using CRTSQLRPGI with OBJTYPE(*MODULE), and confirm the result.
 </code></pre></div>
 <p>Approve the tool request. Bob runs the compile and reports the module <code>FLGHT400/CUSTCHK</code> created. If you skip this step, the implementation workflow detects the missing module during its environment validation and offers to compile it for you.</p>
@@ -1258,18 +1272,24 @@
 </ol>
 <hr>
 <h2 id="vi-running-the-rpgunit-test-plan-creation-workflow"><strong>vi. Running the RPGUnit Test Plan Creation workflow</strong></h2>
-<p>The first workflow produces the plan. It runs any existing test suites to learn the current state of testing (there are none yet) and analyzes how the module's exported procedures are used. It then writes four kinds of Markdown document into an IFS project directory:</p>
+<p>The first workflow produces the plan. It runs any existing test suites to learn the current state of testing (there are none yet) and analyzes how the module's exported procedures are used.</p>
+<div class="admonition note">
+<p><strong>IBM Bob will write four kinds of Markdown document into an IFS project directory:</strong></p>
 <ul>
 <li><strong>Template</strong> documents, the reusable blueprints</li>
 <li>A <strong>module</strong> document for <code>CUSTCHK</code> that covers each exported API and its branches</li>
 <li>A <strong>test suite</strong> document that lists the suites and cases to implement</li>
 <li>A single <strong>test utilities</strong> document for shared helper procedures</li>
 </ul>
+</div>
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>. In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>. When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-workflows-icon.png" width="600"></a></p>
+<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>.</p>
+<ul>
+<li>In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>.</li>
+<li>When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</li>
+</ul>
 </li>
 </ol>
 <hr>
@@ -1279,7 +1299,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/home/ITZUSER/flght400
 </code></pre></div>
 <p>This is the directory that received the business-rules report in <em>Module 1</em>. The plan documents land in a subdirectory of it, and the implementation workflow reads them from the same place.</p>
-<!-- SCREENSHOT: the IFS project directory prompt -->
 </li>
 </ol>
 <hr>
@@ -1294,19 +1313,17 @@
 <li>Choose to <strong>validate the environment</strong></li>
 </ul>
 <p>If the validation reports RPGUnit or <code>QDEVTOOLS</code> as missing, accept the offer to install the component and add the library to your library list; you completed both earlier, so in most runs the validation passes without prompting.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">IF BOB OFFERS TO START OVER</p>
 <p>If Bob asks at any point whether to run the <em>RPGUnit Test Plan Creation</em> workflow again, select <strong>No thanks</strong>. The offer appears when the workflow's own summary mentions test planning; a second run would regenerate the same documents.</p>
 </div>
-<!-- SCREENSHOT: the workflow's candidate selection showing CUSTCHK.SQLRPGLE -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
 <p>Bob writes the test plan documents and stores them in the IFS directory you specified. At the bottom of the chat panel, review the files it created. In the documented run, the module document listed five cases for <code>checkCustomerExists</code>: an existing customer, a customer that does not exist, a zero customer number, the maximum customer number and a negative customer number.</p>
-<p>Open the module document from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
-<!-- SCREENSHOT: the test plan documents listed at the bottom of the chat and open in the IFS Browser -->
+<p><strong>Open the module document</strong> from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
 </li>
 </ol>
 <hr>
@@ -1315,24 +1332,26 @@
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>. The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
-<!-- SCREENSHOT: RPGUnit Test Suite Implementation welcome with Proceed -->
+<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>.</p>
+<p>The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Select <strong><code>FLGHT400</code></strong> as the library, enter the same IFS project directory (<code>/home/ITZUSER/flght400</code>) and confirm the path to the test suites, which Bob pre-fills with the correct default.</p>
-<p>Choose to <strong>validate the environment</strong>. If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</p>
-<!-- SCREENSHOT: the implementation workflow's directory and validation prompts -->
+<ul>
+<li>Choose to <strong>validate the environment</strong>.</li>
+<li>If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</li>
+</ul>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
 <p>Bob generates the test source member (<code>CUSTCHKT.SQLRPGLE</code> in the <code>QTESTSRC</code> source file, in the documented run) and compiles it through the IBM i Testing extension. It then runs the suite and iterates until the new tests pass or until it discovers an error in the code under test. Approve the tool requests as they appear.</p>
-<p>The <strong>Test Results</strong> panel at the bottom of the IDE reports the outcome. In the documented run:</p>
 <div class="admonition quote">
+<p><strong>The <em>Test Results</em> panel at the bottom of the IDE reports the outcome. In the documented run:</strong></p>
 <ul>
 <li><strong>Execution</strong>: 0 deployments; 1 compilation, successful</li>
 <li><strong>Results</strong>: 1 test file passed; 5 test cases passed, 0 failed, 0 errored; 5 assertions; <strong>PASS</strong></li>
@@ -1340,7 +1359,6 @@
 </ul>
 </div>
 <p>The <strong>IBM i Testing</strong> view on the right lists the same cases with a check beside each, under the <code>FLGHT400</code> library and the <code>CUSTCHKT.SQLRPGLE</code> suite.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-tests-pass.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-tests-pass.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -1351,7 +1369,6 @@
 <summary>TROUBLESHOOTING: A TEST FAILS</summary>
 <p>Ask Bob to explain the failure and help fix it: <em>"Explain why test_checkCustomerExists_maxId failed and propose the smallest fix."</em> The fault may be in the test's expectation, in the test data (a customer number that happens to exist in <code>CUSTOMRZ</code>) or in <code>CUSTCHK</code> itself. The workflow distinguishes new failures from pre-existing ones and asks before it changes the code under test.</p>
 </details>
-<!-- SCREENSHOT: CUSTCHKT.SQLRPGLE open in the editor beside the module document -->
 </li>
 </ol>
 <hr>

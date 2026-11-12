@@ -568,7 +568,7 @@
   <a href="#v-exploring-the-flight-maintenance-screen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v. Exploring the flight maintenance screen
+        v. Exploring the Flight Maintenance screen
       
     </span>
   </a>
@@ -1081,7 +1081,7 @@
   <a href="#v-exploring-the-flight-maintenance-screen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v. Exploring the flight maintenance screen
+        v. Exploring the Flight Maintenance screen
       
     </span>
   </a>
@@ -1199,17 +1199,15 @@
 <h2 id="i-from-single-program-modernization-to-cross-stack-change"><strong>i. From single-program modernization to cross-stack change</strong></h2>
 <p>In the previous section, you modernized <code>FRS409</code>, the <em>Order Modification Confirmation Window</em>. Bob explained the program, converted it from fixed-format OPM RPG to free-format ILE RPG, compiled it and wrote a summary report.</p>
 <p>Modernizing a single program is a meaningful first step, but real-world IBM i changes rarely stop at one source member. Adding a new business field, something as simple as <em>Total Flight Hours</em>, touches the physical file, the logical file, the RPG program and the display file. If any one of those layers is missed, the field does not appear on the screen, does not persist to the database or causes a runtime failure.</p>
-<p>With the single-program modernization complete, this section adds a business field <strong>end to end</strong>.</p>
-<p>Throughout this section, you will first give the <em>IBM i Developer</em> mode a set of standing rules for fixed-column source changes. You will then use IBM Bob to explore the <em>Flight Maintenance</em> screen and trace the existing <code>Mileage</code> field through every layer. A focused impact analysis follows, after which you will add a new <em>Total Flight Hours</em> field across four source members. Finally, you will compile all four objects in dependency order, validate the end-to-end field mapping and confirm the result on a live 5250 terminal.</p>
 <div class="admonition note">
-<p class="admonition-title">AI MATURITY CURVE</p>
-<p>This module distributes control the way <strong>Module 2 | Delegate</strong> did. Each change arrives as a <em>proposed diff</em> that you approve explicitly, and each edit is insert-only, with the plan-first discipline applied at the granularity of individual source members. The standing rules you create at the start are the IBM i counterpart of the Bob Rules from <strong>Module 3 | Tailor</strong>: conventions that Bob applies in every task. A change reaches the LPAR only after you have read and approved it.</p>
+<p>With the single-program modernization complete, this section adds a business field <strong>end to end</strong>.</p>
 </div>
+<p>Throughout the module ahead, you will first give the <em>IBM i Developer</em> mode a set of standing rules for fixed-column source changes. You will then use IBM Bob to explore the <em>Flight Maintenance</em> screen and trace the existing <code>Mileage</code> field through every layer. A focused impact analysis follows, after which you will add a new <em>Total Flight Hours</em> field across four source members. Finally, you will compile all four objects in dependency order, validate the end-to-end field mapping and confirm the result on a live 5250 terminal.</p>
 <hr>
 <h2 id="ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Cross-stack field changes are one of the most common, and most error-prone, activities in IBM i development.</p>
 <div class="admonition note">
-<p>Successfully extending a business field end to end requires more than editing one source member. Engineers must:</p>
+<p><strong>Successfully extending a business field end to end requires more than editing one source member. Practitioners must:</strong></p>
 <ul>
 <li>Understand how existing fields flow from physical file through logical file, RPG program and display file</li>
 <li>Identify the minimum set of source members that must change</li>
@@ -1292,41 +1290,40 @@
 <li>Self-heal minor compilation errors, such as a typo in a field reference</li>
 <li>Validate the completed field mapping against the live QSYS2 catalog and the DDS Previewer</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are <strong>non-deterministic</strong>, so the exact diffs, column positions, indicator numbers and compilation messages you see may differ from those shown here.</p>
 <p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most IBM i developers are accustomed to. In practice, the same prompt can produce different DDS, RPG or display-file code from one run to the next.</p>
 <p><strong>All this is to say: <em>Your results ahead may vary.</em></strong> The key takeaway from this workflow is that you understand how to use Bob's impact analysis, review proposed diffs and approve compilation steps. Whether or not you arrive at the exact same column positions or indicator numbers is of less importance — Bob will produce a compilable, functionally correct result either way. The exact implementation details, however, may differ from those documented here.</p>
-</div>
+</details>
 <hr>
 <h2 id="iv-creating-standing-rules-for-ibm-i-developer-mode"><strong>iv. Creating standing rules for IBM i Developer mode</strong></h2>
 <p>In fixed-column source, small alignment mistakes have large consequences. An O-spec end position padded one column to the right compiles into the wrong byte offset, and a <code>COLHDG</code> keyword that belongs in a physical file is an error in a display file. The prompts in this module spell out those constraints, and Bob follows them, but a constraint stated only in a prompt has to be repeated by each developer in each prompt.</p>
-<p>The Premium Package offers a better place for them: <strong>custom instructions</strong> on the mode itself. Rules written into the <em>IBM i Developer</em> mode's configuration are part of Bob's context in every task that runs in that mode, without being pasted into the chat. You will add the rules for planning and implementing fixed-column code changes now, before the first edit.</p>
+<p>The <strong>IBM Bob Premium Package for i</strong> offers a better place for them: <strong>custom instructions</strong> on the mode itself. Rules written into the <em>IBM i Developer</em> mode's configuration are part of Bob's context in every task that runs in that mode, without being pasted into the chat. You will add the rules for planning and implementing fixed-column code changes now, before the first edit.</p>
 <div class="admonition info">
 <p class="admonition-title">THREE PLACES FOR STANDING GUIDANCE</p>
-<p>You have now met three mechanisms that shape Bob's behavior before a prompt is read. <strong>Custom instructions</strong> on a mode travel with the mode and apply to every task that uses it. The <strong><code>AGENTS</code></strong> member written by <code>/init</code> travels with the library and records what Bob discovered about it. <strong>Bob Rules</strong> in a workspace's <code>.bob/rules/</code> folder, which you created during the previous course, travel with the project. Custom instructions on the mode describe how Bob should work. The <code>AGENTS</code> member records facts about the library. Workspace rules record facts about the project.</p>
+<p>You have now met three mechanisms that shape Bob's behavior before a prompt is read. </p>
+<ol>
+<li><strong>Custom instructions</strong> on a mode travel with the mode and apply to every task that uses it.</li>
+<li>The <strong><code>AGENTS</code></strong> member written by <code>/init</code> travels with the library and records what Bob discovered about it.</li>
+<li><strong>Bob Rules</strong> in a workspace's <code>.bob/rules/</code> folder, which you created during the previous course, travel with the project.</li>
+</ol>
+<p>Custom instructions on the mode describe how Bob should work. The <code>AGENTS</code> member records facts about the library. Workspace rules record facts about the project.</p>
 </div>
 <hr>
 <ol>
-<li>
-<p>Click the <strong>settings</strong> icon (the gear) at the top-right of the Bob panel. The <strong>Bob Settings</strong> tab opens in the editor area.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-custom-mode-1.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-custom-mode-1.png" width="600"></a></p>
-</li>
+<li>Click the <strong>settings</strong> icon (the gear) at the top-right of the Bob panel. The <strong>Bob Settings</strong> tab opens in the editor area.</li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Click <strong>Modes</strong> in the left sidebar of the settings tab. The table lists the built-in modes (<em>Agent</em>, <em>Plan</em> and <em>Ask</em>) together with the two modes the Premium Package contributes, <em>IBM i Database</em> and <em>IBM i Developer</em>, each marked with the <em>Extension</em> scope.</p>
 <p>Select <strong>IBM i Developer</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-custom-mode-2.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-custom-mode-2.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="3">
-<li>
-<p>The mode's detail page shows its description, its extension source (<em>IBM i</em>), its role definition and when to use it. Click the <strong>Edit mode</strong> (pencil) icon at the top-right of the page to open the mode editor, titled <strong>Edit IBM i Developer mode (IBM i)</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-custom-mode-3.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-custom-mode-3.png" width="600"></a></p>
-</li>
+<li>The mode's detail page shows its description, its extension source (<em>IBM i</em>), its role definition and when to use it. Click the <strong>Edit mode</strong> (pencil) icon at the top-right of the page to open the mode editor, titled <strong>Edit IBM i Developer mode (IBM i)</strong>.</li>
 </ol>
 <hr>
 <ol start="4">
@@ -1347,7 +1344,6 @@
 <p class="admonition-title">READ THE RULES BEFORE YOU SAVE THEM</p>
 <p>Each line corresponds to a problem that came up in earlier runs of this change. The <em>anchor above the insertion point</em> rule keeps Bob from swallowing a DDS key line into its replacement; the <em>copy the model line's exact columns</em> rule keeps O-spec end positions right-justified; the <em>never compile until I say so</em> rule is the approval gate that the rest of this module depends on. Bob will apply them in every <em>IBM i Developer</em> task from now on.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-custom-mode-4.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-custom-mode-4.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -1355,12 +1351,13 @@
 <li>Close the settings tab. The prompts that follow still spell out the same constraints in full, so that the documented run can be reproduced from this page as written. In your own work, the standing rules let you shorten them considerably.</li>
 </ol>
 <hr>
-<h2 id="v-exploring-the-flight-maintenance-screen"><strong>v. Exploring the flight maintenance screen</strong></h2>
-<p>Before changing anything, you need to understand what the Flight Maintenance screen currently looks like: which fields exist, how they are laid out and what naming conventions the display file uses.</p>
+<h2 id="v-exploring-the-flight-maintenance-screen"><strong>v. Exploring the Flight Maintenance screen</strong></h2>
+<p>Before changing anything, you need to understand what the <strong>Flight Maintenance</strong> screen currently looks like: which fields exist, how they are laid out and what naming conventions the display file uses.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>). Confirm that <strong>IBM i Developer</strong> is the active mode and that the <em>Documentation</em> and <em>Understand</em> permissions are enabled.</p>
+<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>).</p>
+<p>Confirm that <strong>IBM i Developer</strong> is the active mode and that the <em>Documentation</em> and <em>Understand</em> permissions are enabled.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd531a2c-87d9-4141-b36d-a3cecd7ef4bb/user_cropped_screenshot_2a78797d8f694d30b3b3198295a69d91_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd531a2c-87d9-4141-b36d-a3cecd7ef4bb/user_cropped_screenshot_2a78797d8f694d30b3b3198295a69d91_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1398,7 +1395,10 @@
 <hr>
 <ol start="4">
 <li>
-<p>Scroll down to review the <strong>naming convention analysis</strong>. Bob identifies the standard IBM i DDS pattern: constants for labels and named fields for data. Labels are quoted string constants on a name-less DDS line, and the data entry field is defined on the next line, positioned a few columns to the right. Labels are colored blue (<code>COLOR(BLU)</code>), while data fields may carry <code>DSPATR(HI)</code> or <code>DSPATR(RI)</code> for error highlighting.</p>
+<p>Scroll down to review the <strong>naming convention analysis</strong>.</p>
+<div class="admonition quote">
+<p>Bob identifies the standard IBM i DDS pattern: constants for labels and named fields for data. Labels are quoted string constants on a name-less DDS line, and the data entry field is defined on the next line, positioned a few columns to the right. Labels are colored blue (<code>COLOR(BLU)</code>), while data fields may carry <code>DSPATR(HI)</code> or <code>DSPATR(RI)</code> for error highlighting.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/29371a61-c2ec-4021-a75b-c2ae443b501f/user_cropped_screenshot_dcdda80275084b08b65b4ddc005ccb2c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/29371a61-c2ec-4021-a75b-c2ae443b501f/user_cropped_screenshot_dcdda80275084b08b65b4ddc005ccb2c_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1410,11 +1410,11 @@
 <hr>
 <ol>
 <li>
-<p>In the same Bob chat, copy and paste the following prompt and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Perform a focused impact analysis for adding Total Flight Hours to the Flight Maintenance application in FLGHT400. Use these requirements: add database field FLHRS; expose it to RPG as FHRS; display it on the screen as SFLHRS; use four numeric digits with zero decimal positions; place it immediately after Mileage on the Flight Maintenance screen. First, trace the existing Mileage field through the application. Show how the database field in FLIGHTS is exposed through FLIGHTSZ, handled by FRS021, and displayed as SMILES in FRS021DF. Then identify the minimum source members that must change to implement Total Flight Hours in the direct Flight Maintenance path. Confirm: whether FLIGHTS is defined by DDS; whether FLIGHTSZ explicitly lists and renames fields; how FRS021 defines the FLIGHTSZ record layout; how FRS021 maps database values to screen values; which objects must be rebuilt or recompiled. Mention any additional affected programs as follow-up work, but do not analyze or modify those programs during this demonstration. Do not modify, save, or compile anything.
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">WHERE THE UNDERSTAND SCAN HELPS</p>
+<p class="admonition-title">HOW THE <em>UNDERSTAND</em> SCAN HELPS</p>
 <p>With the <em>Understand</em> permission enabled, Bob can take the list of programs that open <code>FLIGHTS</code> and <code>FLIGHTSZ</code> from the scan rather than searching source members for file names. This is how Bob lists the follow-up programs at the end of the analysis without opening each of them.</p>
 </div>
 <p>Bob reads all four source members and produces <strong>Confirmed Answers to Each Question</strong>:</p>
@@ -1568,7 +1568,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Update the DDS source for the direct database path: In FLGHT400/QDDSSRCF(FLIGHTS), add FLHRS as a packed-decimal field with four digits and zero decimal positions. Add an appropriate COLHDG consistent with the existing physical-file DDS. In FLGHT400/QDDSSRCF(FLIGHTSZ), add FHRS RENAME(FLHRS) so the new physical-file field is available to the RPG program. Preserve the exact column positions of all existing DDS lines; make insert-only changes. Do not add ALWNULL, do not change the field to 5P 1, and do not use SQL ALTER TABLE. Show the proposed diffs. Do not save or compile anything until I review them.
 </code></pre></div>
 <p></p><p align="left">
@@ -1580,36 +1580,41 @@
 <ol start="2">
 <li>
 <p>Bob produces <strong>Proposed Diffs (read-only — do not apply until you approve)</strong>.</p>
-<p><strong>Diff 1 — FLIGHTS.PF</strong>: Insert two new lines after line 52 (after <code>COLHDG('MILEAGE')</code>), before the key spec on line 53. The new field <code>FLHRS</code> matches the column alignment of <code>MILEAGE</code> in full:</p>
+<div class="admonition note">
+<p class="admonition-title">Diff 1 — FLIGHTS.PF</p>
+<p>Insert two new lines after line 52 (after <code>COLHDG('MILEAGE')</code>), before the key spec on line 53. The new field <code>FLHRS</code> matches the column alignment of <code>MILEAGE</code> in full:</p>
 <ul>
 <li><code>FLHRS</code> starts at column 20 (matching <code>MILEAGE</code>)</li>
 <li><code>4P 0</code> starts at column 30 (matching the <code>9B 0</code> of <code>MILEAGE</code>)</li>
 <li><code>COLHDG('FLIGHT_HOURS')</code> starts at column 46 (matching <code>COLHDG('MILEAGE')</code>)</li>
 </ul>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" alt="" width="600"></a>
-</p>
-</li>
-</ol>
-<hr>
-<ol start="3">
-<li>
-<p><strong>Diff 2 — FLIGHTSZ.LF</strong>: Insert one new line after line 13 (after <code>MILES RENAME(MILEAGE)</code>), before the key spec on line 14. The new line matches the column layout of all other <code>RENAME</code> lines:</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Diff 2 — FLIGHTSZ.LF</p>
+<p>Insert one new line after line 13 (after <code>MILES RENAME(MILEAGE)</code>), before the key spec on line 14. The new line matches the column layout of all other <code>RENAME</code> lines:</p>
 <ul>
 <li><code>A</code> at column 6 (standard DDS form type)</li>
 <li><code>FHRS</code> at column 15 (the field name position, matching <code>MILES</code>, <code>SEATS</code>, <code>TKTPR</code> and the rest)</li>
 <li><code>RENAME(FLHRS)</code> at column 45 (matching all other <code>RENAME</code> keywords on existing lines)</li>
 </ul>
-<p>Review the <strong>Summary of Changes</strong> table confirming that both changes are insert-only, with no <code>ALWNULL</code>, no <code>5P 1</code> and no SQL. Once satisfied, type the following approval and send it:</p>
+</div>
+<p>Review the <strong>Summary of Changes</strong> table confirming that both changes are insert-only, with no <code>ALWNULL</code>, no <code>5P 1</code> and no SQL.</p>
+<ul>
+<li>Once satisfied, copy &amp; paste the following instruction into the <strong>Agentic Sidebar</strong></li>
+<li>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>I approve these two DDS source changes. Save both source members, but do not compile them yet.
 </code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" alt="" width="600"></a>
+</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/74f6a81b-ecdf-4511-a3fa-31beb9751e00/user_cropped_screenshot_00c6dd3f656a48a5a9ca936658a24dc0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/74f6a81b-ecdf-4511-a3fa-31beb9751e00/user_cropped_screenshot_00c6dd3f656a48a5a9ca936658a24dc0_text_export.jpeg" alt="" width="600"></a>
 </p>
 </li>
 </ol>
 <hr>
-<ol start="4">
+<ol start="3">
 <li>
 <p>Bob applies both inserts, verifies the final state of each member and confirms:</p>
 <div class="admonition quote">
@@ -1632,10 +1637,12 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Update FLGHT400/QDDSSRCD(FRS021DF) to add an input/output screen field named SFLHRS for Total Flight Hours. Requirements: four numeric digits; zero decimal positions; positioned immediately after Mileage; visible label: Flight Hours; use CHECK(RZ) to match the comparable numeric fields on this screen; preserve the existing display-file DDS style. Do not add COLHDG — it is not valid in a display file. Ensure that the label and field fit within the screen and do not overlap existing fields, message areas, or function-key text. Show the proposed diff and updated DDS preview. Do not save or compile anything until I review it.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob checks indicator usage (51 to 60 are already used) and selects the next available indicator (<strong>61</strong>). It produces a <strong>Proposed Diff — FRS021DF.DSPF</strong>: insert six lines after line 104 (after the last <code>DSPATR</code> line belonging to <code>SMILES</code>), before the <em>Airline</em> label on line 105. No existing lines are changed.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1649,7 +1656,9 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Row 16 | Flight Hours . . . . . . .   [FLHRS ]     ← NEW row 16, col 37, 4 digits
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Row 17 | Airline. . . . . .           [SAIRLN ]    ( F8 to Select )
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob confirms <strong>No overlaps</strong>: row 16 columns 2 to 35 (the label) are clear; row 16 columns 37 to 40 (<code>SFLHRS</code>, four digits) end at column 40, well inside the right margin; <code>SMILES</code> on row 15 and <code>SFLHRS</code> on row 16 are on different rows with no conflict; the <em>Airline</em> label on row 17 is unchanged.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1658,7 +1667,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>Once you have reviewed the proposed diff and screen preview, type the following approval and send it:</p>
+<p>Once you have reviewed the proposed diff and screen preview, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>I approve the display-file change. Save FRS021DF, but do not compile it yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -1691,10 +1700,10 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Update FLGHT400/QRPGSRC(FRS021) to handle Total Flight Hours using the existing Mileage implementation as the pattern. Make the minimum changes needed to: increase the program-described FLIGHTSZ record length for the new packed field; add FHRS to the input specification at the correct record positions; load SFLHRS from FHRS when an existing record is retrieved; move SFLHRS to FHRS during add and update processing; include FHRS in the add and update output specifications; validate the screen value consistently with the existing numeric screen fields. Preserve the existing OPM RPG style and fixed-column positioning. After every successful CHAIN used to load an existing flight for display, explicitly move FHRS to SFLHRS, following the same database-to-screen pattern used for Mileage. Do not assume that the display file maps FHRS to SFLHRS automatically. Do not modify any other programs during this demonstration. Show the proposed diff and explain each change briefly. Do not save or compile anything until I review it.
 </code></pre></div>
-<details class="tip">
+<details class="warning">
 <summary>ALIGNMENT TROUBLE? SPLIT THE RPG CHANGE INTO THREE DIFFS</summary>
 <p><code>FRS021</code> is fixed-form OPM RPG and the most alignment-sensitive member in this change. If Bob's single diff mis-pads a column, or if you prefer smaller approvals, ask for the change in three parts instead and approve each before the next. Do not compile at any of the three steps.</p>
 <p><strong>F-spec and I-spec</strong> (record length plus the packed input field):</p>
@@ -1717,9 +1726,11 @@
 <ol start="2">
 <li>
 <p>Bob produces a <strong>Proposed Diff — FRS021.RPG</strong> with the following changes:</p>
+<div class="admonition quote">
 <p><strong>Change 1 — F-spec: record length 233 → 236</strong>: The F-spec line for <code>FFLIGHTSZUF</code> is updated from 233 to 236. <code>FFHRS</code> is <code>4P 0</code>, which is three bytes, appended after <code>FMILES</code> (bytes 230 to 233). The new total is 236.</p>
 <p><strong>Change 2 — I-spec: add <code>FFHRS P 234–236 0</code> after <code>FMILES</code></strong>: A new I-spec line maps the new packed-decimal bytes 234 to 236 to the RPG field <code>FFHRS</code>, four digits and zero decimals.</p>
 <p><strong>Change 3 — @ERRCK: validate <code>SFLHRS</code> after the <code>SMILES</code> block</strong>: A validation block for <code>SFLHRS</code> using indicator 61 and message <code>FRS0025</code>, following the same <code>SETON</code>/<code>MOVE</code>/<code>EXSR</code>/<code>GOTO</code> pattern.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1729,11 +1740,13 @@
 <ol start="3">
 <li>
 <p>Scroll down to review the remaining changes:</p>
+<div class="admonition quote">
 <p><strong>Change 4 — ADD branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTADDFLT</code></p>
 <p><strong>Change 5 — ELSE (UPDATE) branch</strong>: <code>Z-ADDFFHRS SFLHRS</code> — database to screen load after <code>CHAIN</code></p>
 <p><strong>Change 6 — UPDATE branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTUPDFLT</code></p>
 <p><strong>Change 7 — O-specs</strong>: <code>FFHRS 236P</code> in both the <code>ADDFLT</code> and <code>UPDFLT</code> exception output groups</p>
-<p>Once you have reviewed all proposed changes and are satisfied they are correct, type the following approval and send it:</p>
+</div>
+<p>Once you have reviewed all proposed changes and are satisfied they are correct, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>I approve the FRS021 changes. Save the source member, but do not compile yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -1846,7 +1859,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Build only the direct Flight Maintenance path in this order: 1. Apply the updated DDS for FLGHT400/FLIGHTS 2. Rebuild FLGHT400/FLIGHTSZ 3. Compile FLGHT400/FRS021DF 4. Compile FLGHT400/FRS021. Use the correct IBM i command for each source type. Stop if one of these four objects fails — report the compile error briefly and wait for my direction. Do not modify or compile unrelated programs. List additional impacted programs as follow-up work only.
 </code></pre></div>
 <p></p><p align="left">
@@ -1858,12 +1871,15 @@
 <ol start="2">
 <li>
 <p>Bob generates a <strong>Todo List</strong> with four steps and pauses for approval:</p>
+<div class="admonition success">
+<p class="admonition-title">TODO LIST</p>
 <ul>
 <li>Step 1: Apply updated DDS — <code>CHGPF FLGHT400/FLIGHTS</code></li>
 <li>Step 2: Rebuild logical file — <code>CRTLF FLGHT400/FLIGHTSZ</code></li>
 <li>Step 3: Compile display file — <code>CRTDSPF FLGHT400/FRS021DF</code></li>
 <li>Step 4: Compile RPG program — <code>CRTRPGPGM FLGHT400/FRS021</code></li>
 </ul>
+</div>
 <p>Click <strong>Approve todo tools for task</strong> to let Bob execute all four build steps.</p>
 <div class="admonition info">
 <p class="admonition-title">WHY CHGPF RATHER THAN CRTPF</p>
@@ -1914,7 +1930,9 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition quote">
 <p>Bob notes the one fix applied during compilation: on line 529 of <code>FRS021.RPG</code>, <code>Z-ADDFHRS</code> was corrected to <code>Z-ADDFFHRS</code>. The I-spec field is named <code>FFHRS</code>, and the C-spec had the <code>F</code> prefix missing.</p>
+</div>
 <details class="warning">
 <summary>TROUBLESHOOTING: A COMPILE FAILS</summary>
 <p>If one of the four objects fails to compile, keep Bob scoped to the four objects: <em>"Explain the direct cause and propose the smallest correction limited to the four demo objects. Do not modify anything yet."</em> If the cause is an OPM RPG column-alignment issue, remind Bob to copy the model line's exact columns rather than counting by eye. If a program such as <code>FRS003</code>, <code>FRS413</code> or <code>BFLGHT</code> is also affected, record it as follow-up work; do not update or compile it here.</p>
@@ -1933,7 +1951,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Validate the completed Total Flight Hours change for the direct Flight Maintenance path. Confirm: FLHRS exists in FLGHT400/FLIGHTS; FHRS is available through FLGHT400/FLIGHTSZ; SFLHRS appears immediately after Mileage in the FRS021DF DDS Previewer; FRS021 compiled successfully; the display file does not contain the invalid COLHDG keyword. Finish with a short summary of the end-to-end field mapping and list any additional impacted programs as follow-up work. Do not modify anything.
 </code></pre></div>
 <p></p><p align="left">
@@ -2005,7 +2023,11 @@
 <hr>
 <ol>
 <li>
-<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup, then click <strong>Terminals</strong> to open a new terminal session on the LPAR. When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</p>
+<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup.</p>
+<ul>
+<li>Click <strong>Terminals</strong> to open a new terminal session on the LPAR.</li>
+<li>When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2014,7 +2036,7 @@
 <hr>
 <ol start="2">
 <li>
-<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your TechZone reservation details, then press <strong>Enter</strong> to sign on.</p>
+<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your <em>IBM Technology Zone</em> reservation details, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to sign on.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2023,7 +2045,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>At the IBM i Main Menu, type the following command on the command line and press <strong>Enter</strong> to add the <code>FLGHT400</code> library to your session's library list:</p>
+<p>At the <strong>IBM i Main Menu</strong>, type the following command on the command line and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to add the <code>FLGHT400</code> library to your session's library list:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ADDLIBLE FLGHT400
 </code></pre></div>
 <p></p><p align="left">
@@ -2034,7 +2056,7 @@
 <hr>
 <ol start="4">
 <li>
-<p>On the command line, type the following and press <strong>Enter</strong> to launch the Flight Maintenance program directly:</p>
+<p>On the command line, type the following and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to launch the <strong>Flight Maintenance</strong> program directly:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>CALL FLGHT400/FRS021
 </code></pre></div>
 <p></p><p align="left">
@@ -2046,7 +2068,8 @@
 <ol start="5">
 <li>
 <p>The <strong>Flight Maintenance System — Flight Schedule</strong> screen appears. Confirm that the new <strong>Flight Hours</strong> field is visible immediately after <em>Mileage</em>, showing <code>0000</code> as the default value for the four-digit numeric field.</p>
-<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>. Press <strong>F3</strong> to exit the program when you are done.</p>
+<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>.</p>
+<p>To <strong>exit</strong>, hit <span class="keys"><kbd class="key-f3">F3</kbd></span> to quit the program.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" alt="" width="600"></a>
 </p>

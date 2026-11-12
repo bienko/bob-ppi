@@ -5,12 +5,11 @@
 
 ## **i. IBM i modernization is indispensable to enterprise IT**
 
-!!! success "RECOMMENDED: *CLIMBING THE AI MATURITY CURVE* (LEVEL 3)"
-    This course assumes you have completed the <a href="https://ibm.github.io/bob-l3/" target="_blank">**Climbing the AI Maturity Curve with IBM Bob**</a> Level 3 curriculum and that its concepts are familiar ground: the Agentic Sidebar and its modes, the plan-first delegation discipline, Bob Rules and custom configuration, and the context window and its economics. The material ahead builds on those foundations and refers to them throughout. As in that course, Bob does the building and the developer stays in control.
-
-For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world. It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of **RPG**, **CL** and **DDS** code. Some of it was written decades ago, and a great deal of it is still in production.
+**For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world.** It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of *RPG*, *CL* and *DDS* code. Some of it was written decades ago, and a great deal of it is still in production.
 
 !!! quote ""
+    **IBM i** is the integrated operating system of IBM Power servers. Programs and files live as objects inside **libraries** (`FLGHT400` is one), and a job finds objects by searching its **library list** in order. Source code is stored as **members** of source physical files such as `QRPGSRC` and `QDDSSRCF`, while the **IFS** (Integrated File System) holds stream files in Unix-style directories. **DDS** (Data Description Specifications) describes database files and 5250 display files in fixed columns; **RPG** comes in the older fixed-format **OPM** flavor and the modern **ILE** free-format flavor; **CL** is the control language. **Db2 for i** is the integrated database, and **PASE** is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.
+    
     **Typical IBM i workloads include:**
 
     - Order entry, inventory and distribution systems
@@ -36,6 +35,9 @@ As a result, IBM i organizations increasingly seek ways to modernize their appli
 ---
 
 ## **ii. What is IBM Bob?**
+
+!!! note "RECOMMENDED: *CLIMBING THE AI MATURITY CURVE* (IBM BOB LEVEL 3)"
+    This course assumes you have completed the <a href="https://ibm.github.io/bob-l3/" target="_blank">**Climbing the AI Maturity Curve with IBM Bob**</a> Level 3 curriculum and that its concepts are familiar ground: the Agentic Sidebar and its modes, the plan-first delegation discipline, Bob Rules and custom configuration, and the context window and its economics. The material ahead builds on those foundations and refers to them throughout. As in that course, Bob does the building and the developer stays in control.
 
 ***IBM Bob* is an AI-powered modernization and software engineering partner that supports the entire software development lifecycle.** Where a traditional code-completion tool is anchored to the moment of writing code, Bob is designed to support the lifecycle around it. Bob plans, executes, validates and governs multi-step tasks on a developer's behalf, which lets teams:
 
@@ -69,7 +71,7 @@ What sets the Premium Package apart from a general-purpose coding assistant is t
 
 | MECHANISM | WHAT IT DOES | LAB SECTION |
 | --- | --- | --- |
-| **Specialized modes** | Purpose-built AI personas for IBM i work. **IBM i Developer** explains, generates, compiles and tests RPG, CL and DDS; **IBM i Database** generates, modernizes, tunes and reviews Db2 for i SQL. Their presence in the mode selector is the visible proof that your entitlement is live | Modules 1, 2, 4, 5 and 6 run in IBM i Developer; Module 3 runs in IBM i Database |
+| **Specialized modes** | Purpose-built AI personas for IBM i work. **IBM i Developer** explains, generates, compiles and tests RPG, CL and DDS; **IBM i Database** generates, modernizes, tunes and reviews Db2 for i SQL. Their presence in the mode selector is the visible proof that your entitlement is live | Modules 1, 2, 4, 5 and 6 run in *IBM i Developer*; Module 3 runs in *IBM i Database* |
 | **`/init` and the AGENTS member** | A slash command that scans the current library and writes a persistent `AGENTS` member to `QBOBSRC`. Every later task reads it first, so Bob starts with the source layout, compile conventions and project-specific pitfalls already in context | Module 1 |
 | **Understand** | A code intelligence component that scans the compiled objects of an application library into a metadata library and maps every dependency between them. The *Understand Dashboard* presents the inventory, and Bob queries the scan data rather than re-reading source members | Module 1, and the *Understand* permission thereafter |
 | **Workflows** | Guided multi-step analyses with built-in prompts: *Business Rules Extraction*, *RPG Modernization*, *SQL Index Strategy Advisor*, *RPGUnit Test Plan Creation* and *RPGUnit Test Suite Implementation* | Modules 1, 2, 3 and 4 |
@@ -113,9 +115,6 @@ Together, these components demonstrate the IBM i development patterns found in m
 
 Although FLIGHT400 is intentionally focused, it contains many of the same patterns found in real IBM i systems running today in airlines, distribution, manufacturing and financial services. Because the lab uses one application from start to finish, you see Bob work the way it would in a client's modernization project.
 
-!!! info "WHAT IS IBM i?"
-    **IBM i** is the integrated operating system of IBM Power servers. Programs and files live as objects inside **libraries** (`FLGHT400` is one), and a job finds objects by searching its **library list** in order. Source code is stored as **members** of source physical files such as `QRPGSRC` and `QDDSSRCF`, while the **IFS** (Integrated File System) holds stream files in Unix-style directories. **DDS** (Data Description Specifications) describes database files and 5250 display files in fixed columns; **RPG** comes in the older fixed-format **OPM** flavor and the modern **ILE** free-format flavor; **CL** is the control language. **Db2 for i** is the integrated database, and **PASE** is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.
-
 ---
 
 ## **v. Lab objectives**
@@ -148,37 +147,9 @@ This lab follows a realistic IBM i modernization workflow. You will use the Prem
 
 ---
 
-## **vi. Lab prerequisites**
+## **vi. Next steps**
 
-The hands-on work ahead assumes you have completed the core curriculum of the *Climbing the AI Maturity Curve* L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the *Setup* chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.
-
----
-
-What you ***do*** need:
-
-!!! success "REQUIREMENTS"
-    - **IBM Bob** installed and authenticated on your local machine
-    - Your **IBMid** credentials are at hand (IBM regular employees sign in with their w3id)
-    - **IBM regular employees:** access to the **<a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a>** to request the Premium Package for i entitlement
-    - **Business Partners:** access to **IBM Technology Zone** to request the Premium Package for i entitlement
-    - Access to **IBM Technology Zone** to reserve an *IBM i 7.6* virtual machine from the *Certified PowerVS Base VMs* collection, which takes 30 to 60 minutes to provision
-    - The two Flight400 distribution files, **`FLGHT400.FILE`** and **`Install-Flight400.sql`**, downloaded from the links in the *Setup* chapter
-    - A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)
-
-!!! warning "A WORD ON WORKING WITH *GENERATIVE AI*"
-
-    IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are *non-deterministic* — unlike the *deterministic* tools most IBM i developers are accustomed to. In practice, that means the same prompt can produce different code, DDS or SQL from one run to the next. This is both a strength and a quirk of the technology, and it is something to work *with* rather than against.
-
-    **Precision is what tips the odds in your favor.** The more clearly you describe what you want — the exact library, source file, member, field name and constraints — the more closely Bob's output will mirror your intent. The smallest change in wording can meaningfully change the generated code. Throughout this lab, your results may differ from the examples shown — and that is expected, not a defect. Whenever an output diverges, you have three good options: refine the prompt and try again, edit the generated source by hand, or simply proceed if the variation still compiles and runs correctly on your LPAR. Human review remains essential at every step, and never more so than while you are still learning the tool.
-
-!!! info "MANAGING CONSUMPTION OF *BOBCOINS*"
-    The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The `AGENTS` member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.
-
----
-
-## **vii. Next steps**
-
-In the chapter ahead, you will obtain the Premium Package for i entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:
+In the chapter ahead, you will obtain the **IBM Bob Premium Package for i** entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:
 
 !!! quote ""
     - **IBM regular employees** request the entitlement through the w3 add-ons portal

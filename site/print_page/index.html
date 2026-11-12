@@ -1200,12 +1200,9 @@
 <h1 id="index-introduction"><strong>INTRODUCTION</strong></h1>
 <hr>
 <h2 id="index-i-ibm-i-modernization-is-indispensable-to-enterprise-it"><strong>i. IBM i modernization is indispensable to enterprise IT</strong></h2>
-<div class="admonition success">
-<p class="admonition-title">RECOMMENDED: <em>CLIMBING THE AI MATURITY CURVE</em> (LEVEL 3)</p>
-<p>This course assumes you have completed the <a href="https://ibm.github.io/bob-l3/" target="_blank"><strong>Climbing the AI Maturity Curve with IBM Bob</strong></a> Level 3 curriculum and that its concepts are familiar ground: the Agentic Sidebar and its modes, the plan-first delegation discipline, Bob Rules and custom configuration, and the context window and its economics. The material ahead builds on those foundations and refers to them throughout. As in that course, Bob does the building and the developer stays in control.</p>
-</div>
-<p>For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world. It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of <strong>RPG</strong>, <strong>CL</strong> and <strong>DDS</strong> code. Some of it was written decades ago, and a great deal of it is still in production.</p>
+<p><strong>For more than three decades, IBM i (formerly known as AS/400, iSeries and System i) has run some of the most critical business systems in the world.</strong> It is common in wholesale distribution, manufacturing, banking, insurance, healthcare and logistics, in enterprises that value reliability, an integrated database and applications that stay in service for decades. Most IBM i shops hold a large body of <em>RPG</em>, <em>CL</em> and <em>DDS</em> code. Some of it was written decades ago, and a great deal of it is still in production.</p>
 <div class="admonition quote">
+<p><strong>IBM i</strong> is the integrated operating system of IBM Power servers. Programs and files live as objects inside <strong>libraries</strong> (<code>FLGHT400</code> is one), and a job finds objects by searching its <strong>library list</strong> in order. Source code is stored as <strong>members</strong> of source physical files such as <code>QRPGSRC</code> and <code>QDDSSRCF</code>, while the <strong>IFS</strong> (Integrated File System) holds stream files in Unix-style directories. <strong>DDS</strong> (Data Description Specifications) describes database files and 5250 display files in fixed columns; <strong>RPG</strong> comes in the older fixed-format <strong>OPM</strong> flavor and the modern <strong>ILE</strong> free-format flavor; <strong>CL</strong> is the control language. <strong>Db2 for i</strong> is the integrated database, and <strong>PASE</strong> is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.</p>
 <p><strong>Typical IBM i workloads include:</strong></p>
 <ul>
 <li>Order entry, inventory and distribution systems</li>
@@ -1231,6 +1228,10 @@
 <p>As a result, IBM i organizations increasingly seek ways to modernize their applications while preserving the business logic that has been trusted and refined for years. That is the challenge IBM Bob was designed to address.</p>
 <hr>
 <h2 id="index-ii-what-is-ibm-bob"><strong>ii. What is IBM Bob?</strong></h2>
+<div class="admonition note">
+<p class="admonition-title">RECOMMENDED: <em>CLIMBING THE AI MATURITY CURVE</em> (IBM BOB LEVEL 3)</p>
+<p>This course assumes you have completed the <a href="https://ibm.github.io/bob-l3/" target="_blank"><strong>Climbing the AI Maturity Curve with IBM Bob</strong></a> Level 3 curriculum and that its concepts are familiar ground: the Agentic Sidebar and its modes, the plan-first delegation discipline, Bob Rules and custom configuration, and the context window and its economics. The material ahead builds on those foundations and refers to them throughout. As in that course, Bob does the building and the developer stays in control.</p>
+</div>
 <p><strong><em>IBM Bob</em> is an AI-powered modernization and software engineering partner that supports the entire software development lifecycle.</strong> Where a traditional code-completion tool is anchored to the moment of writing code, Bob is designed to support the lifecycle around it. Bob plans, executes, validates and governs multi-step tasks on a developer's behalf, which lets teams:</p>
 <ul>
 <li>Understand existing applications and analyze their business logic</li>
@@ -1270,7 +1271,7 @@
 <tr>
 <td><strong>Specialized modes</strong></td>
 <td>Purpose-built AI personas for IBM i work. <strong>IBM i Developer</strong> explains, generates, compiles and tests RPG, CL and DDS; <strong>IBM i Database</strong> generates, modernizes, tunes and reviews Db2 for i SQL. Their presence in the mode selector is the visible proof that your entitlement is live</td>
-<td>Modules 1, 2, 4, 5 and 6 run in IBM i Developer; Module 3 runs in IBM i Database</td>
+<td>Modules 1, 2, 4, 5 and 6 run in <em>IBM i Developer</em>; Module 3 runs in <em>IBM i Database</em></td>
 </tr>
 <tr>
 <td><strong><code>/init</code> and the AGENTS member</strong></td>
@@ -1374,10 +1375,6 @@
 <li>Field naming conventions such as the <code>S</code>-prefix used for screen fields</li>
 </ul>
 <p>Although FLIGHT400 is intentionally focused, it contains many of the same patterns found in real IBM i systems running today in airlines, distribution, manufacturing and financial services. Because the lab uses one application from start to finish, you see Bob work the way it would in a client's modernization project.</p>
-<div class="admonition info">
-<p class="admonition-title">WHAT IS IBM i?</p>
-<p><strong>IBM i</strong> is the integrated operating system of IBM Power servers. Programs and files live as objects inside <strong>libraries</strong> (<code>FLGHT400</code> is one), and a job finds objects by searching its <strong>library list</strong> in order. Source code is stored as <strong>members</strong> of source physical files such as <code>QRPGSRC</code> and <code>QDDSSRCF</code>, while the <strong>IFS</strong> (Integrated File System) holds stream files in Unix-style directories. <strong>DDS</strong> (Data Description Specifications) describes database files and 5250 display files in fixed columns; <strong>RPG</strong> comes in the older fixed-format <strong>OPM</strong> flavor and the modern <strong>ILE</strong> free-format flavor; <strong>CL</strong> is the control language. <strong>Db2 for i</strong> is the integrated database, and <strong>PASE</strong> is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.</p>
-</div>
 <hr>
 <h2 id="index-v-lab-objectives"><strong>v. Lab objectives</strong></h2>
 <div class="admonition note">
@@ -1441,34 +1438,8 @@
 </tbody>
 </table>
 <hr>
-<h2 id="index-vi-lab-prerequisites"><strong>vi. Lab prerequisites</strong></h2>
-<p>The hands-on work ahead assumes you have completed the core curriculum of the <em>Climbing the AI Maturity Curve</em> L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the <em>Setup</em> chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.</p>
-<hr>
-<p>What you <strong><em>do</em></strong> need:</p>
-<div class="admonition success">
-<p class="admonition-title">REQUIREMENTS</p>
-<ul>
-<li><strong>IBM Bob</strong> installed and authenticated on your local machine</li>
-<li>Your <strong>IBMid</strong> credentials are at hand (IBM regular employees sign in with their w3id)</li>
-<li><strong>IBM regular employees:</strong> access to the <strong><a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a></strong> to request the Premium Package for i entitlement</li>
-<li><strong>Business Partners:</strong> access to <strong>IBM Technology Zone</strong> to request the Premium Package for i entitlement</li>
-<li>Access to <strong>IBM Technology Zone</strong> to reserve an <em>IBM i 7.6</em> virtual machine from the <em>Certified PowerVS Base VMs</em> collection, which takes 30 to 60 minutes to provision</li>
-<li>The two Flight400 distribution files, <strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong>, downloaded from the links in the <em>Setup</em> chapter</li>
-<li>A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">A WORD ON WORKING WITH <em>GENERATIVE AI</em></p>
-<p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most IBM i developers are accustomed to. In practice, that means the same prompt can produce different code, DDS or SQL from one run to the next. This is both a strength and a quirk of the technology, and it is something to work <em>with</em> rather than against.</p>
-<p><strong>Precision is what tips the odds in your favor.</strong> The more clearly you describe what you want — the exact library, source file, member, field name and constraints — the more closely Bob's output will mirror your intent. The smallest change in wording can meaningfully change the generated code. Throughout this lab, your results may differ from the examples shown — and that is expected, not a defect. Whenever an output diverges, you have three good options: refine the prompt and try again, edit the generated source by hand, or simply proceed if the variation still compiles and runs correctly on your LPAR. Human review remains essential at every step, and never more so than while you are still learning the tool.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">MANAGING CONSUMPTION OF <em>BOBCOINS</em></p>
-<p>The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The <code>AGENTS</code> member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.</p>
-</div>
-<hr>
-<h2 id="index-vii-next-steps"><strong>vii. Next steps</strong></h2>
-<p>In the chapter ahead, you will obtain the Premium Package for i entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:</p>
+<h2 id="index-vi-next-steps"><strong>vi. Next steps</strong></h2>
+<p>In the chapter ahead, you will obtain the <strong>IBM Bob Premium Package for i</strong> entitlement in accordance with your job role, install the extension and reserve the IBM i partition that the rest of the lab runs against:</p>
 <div class="admonition quote">
 <ul>
 <li><strong>IBM regular employees</strong> request the entitlement through the w3 add-ons portal</li>
@@ -1490,7 +1461,28 @@
 <div class="admonition note">
 <p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Registration and Setup</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCRhBB6FPqR2jGqPHXCJgGXb4243" target="_blank">[1 min]</a></strong></p>
 </div>
-<p>Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated <strong>IBM Bob</strong> account entitled to the <strong>IBM Bob Premium Package for i</strong> (PPi), and an IBM i 7.6 partition that holds the <em>Flight400</em> demo application used in every module. The work proceeds in six stages:</p>
+<p>Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated <strong>IBM Bob</strong> account entitled to the <strong>IBM Bob Premium Package for i</strong> (PPi), and an IBM i 7.6 partition that holds the <em>Flight400</em> demo application used in every module. </p>
+<p>The hands-on work ahead assumes you have completed the core curriculum of the <em>Climbing the AI Maturity Curve</em> L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the <em>Setup</em> chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.</p>
+<hr>
+<p>What you <strong><em>do</em></strong> need:</p>
+<div class="admonition success">
+<p class="admonition-title">LAB PREREQUISITES</p>
+<ul>
+<li><strong>IBM Bob</strong> installed and authenticated on your local machine</li>
+<li>Your <strong>IBMid</strong> credentials are at hand (IBM regular employees sign in with their w3id)</li>
+<li><strong>IBM regular employees:</strong> access to the <strong><a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a></strong> to request the Premium Package for i entitlement</li>
+<li><strong>Business Partners:</strong> access to <strong>IBM Technology Zone</strong> to request the Premium Package for i entitlement</li>
+<li>Access to <strong>IBM Technology Zone</strong> to reserve an <em>IBM i 7.6</em> virtual machine from the <em>Certified PowerVS Base VMs</em> collection, which takes 30 to 60 minutes to provision</li>
+<li>The two Flight400 distribution files, <strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong>, downloaded from the links in the <em>Setup</em> chapter</li>
+<li>A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">MANAGING CONSUMPTION OF <em>BOBCOINS</em></p>
+<p>The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The <code>AGENTS</code> member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.</p>
+</div>
+<hr>
+<p>The work proceeds in six stages:</p>
 <ul>
 <li>Request the <strong>Premium Package for i</strong> entitlement through the route that matches your job role, then confirm it has landed in your Bob account</li>
 <li>Install the <strong>IBM Bob Premium Package for i</strong> extension and the <strong>IBM i Development Pack</strong> from the Extensions view</li>
@@ -1500,12 +1492,12 @@
 <li>Upload the Flight400 save file to the IFS, restore it into the <code>FLGHT400</code> library and add that library to your library list</li>
 </ul>
 <p>Afterwards, you will be ready to begin <a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank"><strong>Module 1 | Analyze</strong></a>.</p>
+<hr>
+<h2 id="setup-ii-request-entitlements-to-bob-premium-package-for-i"><strong>ii. Request entitlements to Bob Premium Package for i</strong></h2>
 <div class="admonition warning">
 <p class="admonition-title">THIS LAB REQUIRES THE PREMIUM PACKAGE FOR i</p>
 <p>Without the <strong>IBM Bob Premium Package for i</strong> (PPi) entitlement, IBM Bob can still open and read RPG, CL and DDS source, but the <em>IBM i Developer</em> and <em>IBM i Database</em> modes and the specifically-trained capabilities that the package provides will be unavailable. If neither mode appears in your Agentic Sidebar by the end of this chapter, the entitlement has <strong>not</strong> been linked to your Bob account.</p>
 </div>
-<hr>
-<h2 id="setup-ii-request-entitlements-to-bob-premium-package-for-i"><strong>ii. Request entitlements to Bob Premium Package for i</strong></h2>
 <p>Before Bob can operate against IBM i, you will want to request license entitlements to <strong>IBM Bob Premium Package for i</strong> (PPi). The pathway for doing so differs depending on your role as either an IBM regular employee or a business partner.</p>
 <p>Without such entitlements, IBM Bob will still attempt to work with IBM i and RPG application code, though without the specifically-trained models and capabilities that PPi offers. For example, if your Agentic Sidebar shows no <em>IBM i Developer</em> mode in its mode selector, that indicates that your IBM Bob account has <strong>not</strong> been linked to the PPi entitlement.</p>
 <hr>
@@ -1550,10 +1542,7 @@
 </ol>
 <hr>
 <ol start="4">
-<li>
-<p><em>Step 2: Business purpose</em> must be set to <strong>Test</strong> in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again (making sure to only click <em>Test</em>). When ready, click <strong>Next</strong> to continue.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/partners-IBMi-4.png" data-desc-position="bottom"><img alt="" src="../_attachments/partners-IBMi-4.png" width="600"></a></p>
-</li>
+<li><em>Step 2: Business purpose</em> must be set to <strong>Learning</strong> in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again. When ready, click <strong>Next</strong> to continue.</li>
 </ol>
 <hr>
 <ol start="5">
@@ -1771,18 +1760,15 @@
 <hr>
 <ol start="4">
 <li>
-<p>On <strong>Step 2: Business purpose</strong>, select <strong>Test</strong> as the primary use: <em>"Need to test a specific function, configuration, or customization."</em></p>
-<p>Leave the Opportunity fields blank, then press <strong>Next</strong>.</p>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-28/511f7ab5-c174-4792-9aa3-df1bb1676e20/user_cropped_screenshot_8683cc201a5345fa8a8b9e93353769fe_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-28/511f7ab5-c174-4792-9aa3-df1bb1676e20/user_cropped_screenshot_8683cc201a5345fa8a8b9e93353769fe_text_export.jpeg" alt="" width="600"></a>
-</p>
+<p>On <strong>Step 2: Business purpose</strong>, select <strong>Learning</strong> as the primary use.</p>
+<p>Leave the <em>Opportunity</em> fields blank and press <strong>Next</strong> to continue.</p>
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
 <p>On <strong>Step 3: Deployment</strong>, confirm the pre-selected geography:</p>
-<div class="admonition warning">
+<div class="admonition note">
 <p><code>itz-shared-power - americas - us-east region - wdc07 datacenter</code></p>
 </div>
 <p>Press <strong>Next</strong> to continue.</p>
@@ -1874,7 +1860,7 @@
 <hr>
 <ol start="11">
 <li>
-<p>Once the status changes to <strong>Ready</strong>, return to the request page and click the <strong>expand arrow (<span class="keys"><kbd class="key-v">V</kbd></span>)</strong> to the left of the environment name to reveal the connection details.</p>
+<p>Once the status changes to <strong>Ready</strong>, return to the request page and click the <strong>expand arrow</strong> (the <span class="keys"><kbd class="key-v">V</kbd></span> icon) to the left of the environment name to reveal the connection details.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-30/bd3318bc-9839-4e63-a13d-8b91a974ab30/user_cropped_screenshot_7f00f6c0b5d14255b2bf10d0c607cf98_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-30/bd3318bc-9839-4e63-a13d-8b91a974ab30/user_cropped_screenshot_7f00f6c0b5d14255b2bf10d0c607cf98_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1970,7 +1956,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-__codelineno-0-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>ssh_private_key.pem
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">WHY THIS MATTERS</p>
 <p>SSH will refuse to use a private key that is readable by other users on the system. <code>chmod 600</code> restricts read and write access to only your user account, satisfying SSH's security check.</p>
 </div>
 <p></p><p align="left">
@@ -2061,9 +2046,10 @@
 <hr>
 <ol start="2">
 <li>
-<p>Click into the prompt field and paste the following request (press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span> or <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>):</p>
+<p>Click into the prompt field and paste the following request (press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span> or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-__codelineno-1-1"></a>I'm getting the error "5250 terminal is not supported. Please install tn5250 via yum on the remote system." in the Code for IBM i VS Code extension. Please install tn5250 on my remote IBM i system, make sure it's in the default PATH, and set up my user profile so it's available in login shells. After that, tell me to reconnect using "Connect and Reload Server Settings" in VS Code.
 </code></pre></div>
+<p>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the instruction.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1de8b105-433c-4104-b48a-d4aa7328d893/user_cropped_screenshot_5ff9791826364a6fa0f231065fd74601_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1de8b105-433c-4104-b48a-d4aa7328d893/user_cropped_screenshot_5ff9791826364a6fa0f231065fd74601_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2072,7 +2058,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>Send the prompt and let Bob work. It will <code>yum install tn5250-0.17.6-1</code>, then update <code>/home/ITZUSER/.profile</code> and <code>/QOpenSys/etc/profile.local</code> so <code>/QOpenSys/pkgs/bin</code> is on <code>PATH</code> for every login shell.</p>
+<p>Bob will perform the <code>yum install tn5250-0.17.6-1</code> request to update <code>/home/ITZUSER/.profile</code> and <code>/QOpenSys/etc/profile.local</code> — such that <code>/QOpenSys/pkgs/bin</code> is on the <code>PATH</code> for every login shell used after the fact.</p>
 <p>When Bob finishes, click the <strong>disconnect</strong> button highlighted in the bottom-left status bar to close the current session with your LPAR.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4e6b95f4-969d-4a31-9c8a-bfaca3c22fc8/user_cropped_screenshot_e6a3445950ce4eb5863d7d2bccbf02c2_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4e6b95f4-969d-4a31-9c8a-bfaca3c22fc8/user_cropped_screenshot_e6a3445950ce4eb5863d7d2bccbf02c2_text_export.jpeg" alt="" width="600"></a>
@@ -2103,7 +2089,7 @@
 <ol start="6">
 <li>
 <p>When prompted <strong>"Select a terminal type"</strong>, choose <strong>5250</strong>.</p>
-<div class="admonition warning">
+<div class="admonition note">
 <p>The <strong>PASE</strong> option gives you a Unix-style shell on the LPAR — useful for running <code>yum</code>, editing files, and inspecting IFS content. The <strong>5250</strong> option gives you the classic green-screen IBM i session used by RPG applications like FLIGHT400. <em>Module 6</em> relies on the PASE side as well, since that is where Node.js runs.</p>
 </div>
 <p></p><p align="left">
@@ -2115,7 +2101,7 @@
 <ol start="7">
 <li>
 <p>A new <strong>IBM i 5250: IBM i Modernization</strong> tab opens, showing the classic <strong>Sign On</strong> screen — <em>System</em>, <em>Subsystem</em>, <em>Display</em>, and <em>User</em> fields ready for input.</p>
-<p>You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel. You are ready to sign on and begin the lab.</p>
+<p>You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0e049ac4-2b2d-4d01-a4a3-c6d697065f82/user_cropped_screenshot_4baa7195f135419ca0212f26cf6d3a4f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0e049ac4-2b2d-4d01-a4a3-c6d697065f82/user_cropped_screenshot_4baa7195f135419ca0212f26cf6d3a4f_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2127,7 +2113,7 @@
 <hr>
 <ol>
 <li>
-<p>In the Activity Bar on the far left, click the <strong>Explorer</strong> icon to switch back to your local workspace view.</p>
+<p>From the Activity Bar tabs along the left side of the Bob IDE, click the <strong>Explorer</strong> icon to switch back to your local workspace view.</p>
 <p>You should see <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> at the top of the tree.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/9ccbed55-433d-47b9-808b-e96d779d6a25/user_cropped_screenshot_7ccefe628865472ba0954bfeb033ca68_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/9ccbed55-433d-47b9-808b-e96d779d6a25/user_cropped_screenshot_7ccefe628865472ba0954bfeb033ca68_text_export.jpeg" alt="" width="600"></a>
@@ -2146,8 +2132,12 @@
 <hr>
 <ol start="3">
 <li>
-<p>On the first deploy, a notification will appear in the bottom-right: <em>"Chosen location … is not configured for deployment."</em> Click <strong>Set deploy location</strong> to configure the target IFS directory.</p>
-<p>Accept the suggested path (typically <code>/home/ITZUSER/builds/ibmiflight400</code>) — this becomes the IFS directory that mirrors your local workspace.</p>
+<p>On the first deploy, a notification will appear in the bottom-right: <em>"Chosen location … is not configured for deployment."</em></p>
+<ul>
+<li>Click <strong>Set deploy location</strong> to configure the target IFS directory</li>
+<li><strong>Accept</strong> the suggested path (typically <code>/home/ITZUSER/builds/ibmiflight400</code>)</li>
+<li>This becomes the IFS directory that mirrors your local workspace</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/af006acb-6af4-4827-a89d-8b0fc8e941b3/user_cropped_screenshot_6eec8f53f519403c94be6c23222a6927_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/af006acb-6af4-4827-a89d-8b0fc8e941b3/user_cropped_screenshot_6eec8f53f519403c94be6c23222a6927_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2174,7 +2164,8 @@
 <hr>
 <ol start="6">
 <li>
-<p>Expand <code>/home/ITZUSER</code> → <strong><code>builds</code></strong> → <strong><code>ibmiflight400</code></strong>. Confirm that both <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> are now present on the LPAR.</p>
+<p>Expand <code>/home/ITZUSER</code> → <strong><code>builds</code></strong> → <strong><code>ibmiflight400</code></strong>.</p>
+<p>Confirm that both <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> are now present on the LPAR.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/caeec2bc-db29-40d2-959f-d48c057dcae7/user_cropped_screenshot_05479f4166de4bd3932b67443d1c035d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/caeec2bc-db29-40d2-959f-d48c057dcae7/user_cropped_screenshot_05479f4166de4bd3932b67443d1c035d_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2217,8 +2208,12 @@
 <hr>
 <ol start="4">
 <li>
-<p>Replace the default <code>v_ifs_path</code> string with the path you copied in step 1 — it should look like <code>/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE</code>. Leave <code>v_rst_lib</code> as <code>FLGHT400</code> and <code>v_owner</code> as <code>NULL</code>.</p>
-<p>Save the file (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>), then close the editor tab.</p>
+<p>Replace the default <code>v_ifs_path</code> string with the path you copied in step 1.</p>
+<ul>
+<li>The new string should look like <code>/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE</code></li>
+<li>Leave <code>v_rst_lib</code> as <code>FLGHT400</code> and <code>v_owner</code> as <code>NULL</code></li>
+<li><strong>Save</strong> the file (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>) and then <strong>close</strong> the editor tab</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/c5ddbfe5-ac88-4389-9c4c-ab196c1badde/user_cropped_screenshot_33aa42dcbc2f46b2bbf51b830c99d0c5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/c5ddbfe5-ac88-4389-9c4c-ab196c1badde/user_cropped_screenshot_33aa42dcbc2f46b2bbf51b830c99d0c5_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2229,7 +2224,6 @@
 <li>
 <p>Switch back to the <strong>IBM i</strong> sidebar and locate <strong><code>Install-Flight400.sql</code></strong> in the IFS Browser under <code>/home/ITZUSER/builds/ibmiflight400</code>.</p>
 <div class="admonition warning">
-<p class="admonition-title">ATTENTION</p>
 <p>Because you edited the file locally, redeploy it (right-click → <strong>Deploy Selected Files</strong>) so the LPAR has the updated version before running it. If the IFS copy is out of date, the script will use the wrong path.</p>
 </div>
 <p></p><p align="left">
@@ -2259,7 +2253,9 @@
 <ol start="8">
 <li>
 <p>The integrated terminal will open and display the RUNSQLSTM output. Wait for the message summary to show <strong><code>0 level severity errors found in source</code></strong>, followed by <code>***** END OF LISTING *****</code>.</p>
+<div class="admonition success">
 <p>The <strong>FLGHT400</strong> library — programs, source members, and database files — is now restored on your LPAR.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/4c3b6afa-1dce-4472-b8a0-c011ef64a3a5/user_cropped_screenshot_481419b1eeb1487395b8729c8a87ffe0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/4c3b6afa-1dce-4472-b8a0-c011ef64a3a5/user_cropped_screenshot_481419b1eeb1487395b8729c8a87ffe0_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2327,15 +2323,11 @@
 <p>In the previous <strong>Setup</strong> chapter, you provisioned an IBM i partition from IBM Technology Zone, installed the Premium Package for i and connected IBM Bob to the LPAR. The <strong>FLGHT400</strong> library is restored and on your library list. At this point you have a running, production-style IBM i application in front of you and almost no working knowledge of what it does, how it fits together or which business rules it enforces.</p>
 <p>Understanding a legacy application is the first step in any modernization initiative. Before code can be modernized, extended or safely refactored, developers must establish confidence that the underlying business rules have been correctly identified, and that their understanding of the application matches what is actually running. With the environment in place, you can begin to study the application.</p>
 <p>Throughout this module, you will use IBM Bob to analyze FLIGHT400. You will browse the restored library in the Object Browser, write Bob's own context file for the library with the <code>/init</code> command, scan the application into the <strong>Understand Dashboard</strong> and query the dependency graph it builds. You will then extract business rules from a representative RPG program with the guided <strong>Business Rules Extraction</strong> workflow. Finally, you will generate a Markdown architecture overview of the whole application and append a Mermaid entity relationship diagram produced by the <code>/erd</code> command.</p>
-<div class="admonition note">
-<p class="admonition-title">AI MATURITY CURVE</p>
-<p>This module follows the pattern of the previous course. Building a durable, written understanding of an estate before changing it is the discipline you practiced there, and the artifacts you produce here (the <code>AGENTS</code> member, the Understand scan, the business-rules report, the architecture overview and the ERD) serve the same purpose as the persistent artifacts of <strong>Module 4 | Scale &amp; Extend</strong>: understanding that is written down once and available to every later conversation. The subject is different, in that the Agentic Sidebar now works against a live IBM i LPAR.</p>
-</div>
 <hr>
 <h2 id="1-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>IBM i modernization projects often fail because critical business logic is misunderstood, or missed entirely, during migration.</p>
-<div class="admonition note">
-<p>Successfully modernizing an IBM i application requires more than reading RPG source top to bottom. Engineers must:</p>
+<div class="admonition success">
+<p><strong>Successfully modernizing an IBM i application requires more than reading RPG source top to bottom. Practitioners must:</strong></p>
 <ul>
 <li>Recognize the business rules encoded in decades of accumulated source</li>
 <li>Understand the flows between programs, screens and database files</li>
@@ -2380,7 +2372,7 @@
 </tr>
 </tbody>
 </table>
-<p>Doing this manually across a codebase with dozens of programs, thousands of DDS members and no formal architecture document is a common reason that modest modernization estimates turn into multi-year projects. Bob shortens that discovery phase to minutes, provided you drive it deliberately, review its output and capture what it finds in a durable form.</p>
+<p>Performing this work manually across a codebase with dozens of programs, thousands of DDS members, and no formal architecture document is a common reason that modest modernization estimates turn into multi-year projects. <em>IBM Bob Premium Package for i</em> shortens that discovery phase to minutes, provided you drive it deliberately, review its output, and capture what it finds in a durable form.</p>
 <hr>
 <h2 id="1-1-iii-analyzing-flight400-with-ibm-bob"><strong>iii. Analyzing FLIGHT400 with IBM Bob</strong></h2>
 <p>The first stage of analysis is making the <code>FLGHT400</code> library visible to Bob and giving Bob a persistent picture of what is inside it.</p>
@@ -2423,8 +2415,10 @@
 <li><strong>Libraries:</strong> <code>FLGHT400</code></li>
 <li><strong>Object types:</strong> <code>*ALL</code></li>
 </ul>
+<div class="admonition note">
 <p>Leaving <em>Object types</em> at its default (<code>*SRCPF</code>) would hide programs, database files, menus and display files, which are the objects you need to see. Setting it to <code>*ALL</code> gives Bob visibility into every object type in the library.</p>
-<p>Press <strong>Save settings</strong>.</p>
+</div>
+<p>Press <strong>Save settings</strong> to confirm the selections and continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f55e4a63-15e5-4205-8e66-ad42ab20aaf1/user_cropped_screenshot_4b0a03a2d4644513b7c6f28b40f56efc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f55e4a63-15e5-4205-8e66-ad42ab20aaf1/user_cropped_screenshot_4b0a03a2d4644513b7c6f28b40f56efc_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2433,41 +2427,50 @@
 <hr>
 <ol start="3">
 <li>
-<p>The Object Browser now shows every object in the library: programs, source files, database files, display files and menus. Expand the <strong><code>qrpgsrc</code></strong> source file and open one or two of its members to see the fixed-format style you will be modernizing in the next module.</p>
-<p>Then expand <strong><code>qddssrcd</code></strong> and open <strong><code>frs001df</code></strong>, the DDS for the <em>Create Order</em> screen. Click <strong>Preview All</strong> on the first line of the editor to render the green-screen layout as it would appear on a 5250 terminal.</p>
+<p>The Object Browser now shows every object in the library: programs, source files, database files, display files and menus.</p>
+<ul>
+<li>Expand the <strong><code>qrpgsrc</code></strong> source file and open one or two of its members to see the fixed-format style you will be modernizing in the next module.</li>
+<li>Afterwards, expand <strong><code>qddssrcd</code></strong> and open <strong><code>frs001df</code></strong>, the DDS for the <em>Create Order</em> screen.</li>
+<li>Click <strong>Preview All</strong> on the first line of the editor to render the green-screen layout as it would appear on a 5250 terminal.</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">THE DDS PREVIEWER</p>
 <p>The previewer draws the display file's record formats on a 24×80 grid, with input fields underlined and function keys listed along the bottom. You will use the same preview in <em>Module 2</em> to confirm where a new field lands on the <em>Flight Maintenance</em> screen (<code>frs021df</code>), so preview that member now as well.</p>
 </div>
-<!-- SCREENSHOT: FRS001DF opened from qddssrcd with the Preview All rendering of the Create Order screen -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
-<p>Back in the Object Browser, click <strong><code>FRS000.PGM</code></strong> (the flight reservation logon program) and open its <strong>Detail</strong> view with a right-click › <em>Detail</em>. The creation date reads <strong>1997</strong>.</p>
+<p>Back in the Object Browser, click <strong><code>FRS000.PGM</code></strong> (the flight reservation logon program) and open its <strong>Detail</strong> view with a right-click › <em>Detail</em>.</p>
+<p>The creation date reads <strong>1997</strong>.</p>
+<div class="admonition quote">
 <p>The program has been in production for close to three decades, and the developers who wrote it are no longer available. The rest of this module documents what they knew.</p>
-<!-- SCREENSHOT: Detail view of FRS000.PGM showing the 1997 creation date -->
+</div>
 </li>
 </ol>
 <hr>
 <h2 id="1-1-v-initializing-bobs-context-with-init"><strong>v. Initializing Bob's context with /init</strong></h2>
-<p>An <code>AGENTS</code> member gives Bob persistent, project-specific context about a codebase: its source file layout, compile conventions, naming patterns and the pitfalls that are easy to miss. Bob reads this member at the start of every task, so it already knows how the library is structured, which source files hold which members and where the known problems are. The Premium Package for i generates it with the <strong><code>/init</code></strong> slash command, which works in library-list (QSYS), IFS and local-workspace tasks alike.</p>
+<p>An <code>AGENTS</code> member gives Bob persistent, project-specific context about a codebase: its source file layout, compile conventions, naming patterns and the pitfalls that are easy to miss. Bob reads this member at the start of every task, so it already knows how the library is structured, which source files hold which members and where the known problems are. The Premium Package for i generates it with the <strong><code>/init</code></strong> slash command, which works in library-list (QSYS), IFS, and local-workspace tasks alike.</p>
 <hr>
 <ol>
 <li>
-<p><code>/init</code> writes its output into the <strong>current library</strong> of your connection, so that library must be set before you run it. In the IBM i sidebar, expand <strong>User Library List</strong>, right-click <strong><code>FLGHT400</code></strong> and select <strong>Set as Current Library</strong>.</p>
+<p><code>/init</code> writes its output into the <strong>current library</strong> of your connection, so that library must be set before you run it.</p>
+<p>In the IBM i sidebar, expand <strong>User Library List</strong>, right-click <strong><code>FLGHT400</code></strong> and select <strong>Set as Current Library</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">A CURRENT LIBRARY IS REQUIRED</p>
 <p>Without a current library set, <code>/init</code> prompts you to set one and stops. IBM-supplied system libraries such as <code>QGPL</code> and <code>QTEMP</code> are refused: if your connection defaulted to <code>QGPL</code> as its current library, Bob will ask you to switch to an application library before continuing.</p>
 </div>
-<!-- SCREENSHOT: User Library List context menu on FLGHT400 with "Set as Current Library" highlighted -->
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>Open the Bob chat panel. Click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Developer</strong>. Then click the <strong>+</strong> button at the top-right of the panel and choose <strong>New task in Library List</strong>, which scopes the task to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>).</p>
+<p>Open the <strong>Agentic Sidebar</strong> chat panel.</p>
+<ul>
+<li>Click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Developer</strong>.</li>
+<li>Then click the <strong>+</strong> button at the top-right of the panel and choose <strong>New task in Library List</strong>, which scopes the task to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>).</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c42958c8-aca5-4075-916f-8e7fe5b4f2d4/user_cropped_screenshot_a3f052dc51b047d290083baa6eb1c791_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c42958c8-aca5-4075-916f-8e7fe5b4f2d4/user_cropped_screenshot_a3f052dc51b047d290083baa6eb1c791_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2477,16 +2480,18 @@
 <ol start="3">
 <li>
 <p>Type <strong><code>/init</code></strong> into the prompt field. The command list above the field narrows to the <code>/init</code> entry; select it so that the command is highlighted, then press <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
-<p>Bob scans the library (source files, member types, service programs, IWS web services, naming conventions and database objects), creates a <strong><code>QBOBSRC</code></strong> source physical file in <code>FLGHT400</code> if one does not exist and writes an <strong><code>AGENTS</code></strong> member into it in Markdown format. Approve the tool requests as they appear; the scan takes a minute or two.</p>
-<!-- SCREENSHOT: Bob chat after /init, showing the scan summary and the QBOBSRC/AGENTS member written -->
+<div class="admonition quote">
+<p>Bob scans the library (source files, member types, service programs, IWS web services, naming conventions and database objects), creates a <strong><code>QBOBSRC</code></strong> source physical file in <code>FLGHT400</code> if one does not exist, and writes an <strong><code>AGENTS</code></strong> member into it in Markdown format.</p>
+</div>
+<p><strong>Approve</strong> the tool requests as they appear; the scan takes a minute or two.</p>
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
 <p>In the Object Browser, expand <strong><code>FLGHT400</code></strong> › <strong><code>QBOBSRC</code></strong> and click the <strong><code>AGENTS</code></strong> member (shown as <code>agents.md</code>) to open it.</p>
-<p>The member contains IBM i-specific facts discovered directly from the source. In the documented run, Bob recorded, among other things:</p>
 <div class="admonition quote">
+<p><strong>The member contains IBM i-specific facts discovered directly from the source. In the documented run, Bob recorded, among other things:</strong></p>
 <ul>
 <li>Which source file holds the IWS REST service programs (<code>EVFTEMPF01</code>) and why they must be compiled with <code>CRTSQLRPGI</code> instead of <code>CRTBNDRPG</code></li>
 <li>That the <code>*Z</code> logical files (<code>AGENTSZ</code>, <code>FLIGHTSZ</code> and the rest) exist only for legacy Query/400 and should not be used as access paths in new code</li>
@@ -2505,16 +2510,15 @@
 <hr>
 <h2 id="1-1-vi-scanning-the-application-with-the-understand-dashboard"><strong>vi. Scanning the application with the Understand Dashboard</strong></h2>
 <p>The <strong>Understand Dashboard</strong> scans an IBM i application library and builds a dependency graph of every program, file, service program, menu and command in it, with no source reading on your part. It works from the compiled objects on the system and stores what it finds in a metadata library of your choosing. Use it to answer <em>"what is this application made of?"</em> and <em>"what breaks if I change X?"</em> before any code is changed.</p>
-<div class="admonition info">
-<p class="admonition-title">ONE SCAN, SHARED BY THE TEAM</p>
-<p>The metadata library can be shared across a development team, so that everyone benefits from a single scan — provided each developer is granted authority to it. On this partition you are the only user, so you will create a dedicated <code>BOBLIB</code> library for the component. The dashboard's <em>Access Control</em> tab is where a team would audit and grant that authority later.</p>
-</div>
 <hr>
 <ol>
 <li>
 <p>Open the Command Palette (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>) and run <strong>Get Started with Understand</strong>.</p>
 <p>A short walkthrough opens. Its first step, <em>Connect to IBM i</em>, is already satisfied by your connection. The second, <em>Install the Understand component</em>, explains that Understand keeps its results in one IBM i library. Click <strong>Open the Understand Dashboard</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-1.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-1.png" width="600"></a></p>
+<div class="admonition info">
+<p class="admonition-title">ONE SCAN THAT IS SHARED BY THE TEAM</p>
+<p>The metadata library can be shared across a development team, so that everyone benefits from a single scan — provided each developer is granted authority to it. On this partition you are the only user, so you will create a dedicated <code>BOBLIB</code> library for the component. The dashboard's <em>Access Control</em> tab is where a team would audit and grant that authority later.</p>
+</div>
 </li>
 </ol>
 <hr>
@@ -2525,12 +2529,11 @@
 <li>If the card asks for an <strong>install library</strong>, enter <strong><code>BOBLIB</code></strong></li>
 <li>Click <strong>Install Understand</strong> and wait for the card to report the component as <strong>Installed</strong></li>
 </ul>
-<p>The install creates the <code>BOBLIB</code> library and the Db2 objects the scanner writes to. It takes under a minute.</p>
-<div class="admonition warning">
+<p>The install creates the <code>BOBLIB</code> library and the Db2 objects the scanner writes to. It should take under a minute to complete the task.</p>
+<div class="admonition info">
 <p class="admonition-title">CHOOSE A DEDICATED LIBRARY</p>
 <p>Use a library that does not already exist as a user library, and restrict its access to authorized users. The scanned metadata describes every object in the application, so a user with authority to <code>BOBLIB</code> can see data about objects they have no direct authority to.</p>
 </div>
-<!-- SCREENSHOT: Overview tab with the Understand component card reading Installed, install library BOBLIB -->
 </li>
 </ol>
 <hr>
@@ -2543,11 +2546,10 @@
 <li><strong>Libraries:</strong> pick <strong><code>FLGHT400</code></strong> from the suggestions (or type it) and click <strong>Add</strong></li>
 </ul>
 <p>Then click <strong>Add application</strong>.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">LIBRARIES ARE SCANNED IN THE ORDER ADDED</p>
 <p>System libraries (<code>QSYS</code>, <code>QSYS2</code>, <code>SYSIBM</code> and the like) are excluded automatically. Add the library that holds the <em>compiled objects</em> (<code>FLGHT400</code>), which here is also the library that holds the source. Source physical files are not listed as objects in the scan.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-2.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-2.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -2555,7 +2557,6 @@
 <li>
 <p>Click <strong>Scan</strong> next to the new application. Progress appears in the lower part of the dashboard, and the scan runs in its own SQL jobs so you can keep using the other tabs while it works. It completes in 30 to 60 seconds, after which the application's status reads <strong>Scanned</strong>.</p>
 <p>Return to the <strong>Overview</strong> tab: the component card now reads <em>Installed</em> with <code>BOBLIB</code> as its install library, and the <em>Applications</em> table lists <code>FLIGHT400</code> as <strong>Active</strong> and <strong>Scanned</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-3.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-3.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -2592,63 +2593,62 @@
 </tr>
 </tbody>
 </table>
-<p>In the documented run, <code>FLGHT400</code> scanned to roughly <strong>42 programs</strong> (39 OPM and 3 ILE), <strong>15 physical files</strong>, <strong>6 ILE service programs</strong> (the REST API layer) and <strong>no</strong> objects using dynamic SQL. Those numbers confirm what the 1997 timestamp suggested: a classic OPM RPG application with a modern REST layer added on top.</p>
-<!-- SCREENSHOT: Insights tab, object and dependency counts for FLIGHT400 -->
+<div class="admonition quote">
+<p>In the documented run, <code>FLGHT400</code> scanned to roughly <strong>42 programs</strong> (39 OPM and 3 ILE), <strong>15 physical files</strong>, <strong>6 ILE service programs</strong> (the REST API layer) and <strong>no</strong> objects using dynamic SQL. Those numbers confirm what the 1997 timestamp suggested: <em>a classic OPM RPG application with a modern REST layer added on top.</em></p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="6">
 <li>
 <p>Scroll down to <strong>Most referenced objects</strong>. The list ranks objects by inbound dependencies — the number of other objects that use them — which shows where a change would have the widest effect.</p>
+<div class="admonition quote">
 <p>In the documented run, the physical files <code>ORDERS</code> (17 references), <code>CUSTOMERS</code> (13), <code>TOCITY</code> (11) and <code>FRCITY</code> (11) led the list. Database files dominate the top of the ranking, which tells you that the application's core dependencies run through its data rather than through program-to-program calls. Note how the dependency chart above the list breaks the relationships down by type: file opens, program calls, bound modules, data area references and command processing programs.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-understand-4.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-understand-4.png" width="600"></a></p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="7">
 <li>
 <p>Open the <strong>Objects</strong> tab, search for <strong><code>FRS021</code></strong> and select the program. The panel shows its <strong>outbound</strong> dependencies (the files and programs it uses) and its <strong>inbound</strong> dependencies (what uses it), together with the related file information and a <em>Last Used</em> column.</p>
-<p>Note this view. <code>FRS021</code> is the <em>Flight Maintenance</em> program you will extend in <em>Module 2</em>, and the files listed under its outbound dependencies are the ones that change will touch.</p>
-<!-- SCREENSHOT: Objects tab with FRS021 selected, showing outbound and inbound dependencies -->
+<div class="admonition quote">
+<p><code>FRS021</code> is the <em>Flight Maintenance</em> program you will extend in <em>Module 2</em>, and the files listed under its outbound dependencies are the ones that change will touch.</p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="8">
 <li>
 <p>With the scan in place, Bob gains six Understand tools and three Understand skills in the <em>IBM i Developer</em> and <em>IBM i Database</em> modes. Whether it may use them in a given task is controlled by the <strong>Understand</strong> permission group, so enable it before asking.</p>
-<p>In the Bob chat panel, click <strong>+</strong> › <strong>New task in Library List</strong> and confirm that <strong>IBM i Developer</strong> is the active mode. Then open the <strong>Permissions</strong> menu beside the mode selector and switch on both <strong>Documentation</strong> and <strong>Understand</strong>.</p>
-<div class="admonition tip">
+<ul>
+<li>In the Bob chat panel, click <strong>+</strong> › <strong>New task in Library List</strong> and confirm that <strong>IBM i Developer</strong> is the active mode.</li>
+<li>Then open the <strong>Permissions</strong> menu beside the mode selector and switch <em>on</em> both <strong>Documentation</strong> and <strong>Understand</strong>.</li>
+</ul>
+<div class="admonition warning">
 <p class="admonition-title">ENABLE BOTH PERMISSIONS FOR EVERY TASK THAT FOLLOWS</p>
 <p><em>Documentation</em> lets Bob retrieve passages from the official IBM i documentation (a RAG-based tool) and <em>Understand</em> lets it query the scan. Both apply across the remaining modules — documentation, refactoring, database tuning and testing all benefit — so check the <em>Permissions</em> menu each time you start a new task.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../1-1/_attachments/ppi-permissions.png" data-desc-position="bottom"><img alt="" src="../1-1/_attachments/ppi-permissions.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="9">
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Copy and paste the following prompt into the Agentic Sidebar chat and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#1-1-__codelineno-0-1"></a>What are the high-level functional areas of FLGHT400?
 </code></pre></div>
 <p>Bob activates the <strong>understand-app-overview</strong> skill and answers from the scan data: the functional areas of the application, the key programs within each and an architecture diagram, produced from the scan data alone. Compare the response with what you saw in the Insights tab; the two should agree on which files sit at the center of the application.</p>
-<!-- SCREENSHOT: Bob's application overview produced from the understand-app-overview skill -->
 </li>
 </ol>
 <hr>
 <h2 id="1-1-vii-extracting-business-rules-from-an-rpg-program"><strong>vii. Extracting business rules from an RPG program</strong></h2>
 <p>The <strong>Business Rules Extraction</strong> workflow is one of several guided workflows shipped with the Premium Package for i. It walks Bob through reading an RPG source member, discovering its dependencies, cataloguing its rules and decision logic, and producing a business-friendly Markdown report with Mermaid diagrams. For FLIGHT400, you will run it against <code>FRS401.RPGLE</code>, the <em>Agent Selection Window</em> subprogram and a good representative of the mid-sized programs that dominate the codebase.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">SEQUENCING THE WORKFLOW</p>
-<p>The Business Rules Extraction workflow is <em>guided</em>: Bob prompts you at each step to select a library, source file and member. You answer those prompts, and Bob does the reading, dependency discovery, rule extraction and report writing on its own.</p>
+<p>The <strong>Business Rules Extraction</strong> workflow is <em>guided</em>: Bob prompts you at each step to select a library, source file and member. You answer those prompts, and Bob does the reading, dependency discovery, rule extraction, and report writing on its own.</p>
 </div>
 <hr>
 <ol>
-<li>
-<p>Click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>. This scopes the workflow to <code>QGPL, QTEMP, FLGHT400</code>, matching what is on your library list.</p>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/aab2622a-e784-4c78-b330-c5c4c4ee434e/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260807%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260807T201609Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=e5652c533de9d3d18adb950a836356c6dc1f6493881b6e7bd0c9873b59f9fda5" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/aab2622a-e784-4c78-b330-c5c4c4ee434e/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260807%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260807T201609Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=e5652c533de9d3d18adb950a836356c6dc1f6493881b6e7bd0c9873b59f9fda5" alt="" width="600"></a>
-</p>
-</li>
+<li>Click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>. This scopes the workflow to <code>QGPL, QTEMP, FLGHT400</code>, matching what is on your library list.</li>
 </ol>
 <hr>
 <ol start="2">
@@ -2663,7 +2663,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>The workflow opens with a Welcome screen explaining what it does: it reads your RPG source, extracts business rules, generates a Markdown report and produces Mermaid diagrams.</p>
+<p>The workflow opens with a Welcome screen explaining what it does: it reads your RPG source, extracts business rules, generates a Markdown report, and produces Mermaid diagrams.</p>
 <p>Click <strong>Get Started</strong> to continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f9234b5c-89ed-4f57-b690-5f3011ba2cc7/user_cropped_screenshot_b0571691b5a04d85ae41e181233d43cb_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f9234b5c-89ed-4f57-b690-5f3011ba2cc7/user_cropped_screenshot_b0571691b5a04d85ae41e181233d43cb_text_export.jpeg" alt="" width="600"></a>
@@ -2701,16 +2701,15 @@
 <hr>
 <ol start="7">
 <li>
-<p>When Bob finishes extracting rules and generating diagrams, it prompts for a save location. Accept the default IFS path (for example <code>/home/ITZUSER/flght400/docs/business-rules/FRS401-2026-08-06T21-43-45.md</code>) and press <strong>Continue</strong> to save the report.</p>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/56ca2af2-e7c0-44fb-ae50-ad44e7d479c5/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260807%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260807T201729Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=cf2fa60f9e3aa819d7784ba730bcc5cfe2b4bbf242c97242be3b992ad661a0bd" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/56ca2af2-e7c0-44fb-ae50-ad44e7d479c5/user_cropped_screenshot.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2JDELI43356LVVTC%2F20260807%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260807T201729Z&amp;X-Amz-Expires=900&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=cf2fa60f9e3aa819d7784ba730bcc5cfe2b4bbf242c97242be3b992ad661a0bd" alt="" width="600"></a>
-</p>
+<p>When Bob finishes extracting rules and generating diagrams, it prompts for a save location.</p>
+<p><strong>Accept</strong> the default IFS path (for example <code>/home/ITZUSER/flght400/docs/business-rules/FRS401-2026-08-06T21-43-45.md</code>) and press <strong>Continue</strong> to save the report.</p>
 </li>
 </ol>
 <hr>
 <ol start="8">
 <li>
-<p>Once saved, Bob shows a <strong>Report Saved</strong> panel with the full path and an <strong>Open File</strong> button. Click <strong>Open File</strong> to view the generated report.</p>
+<p>Once saved, Bob shows a <strong>Report Saved</strong> panel with the full path and an <strong>Open File</strong> button.</p>
+<p>Click <strong>Open File</strong> to view the generated report.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f74ef71d-bff8-4a35-9efc-4295096d7915/user_cropped_screenshot_6ece63fadeee43b0b024c18e6387d467_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f74ef71d-bff8-4a35-9efc-4295096d7915/user_cropped_screenshot_6ece63fadeee43b0b024c18e6387d467_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2740,7 +2739,7 @@
 <p>In the Bob chat panel, click <strong>+</strong> › <strong>New task in Library List</strong> and confirm that the <em>Documentation</em> and <em>Understand</em> permissions are enabled. Then paste the following request:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#1-1-__codelineno-1-1"></a>Generate a comprehensive architecture overview of the FLGHT400 application in QSYS in Markdown format. Include a high-level description, the main program flows, key programs and their roles, a Mermaid architecture diagram, and a summary of the database tables used.
 </code></pre></div>
-<p>Send the prompt.</p>
+<p>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the prompt.</p>
 <div class="admonition info">
 <p class="admonition-title">THE SCAN LOWERS THE COST OF THIS PROMPT</p>
 <p>This is the most expensive prompt in the module. With the Understand scan available, Bob can take the program inventory and the call relationships from metadata and reserve its source reads for the programs whose roles it needs to describe, which both shortens the run and reduces the Bobcoins it consumes.</p>
@@ -2754,7 +2753,10 @@
 <ol start="2">
 <li>
 <p>Bob builds a Todo List covering the discovery work (cataloguing programs, database files and display files, analyzing call flows and writing the overview) and pauses for your approval before running any tools.</p>
-<p>Review the proposed plan to ensure it aligns with what you asked for. Once you are satisfied, click <strong>Approve todo tools for task</strong> to let Bob proceed through the full list without re-prompting on every step.</p>
+<ul>
+<li>Review the proposed plan to ensure it aligns with what you asked for.</li>
+<li>Once you are satisfied, click <strong>Approve todo tools for task</strong> to let Bob proceed through the full list without re-prompting on every step.</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/14926a50-91ab-4dfe-b6d6-e9b942d76b3d/user_cropped_screenshot_a5a188315f17440998841def5c69f5e3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/14926a50-91ab-4dfe-b6d6-e9b942d76b3d/user_cropped_screenshot_a5a188315f17440998841def5c69f5e3_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2814,10 +2816,10 @@
 <hr>
 <ol>
 <li>
-<p>In the same Bob chat, type the following as your next prompt:</p>
+<p>In the same Agentic Sidebar chat, copy &amp; paste the following as your next prompt and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#1-1-__codelineno-2-1"></a>/erd FLGHT400 add this to FLGHT400_ARCHITECTURE.md
 </code></pre></div>
-<p>Send it. Bob runs the ERD generator against the <code>FLGHT400</code> catalog, discovers the primary keys and relationships across <code>AGENTS</code>, <code>CUSTOMERS</code>, <code>FLIGHTS</code>, <code>ORDERS</code>, <code>FNEXTO</code>, <code>FCITY</code>/<code>TCITY</code> and <code>FNAME</code>/<code>LNAME</code>, then appends the resulting Mermaid ERD to the architecture document on the LPAR.</p>
+<p>Bob runs the ERD generator against the <code>FLGHT400</code> catalog, discovers the primary keys and relationships across <code>AGENTS</code>, <code>CUSTOMERS</code>, <code>FLIGHTS</code>, <code>ORDERS</code>, <code>FNEXTO</code>, <code>FCITY</code>/<code>TCITY</code> and <code>FNAME</code>/<code>LNAME</code>, then appends the resulting Mermaid ERD to the architecture document on the LPAR.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cb71a600-53d3-4218-99ec-9836e5869118/user_cropped_screenshot_096a73f75757440a9fb0c626ebeb43f2_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cb71a600-53d3-4218-99ec-9836e5869118/user_cropped_screenshot_096a73f75757440a9fb0c626ebeb43f2_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2826,7 +2828,8 @@
 <hr>
 <ol start="2">
 <li>
-<p>In the IFS Browser, locate <strong><code>FLGHT400_ARCHITECTURE.md</code></strong> at <code>/home/FLGHT400_ARCHITECTURE.md</code> and open it. Use the <strong>Preview</strong> button in the editor toolbar to render the Markdown side by side with the source.</p>
+<p>In the IFS Browser, locate <strong><code>FLGHT400_ARCHITECTURE.md</code></strong> at <code>/home/FLGHT400_ARCHITECTURE.md</code> and open it.</p>
+<p>Use the <strong>Preview</strong> button in the editor toolbar to render the Markdown side by side with the source.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/ba1425ec-fdc9-4f68-ab4b-40377ab9f8ef/user_cropped_screenshot_9aa97abd1a5e4df0a6dc8907447a86df_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/ba1425ec-fdc9-4f68-ab4b-40377ab9f8ef/user_cropped_screenshot_9aa97abd1a5e4df0a6dc8907447a86df_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2836,11 +2839,13 @@
 <ol start="3">
 <li>
 <p>Review the completed document. Alongside the architecture sections you saw in the chat, you should now see:</p>
+<div class="admonition quote">
 <ul>
 <li>A <strong>Source File Inventory</strong> with <code>QRPGSRC</code>, <code>QRPGLESRC</code>, <code>QCLPSRC</code>, <code>QDDSSRCF</code>, <code>QDDSSRCD</code> and <code>QMNUSRC</code></li>
 <li>Notes on <strong>primary keys</strong> and <strong>FK constraints</strong>, defined by DDS <code>K</code> keywords rather than SQL DDL — a common IBM i pattern that Bob has correctly identified</li>
 <li>An <strong>ERD Relationships Modelled</strong> section with the Mermaid diagram: <code>ORDERS</code> at the center, joined out to <code>AGENTS</code>, <code>CUSTOMERS</code> and <code>FLIGHTS</code>, with <code>FNEXTO</code> as the sequence generator and <code>FCITY</code>/<code>TCITY</code>/<code>FNAME</code>/<code>LNAME</code> as reference tables</li>
 </ul>
+</div>
 <p>This document is the reference you will use when planning changes in <em>Module 2</em> and when answering <em>"what talks to what"</em> questions during operations in <em>Module 5</em>.</p>
 <details class="info">
 <summary><em>OPTIONAL</em>: AN EDITABLE DRAW.IO DIAGRAM</summary>
@@ -2885,13 +2890,13 @@
 <hr>
 <h2 id="2-1-i-from-understanding-to-transformation"><strong>i. From understanding to transformation</strong></h2>
 <p>In the previous <strong>Analyze</strong> module, you used IBM Bob to examine and understand the FLIGHT400 application. Bob wrote its own <code>AGENTS</code> member for the library and scanned the application into the Understand Dashboard. It then extracted business rules from <code>FRS401</code>, generated an architecture overview and produced an entity relationship diagram.</p>
-<p>Module 1 established what the application does and how its programs and files relate to one another. This section changes one of those programs.</p>
+<p><strong><a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank">Module 1</a></strong> established what the application does and how its programs and files relate to one another. This section changes one of those programs.</p>
 <p>Throughout this section, you will use IBM Bob to modernize the OPM RPG program <code>FRS409</code>, the <em>Order Modification Confirmation Window</em>. You will first ask Bob to explain what the program does, then run the <strong>RPG Modernization</strong> workflow to convert it into free-format ILE RPG, compile it and produce a modernization summary report.</p>
 <hr>
 <h2 id="2-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>A fixed-to-free conversion can change a program's behavior without changing its apparent purpose.</p>
-<div class="admonition note">
-<p>Successfully converting fixed-format OPM RPG to free-format ILE requires more than translating syntax. Engineers must:</p>
+<div class="admonition success">
+<p><strong>Successfully converting fixed-format OPM RPG to free-format ILE requires more than translating syntax. Practitioners must:</strong></p>
 <ul>
 <li>Preserve business rules encoded in indicators, subroutines and workstation data structures</li>
 <li>Maintain the exact behavior of <code>DOUEQ</code> / <code>CASEQ</code> dispatch loops</li>
@@ -2944,20 +2949,22 @@
 <li>Compile the modernized source using <code>CRTBNDRPG</code> on your LPAR</li>
 <li>Produce a Modernization Summary Report documenting every change</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the exact analysis, conversion patterns and even compilation messages you see may differ from those shown here.</p>
 <p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are non-deterministic — unlike the deterministic tools most IBM i developers are accustomed to. In practice, the same prompt can produce different free-format code from one run to the next.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway from this workflow is that you understand how to use the RPG Modernization workflow and review the output it produces. Whether or not you arrive at the exact same RPGLE source is of less importance — Bob will produce a compilable, functionally equivalent program either way. The exact conversion decisions, however, may differ from those documented here.</p>
-</div>
+</details>
 <hr>
 <h2 id="2-1-iv-understanding-frs409"><strong>iv. Understanding FRS409</strong></h2>
-<p>Before modernizing a program, it is good practice to ask Bob what it does. This gives you a baseline to compare against after the conversion, and a sanity check that Bob is reading the right source.</p>
+<p>Before modernizing a program, it is good practice to ask Bob what it does. This gives you a baseline to compare against after the conversion, and a sanity check that Bob is reading from the correct source.</p>
 <hr>
 <ol>
 <li>
 <p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter › <code>qrpgsrc</code> source file, and click <strong><code>frs409.rpg</code></strong> to open the source in the editor.</p>
-<p>Notice the classic fixed-format OPM RPG style: F-specs at the top, indicator definitions, a workstation data structure (<code>WSDS</code>), <code>*ENTRY PLIST</code> with two parameters (<code>ORDER#</code> and <code>ENDYN</code>), and a <code>DOUEQ</code> / <code>CASEQ</code> dispatch loop handling the F3, F12 and Enter keys.</p>
+<div class="admonition quote">
+<p>Notice the classic fixed-format OPM RPG style: F-specs at the top, indicator definitions, a workstation data structure (<code>WSDS</code>), <code>*ENTRY PLIST</code> with two parameters (<code>ORDER#</code> and <code>ENDYN</code>), and a <code>DOUEQ</code> / <code>CASEQ</code> dispatch loop handling the <span class="keys"><kbd class="key-f3">F3</kbd></span>, <span class="keys"><kbd class="key-f12">F12</kbd></span>, and <span class="keys"><kbd class="key-enter">Enter</kbd></span> keys.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/0059e80b-f20f-44fd-86bd-9958112756ef/user_cropped_screenshot_7f63d4e4e4664d2fa5ba912167cff3ab_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/0059e80b-f20f-44fd-86bd-9958112756ef/user_cropped_screenshot_7f63d4e4e4664d2fa5ba912167cff3ab_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2966,7 +2973,11 @@
 <hr>
 <ol start="2">
 <li>
-<p>With <code>FRS409.RPG</code> open in the editor, open the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Developer</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task starts clean, and check the <strong>Permissions</strong> menu to confirm that <em>Documentation</em> and <em>Understand</em> are enabled.</p>
+<p>With <code>FRS409.RPG</code> open in the editor, open the Agentic Sidebar chat, click the <strong>mode selector</strong> at the bottom, and choose <strong>IBM i Developer</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task starts clean</li>
+<li>Check the <strong>Permissions</strong> menu to confirm that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/fd1d2c6a-c415-4644-b822-28cab1f377f9/user_cropped_screenshot_ad52bedfeac544818f8a2f29dc9fa2de_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/fd1d2c6a-c415-4644-b822-28cab1f377f9/user_cropped_screenshot_ad52bedfeac544818f8a2f29dc9fa2de_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2975,7 +2986,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>In the Bob chat prompt, type the following and send it:</p>
+<p>In the Bob chat prompt, type the following and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#2-1-__codelineno-0-1"></a>What does this program do?
 </code></pre></div>
 <p></p><p align="left">
@@ -3014,11 +3025,14 @@
 <hr>
 <ol>
 <li>
-<p>In the Bob chat prompt, type the following and send it:</p>
+<p>Within the Agentic Sidebar chat, copy &amp; paste the following, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#2-1-__codelineno-1-1"></a>Can you modernize this program?
 </code></pre></div>
-<p>Bob recognizes the fixed-format OPM RPG code and offers to run the <strong>RPG Modernization</strong> workflow — <em>"Modernizes RPG source into free-format RPG leveraging best practices for modern RPG, including OPM RPG to ILE free-format conversion and ILE fixed-format to ILE free-format conversion."</em></p>
-<p>Click <strong>Start workflow</strong>.</p>
+<div class="admonition quote">
+<p>Bob recognizes the fixed-format OPM RPG code and offers to run the <strong>RPG Modernization</strong> workflow:</p>
+<p><em>"Modernizes RPG source into free-format RPG leveraging best practices for modern RPG, including OPM RPG to ILE free-format conversion and ILE fixed-format to ILE free-format conversion."</em></p>
+</div>
+<p>Click <strong>Start workflow</strong> to continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/02f32927-24b5-41cf-b069-d1cf646c2357/user_cropped_screenshot_410f7a2e59d1405aa8f301d3bcc17f65_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/02f32927-24b5-41cf-b069-d1cf646c2357/user_cropped_screenshot_410f7a2e59d1405aa8f301d3bcc17f65_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3072,13 +3086,18 @@
 <ol start="5">
 <li>
 <p>Bob analyzes the intermediate source file and generates a detailed conversion plan presented as a Todo List. Review the proposed plan carefully to ensure it aligns with your intended modernization approach.</p>
-<p>Once the plan has been reviewed, click <strong>Approve todo tools for task</strong>. Bob will begin executing the conversion workflow. During implementation, Bob may request approval before performing certain actions such as writing files, running compile commands or fixing errors. Review these requests and approve them as needed to allow Bob to continue.</p>
+<p>Once the plan has been reviewed, click <strong>Approve todo tools for task</strong>. Bob will begin executing the conversion workflow. During implementation, Bob may request approval before performing certain actions such as writing files, running compile commands or fixing errors.</p>
+<p><strong>Review these requests and approve them as needed</strong> to allow Bob to continue.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f1d7fda0-b37a-4e8f-a159-98b780dd9739/user_cropped_screenshot_ce514617495b4d8db61c980a6573fcbc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/f1d7fda0-b37a-4e8f-a159-98b780dd9739/user_cropped_screenshot_ce514617495b4d8db61c980a6573fcbc_text_export.jpeg" alt="" width="600"></a>
 </p>
 </li>
 </ol>
 <hr>
+<div class="admonition note">
+<p class="admonition-title">SEQUENCING THE SUB-TASKS</p>
+<p>In the steps ahead, you will examine in detail what each Sub-Task is performing and understand the rationale for the change. With your approval, Bob will then go ahead and implement the work on your behalf.</p>
+</div>
 <p>Bob will generate a Todo List with the following (or similar) sub-tasks:</p>
 <table>
 <thead>
@@ -3110,14 +3129,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">SEQUENCING THE SUB-TASKS</p>
-<p>In the steps ahead, you will examine in detail what each Sub-Task is performing and understand the rationale for the change. With your approval, Bob will then go ahead and implement the work on your behalf.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">AI MATURITY CURVE</p>
-<p>Throughout <strong>Module 2 | Delegate</strong> of the previous course, you practiced approving Bob's <em>plan</em> before any code was written. Here the same discipline is applied at a finer grain: an explicit approval gate before each of the five sub-tasks, with Bob working autonomously between them.</p>
-</div>
 <hr>
 <div class="admonition tip">
 <p class="admonition-title">Sub-Task 1: Read and analyze the source file</p>
@@ -3133,10 +3144,12 @@
 <ol start="7">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 1 until the Bob chat panel has reported back with a summary of <code>Sub-Task 1 is done. Here's what has changed.</code></p>
+<div class="admonition quote">
 <ul>
 <li><strong>Source File Analysis:</strong> Identified program structure, the <code>WORKSTN</code>/<code>INFDS</code> pattern, named constants, the <code>WSDS</code> data structure, entry parameters and four subroutines</li>
 <li><strong>Conversion Plan:</strong> Mapped every fixed-format construct to its free-format equivalent — <code>TAG</code> to structured flow, <code>CAS</code> to <code>IF</code>/<code>ELSEIF</code>, <code>MOVE</code> to <code>EVAL</code>, <code>PLIST</code> to a procedure interface</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
@@ -3154,10 +3167,12 @@
 <ol start="9">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 2 until the Bob chat panel has reported back with a summary of <code>Sub-Task 2 is done. Here's what has changed.</code></p>
+<div class="admonition quote">
 <ul>
 <li><strong>Fixed-to-Free Conversion:</strong> Converted all specifications to fully free-format RPGLE</li>
 <li><strong>Legacy Constructs Removed:</strong> Replaced <code>TAG</code>, <code>CAS/ENDCS</code>, <code>MOVE</code> and <code>PLIST</code> with modern equivalents</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
@@ -3175,10 +3190,12 @@
 <ol start="11">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 3 until the Bob chat panel has reported back with a summary of <code>Sub-Task 3 is done. Here's what has changed.</code></p>
+<div class="admonition quote">
 <ul>
 <li><strong>Compilation Executed:</strong> Ran <code>CRTBNDRPG</code> against <code>FLGHT400/QRPGLESRC/FRS409</code></li>
 <li><strong>Result:</strong> Program <code>FRS409</code> placed in library <code>FLGHT400</code>, highest severity 00</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
@@ -3189,9 +3206,11 @@
 <ol start="12">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 4 until the Bob chat panel has reported back with a summary of <code>Sub-Task 4 is done. Here's what has changed.</code></p>
+<div class="admonition quote">
 <ul>
 <li><strong>Self-Healing:</strong> No compilation errors detected. No corrections required</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
@@ -3202,9 +3221,11 @@
 <ol start="13">
 <li>
 <p>Continue approving any additional requests related to Sub-Task 5 until the Bob chat panel has reported back with the completed report.</p>
+<div class="admonition quote">
 <ul>
 <li><strong>Summary Report:</strong> Generated a complete audit trail covering spec-by-spec conversion details, compilation results and recommendations for follow-up work</li>
 </ul>
+</div>
 </li>
 </ol>
 <hr>
@@ -3275,17 +3296,15 @@
 <h2 id="2-2-i-from-single-program-modernization-to-cross-stack-change"><strong>i. From single-program modernization to cross-stack change</strong></h2>
 <p>In the previous section, you modernized <code>FRS409</code>, the <em>Order Modification Confirmation Window</em>. Bob explained the program, converted it from fixed-format OPM RPG to free-format ILE RPG, compiled it and wrote a summary report.</p>
 <p>Modernizing a single program is a meaningful first step, but real-world IBM i changes rarely stop at one source member. Adding a new business field, something as simple as <em>Total Flight Hours</em>, touches the physical file, the logical file, the RPG program and the display file. If any one of those layers is missed, the field does not appear on the screen, does not persist to the database or causes a runtime failure.</p>
-<p>With the single-program modernization complete, this section adds a business field <strong>end to end</strong>.</p>
-<p>Throughout this section, you will first give the <em>IBM i Developer</em> mode a set of standing rules for fixed-column source changes. You will then use IBM Bob to explore the <em>Flight Maintenance</em> screen and trace the existing <code>Mileage</code> field through every layer. A focused impact analysis follows, after which you will add a new <em>Total Flight Hours</em> field across four source members. Finally, you will compile all four objects in dependency order, validate the end-to-end field mapping and confirm the result on a live 5250 terminal.</p>
 <div class="admonition note">
-<p class="admonition-title">AI MATURITY CURVE</p>
-<p>This module distributes control the way <strong>Module 2 | Delegate</strong> did. Each change arrives as a <em>proposed diff</em> that you approve explicitly, and each edit is insert-only, with the plan-first discipline applied at the granularity of individual source members. The standing rules you create at the start are the IBM i counterpart of the Bob Rules from <strong>Module 3 | Tailor</strong>: conventions that Bob applies in every task. A change reaches the LPAR only after you have read and approved it.</p>
+<p>With the single-program modernization complete, this section adds a business field <strong>end to end</strong>.</p>
 </div>
+<p>Throughout the module ahead, you will first give the <em>IBM i Developer</em> mode a set of standing rules for fixed-column source changes. You will then use IBM Bob to explore the <em>Flight Maintenance</em> screen and trace the existing <code>Mileage</code> field through every layer. A focused impact analysis follows, after which you will add a new <em>Total Flight Hours</em> field across four source members. Finally, you will compile all four objects in dependency order, validate the end-to-end field mapping and confirm the result on a live 5250 terminal.</p>
 <hr>
 <h2 id="2-2-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Cross-stack field changes are one of the most common, and most error-prone, activities in IBM i development.</p>
 <div class="admonition note">
-<p>Successfully extending a business field end to end requires more than editing one source member. Engineers must:</p>
+<p><strong>Successfully extending a business field end to end requires more than editing one source member. Practitioners must:</strong></p>
 <ul>
 <li>Understand how existing fields flow from physical file through logical file, RPG program and display file</li>
 <li>Identify the minimum set of source members that must change</li>
@@ -3368,41 +3387,40 @@
 <li>Self-heal minor compilation errors, such as a typo in a field reference</li>
 <li>Validate the completed field mapping against the live QSYS2 catalog and the DDS Previewer</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are <strong>non-deterministic</strong>, so the exact diffs, column positions, indicator numbers and compilation messages you see may differ from those shown here.</p>
 <p>IBM Bob is powered by generative AI and LLMs, and a defining trait of these systems is that they are <em>non-deterministic</em> — unlike the <em>deterministic</em> tools most IBM i developers are accustomed to. In practice, the same prompt can produce different DDS, RPG or display-file code from one run to the next.</p>
 <p><strong>All this is to say: <em>Your results ahead may vary.</em></strong> The key takeaway from this workflow is that you understand how to use Bob's impact analysis, review proposed diffs and approve compilation steps. Whether or not you arrive at the exact same column positions or indicator numbers is of less importance — Bob will produce a compilable, functionally correct result either way. The exact implementation details, however, may differ from those documented here.</p>
-</div>
+</details>
 <hr>
 <h2 id="2-2-iv-creating-standing-rules-for-ibm-i-developer-mode"><strong>iv. Creating standing rules for IBM i Developer mode</strong></h2>
 <p>In fixed-column source, small alignment mistakes have large consequences. An O-spec end position padded one column to the right compiles into the wrong byte offset, and a <code>COLHDG</code> keyword that belongs in a physical file is an error in a display file. The prompts in this module spell out those constraints, and Bob follows them, but a constraint stated only in a prompt has to be repeated by each developer in each prompt.</p>
-<p>The Premium Package offers a better place for them: <strong>custom instructions</strong> on the mode itself. Rules written into the <em>IBM i Developer</em> mode's configuration are part of Bob's context in every task that runs in that mode, without being pasted into the chat. You will add the rules for planning and implementing fixed-column code changes now, before the first edit.</p>
+<p>The <strong>IBM Bob Premium Package for i</strong> offers a better place for them: <strong>custom instructions</strong> on the mode itself. Rules written into the <em>IBM i Developer</em> mode's configuration are part of Bob's context in every task that runs in that mode, without being pasted into the chat. You will add the rules for planning and implementing fixed-column code changes now, before the first edit.</p>
 <div class="admonition info">
 <p class="admonition-title">THREE PLACES FOR STANDING GUIDANCE</p>
-<p>You have now met three mechanisms that shape Bob's behavior before a prompt is read. <strong>Custom instructions</strong> on a mode travel with the mode and apply to every task that uses it. The <strong><code>AGENTS</code></strong> member written by <code>/init</code> travels with the library and records what Bob discovered about it. <strong>Bob Rules</strong> in a workspace's <code>.bob/rules/</code> folder, which you created during the previous course, travel with the project. Custom instructions on the mode describe how Bob should work. The <code>AGENTS</code> member records facts about the library. Workspace rules record facts about the project.</p>
+<p>You have now met three mechanisms that shape Bob's behavior before a prompt is read. </p>
+<ol>
+<li><strong>Custom instructions</strong> on a mode travel with the mode and apply to every task that uses it.</li>
+<li>The <strong><code>AGENTS</code></strong> member written by <code>/init</code> travels with the library and records what Bob discovered about it.</li>
+<li><strong>Bob Rules</strong> in a workspace's <code>.bob/rules/</code> folder, which you created during the previous course, travel with the project.</li>
+</ol>
+<p>Custom instructions on the mode describe how Bob should work. The <code>AGENTS</code> member records facts about the library. Workspace rules record facts about the project.</p>
 </div>
 <hr>
 <ol>
-<li>
-<p>Click the <strong>settings</strong> icon (the gear) at the top-right of the Bob panel. The <strong>Bob Settings</strong> tab opens in the editor area.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2-2/_attachments/ppi-custom-mode-1.png" data-desc-position="bottom"><img alt="" src="../2-2/_attachments/ppi-custom-mode-1.png" width="600"></a></p>
-</li>
+<li>Click the <strong>settings</strong> icon (the gear) at the top-right of the Bob panel. The <strong>Bob Settings</strong> tab opens in the editor area.</li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Click <strong>Modes</strong> in the left sidebar of the settings tab. The table lists the built-in modes (<em>Agent</em>, <em>Plan</em> and <em>Ask</em>) together with the two modes the Premium Package contributes, <em>IBM i Database</em> and <em>IBM i Developer</em>, each marked with the <em>Extension</em> scope.</p>
 <p>Select <strong>IBM i Developer</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2-2/_attachments/ppi-custom-mode-2.png" data-desc-position="bottom"><img alt="" src="../2-2/_attachments/ppi-custom-mode-2.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="3">
-<li>
-<p>The mode's detail page shows its description, its extension source (<em>IBM i</em>), its role definition and when to use it. Click the <strong>Edit mode</strong> (pencil) icon at the top-right of the page to open the mode editor, titled <strong>Edit IBM i Developer mode (IBM i)</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2-2/_attachments/ppi-custom-mode-3.png" data-desc-position="bottom"><img alt="" src="../2-2/_attachments/ppi-custom-mode-3.png" width="600"></a></p>
-</li>
+<li>The mode's detail page shows its description, its extension source (<em>IBM i</em>), its role definition and when to use it. Click the <strong>Edit mode</strong> (pencil) icon at the top-right of the page to open the mode editor, titled <strong>Edit IBM i Developer mode (IBM i)</strong>.</li>
 </ol>
 <hr>
 <ol start="4">
@@ -3423,7 +3441,6 @@
 <p class="admonition-title">READ THE RULES BEFORE YOU SAVE THEM</p>
 <p>Each line corresponds to a problem that came up in earlier runs of this change. The <em>anchor above the insertion point</em> rule keeps Bob from swallowing a DDS key line into its replacement; the <em>copy the model line's exact columns</em> rule keeps O-spec end positions right-justified; the <em>never compile until I say so</em> rule is the approval gate that the rest of this module depends on. Bob will apply them in every <em>IBM i Developer</em> task from now on.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../2-2/_attachments/ppi-custom-mode-4.png" data-desc-position="bottom"><img alt="" src="../2-2/_attachments/ppi-custom-mode-4.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -3431,12 +3448,13 @@
 <li>Close the settings tab. The prompts that follow still spell out the same constraints in full, so that the documented run can be reproduced from this page as written. In your own work, the standing rules let you shorten them considerably.</li>
 </ol>
 <hr>
-<h2 id="2-2-v-exploring-the-flight-maintenance-screen"><strong>v. Exploring the flight maintenance screen</strong></h2>
-<p>Before changing anything, you need to understand what the Flight Maintenance screen currently looks like: which fields exist, how they are laid out and what naming conventions the display file uses.</p>
+<h2 id="2-2-v-exploring-the-flight-maintenance-screen"><strong>v. Exploring the Flight Maintenance screen</strong></h2>
+<p>Before changing anything, you need to understand what the <strong>Flight Maintenance</strong> screen currently looks like: which fields exist, how they are laid out and what naming conventions the display file uses.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>). Confirm that <strong>IBM i Developer</strong> is the active mode and that the <em>Documentation</em> and <em>Understand</em> permissions are enabled.</p>
+<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list (<code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>).</p>
+<p>Confirm that <strong>IBM i Developer</strong> is the active mode and that the <em>Documentation</em> and <em>Understand</em> permissions are enabled.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd531a2c-87d9-4141-b36d-a3cecd7ef4bb/user_cropped_screenshot_2a78797d8f694d30b3b3198295a69d91_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd531a2c-87d9-4141-b36d-a3cecd7ef4bb/user_cropped_screenshot_2a78797d8f694d30b3b3198295a69d91_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3474,7 +3492,10 @@
 <hr>
 <ol start="4">
 <li>
-<p>Scroll down to review the <strong>naming convention analysis</strong>. Bob identifies the standard IBM i DDS pattern: constants for labels and named fields for data. Labels are quoted string constants on a name-less DDS line, and the data entry field is defined on the next line, positioned a few columns to the right. Labels are colored blue (<code>COLOR(BLU)</code>), while data fields may carry <code>DSPATR(HI)</code> or <code>DSPATR(RI)</code> for error highlighting.</p>
+<p>Scroll down to review the <strong>naming convention analysis</strong>.</p>
+<div class="admonition quote">
+<p>Bob identifies the standard IBM i DDS pattern: constants for labels and named fields for data. Labels are quoted string constants on a name-less DDS line, and the data entry field is defined on the next line, positioned a few columns to the right. Labels are colored blue (<code>COLOR(BLU)</code>), while data fields may carry <code>DSPATR(HI)</code> or <code>DSPATR(RI)</code> for error highlighting.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/29371a61-c2ec-4021-a75b-c2ae443b501f/user_cropped_screenshot_dcdda80275084b08b65b4ddc005ccb2c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/29371a61-c2ec-4021-a75b-c2ae443b501f/user_cropped_screenshot_dcdda80275084b08b65b4ddc005ccb2c_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3486,11 +3507,11 @@
 <hr>
 <ol>
 <li>
-<p>In the same Bob chat, copy and paste the following prompt and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#2-2-__codelineno-3-1"></a>Perform a focused impact analysis for adding Total Flight Hours to the Flight Maintenance application in FLGHT400. Use these requirements: add database field FLHRS; expose it to RPG as FHRS; display it on the screen as SFLHRS; use four numeric digits with zero decimal positions; place it immediately after Mileage on the Flight Maintenance screen. First, trace the existing Mileage field through the application. Show how the database field in FLIGHTS is exposed through FLIGHTSZ, handled by FRS021, and displayed as SMILES in FRS021DF. Then identify the minimum source members that must change to implement Total Flight Hours in the direct Flight Maintenance path. Confirm: whether FLIGHTS is defined by DDS; whether FLIGHTSZ explicitly lists and renames fields; how FRS021 defines the FLIGHTSZ record layout; how FRS021 maps database values to screen values; which objects must be rebuilt or recompiled. Mention any additional affected programs as follow-up work, but do not analyze or modify those programs during this demonstration. Do not modify, save, or compile anything.
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">WHERE THE UNDERSTAND SCAN HELPS</p>
+<p class="admonition-title">HOW THE <em>UNDERSTAND</em> SCAN HELPS</p>
 <p>With the <em>Understand</em> permission enabled, Bob can take the list of programs that open <code>FLIGHTS</code> and <code>FLIGHTSZ</code> from the scan rather than searching source members for file names. This is how Bob lists the follow-up programs at the end of the analysis without opening each of them.</p>
 </div>
 <p>Bob reads all four source members and produces <strong>Confirmed Answers to Each Question</strong>:</p>
@@ -3644,7 +3665,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#2-2-__codelineno-5-1"></a>Update the DDS source for the direct database path: In FLGHT400/QDDSSRCF(FLIGHTS), add FLHRS as a packed-decimal field with four digits and zero decimal positions. Add an appropriate COLHDG consistent with the existing physical-file DDS. In FLGHT400/QDDSSRCF(FLIGHTSZ), add FHRS RENAME(FLHRS) so the new physical-file field is available to the RPG program. Preserve the exact column positions of all existing DDS lines; make insert-only changes. Do not add ALWNULL, do not change the field to 5P 1, and do not use SQL ALTER TABLE. Show the proposed diffs. Do not save or compile anything until I review them.
 </code></pre></div>
 <p></p><p align="left">
@@ -3656,36 +3677,41 @@
 <ol start="2">
 <li>
 <p>Bob produces <strong>Proposed Diffs (read-only — do not apply until you approve)</strong>.</p>
-<p><strong>Diff 1 — FLIGHTS.PF</strong>: Insert two new lines after line 52 (after <code>COLHDG('MILEAGE')</code>), before the key spec on line 53. The new field <code>FLHRS</code> matches the column alignment of <code>MILEAGE</code> in full:</p>
+<div class="admonition note">
+<p class="admonition-title">Diff 1 — FLIGHTS.PF</p>
+<p>Insert two new lines after line 52 (after <code>COLHDG('MILEAGE')</code>), before the key spec on line 53. The new field <code>FLHRS</code> matches the column alignment of <code>MILEAGE</code> in full:</p>
 <ul>
 <li><code>FLHRS</code> starts at column 20 (matching <code>MILEAGE</code>)</li>
 <li><code>4P 0</code> starts at column 30 (matching the <code>9B 0</code> of <code>MILEAGE</code>)</li>
 <li><code>COLHDG('FLIGHT_HOURS')</code> starts at column 46 (matching <code>COLHDG('MILEAGE')</code>)</li>
 </ul>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" alt="" width="600"></a>
-</p>
-</li>
-</ol>
-<hr>
-<ol start="3">
-<li>
-<p><strong>Diff 2 — FLIGHTSZ.LF</strong>: Insert one new line after line 13 (after <code>MILES RENAME(MILEAGE)</code>), before the key spec on line 14. The new line matches the column layout of all other <code>RENAME</code> lines:</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Diff 2 — FLIGHTSZ.LF</p>
+<p>Insert one new line after line 13 (after <code>MILES RENAME(MILEAGE)</code>), before the key spec on line 14. The new line matches the column layout of all other <code>RENAME</code> lines:</p>
 <ul>
 <li><code>A</code> at column 6 (standard DDS form type)</li>
 <li><code>FHRS</code> at column 15 (the field name position, matching <code>MILES</code>, <code>SEATS</code>, <code>TKTPR</code> and the rest)</li>
 <li><code>RENAME(FLHRS)</code> at column 45 (matching all other <code>RENAME</code> keywords on existing lines)</li>
 </ul>
-<p>Review the <strong>Summary of Changes</strong> table confirming that both changes are insert-only, with no <code>ALWNULL</code>, no <code>5P 1</code> and no SQL. Once satisfied, type the following approval and send it:</p>
+</div>
+<p>Review the <strong>Summary of Changes</strong> table confirming that both changes are insert-only, with no <code>ALWNULL</code>, no <code>5P 1</code> and no SQL.</p>
+<ul>
+<li>Once satisfied, copy &amp; paste the following instruction into the <strong>Agentic Sidebar</strong></li>
+<li>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#2-2-__codelineno-6-1"></a>I approve these two DDS source changes. Save both source members, but do not compile them yet.
 </code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/dc1bacf9-1e3c-4758-b4e1-fdf5440acafe/user_cropped_screenshot_f07329e30d9f46c58cb7c346e33a638b_text_export.jpeg" alt="" width="600"></a>
+</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/74f6a81b-ecdf-4511-a3fa-31beb9751e00/user_cropped_screenshot_00c6dd3f656a48a5a9ca936658a24dc0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/74f6a81b-ecdf-4511-a3fa-31beb9751e00/user_cropped_screenshot_00c6dd3f656a48a5a9ca936658a24dc0_text_export.jpeg" alt="" width="600"></a>
 </p>
 </li>
 </ol>
 <hr>
-<ol start="4">
+<ol start="3">
 <li>
 <p>Bob applies both inserts, verifies the final state of each member and confirms:</p>
 <div class="admonition quote">
@@ -3708,10 +3734,12 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#2-2-__codelineno-7-1"></a>Update FLGHT400/QDDSSRCD(FRS021DF) to add an input/output screen field named SFLHRS for Total Flight Hours. Requirements: four numeric digits; zero decimal positions; positioned immediately after Mileage; visible label: Flight Hours; use CHECK(RZ) to match the comparable numeric fields on this screen; preserve the existing display-file DDS style. Do not add COLHDG — it is not valid in a display file. Ensure that the label and field fit within the screen and do not overlap existing fields, message areas, or function-key text. Show the proposed diff and updated DDS preview. Do not save or compile anything until I review it.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob checks indicator usage (51 to 60 are already used) and selects the next available indicator (<strong>61</strong>). It produces a <strong>Proposed Diff — FRS021DF.DSPF</strong>: insert six lines after line 104 (after the last <code>DSPATR</code> line belonging to <code>SMILES</code>), before the <em>Airline</em> label on line 105. No existing lines are changed.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e022d20b-9110-4989-b43b-76a1f30493c6/user_cropped_screenshot_fd41a1d02b0b4a66a569a21c04ecb152_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3725,7 +3753,9 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#2-2-__codelineno-8-2"></a>Row 16 | Flight Hours . . . . . . .   [FLHRS ]     ← NEW row 16, col 37, 4 digits
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#2-2-__codelineno-8-3"></a>Row 17 | Airline. . . . . .           [SAIRLN ]    ( F8 to Select )
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob confirms <strong>No overlaps</strong>: row 16 columns 2 to 35 (the label) are clear; row 16 columns 37 to 40 (<code>SFLHRS</code>, four digits) end at column 40, well inside the right margin; <code>SMILES</code> on row 15 and <code>SFLHRS</code> on row 16 are on different rows with no conflict; the <em>Airline</em> label on row 17 is unchanged.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/e62e074e-003d-45da-a64b-14062f3037cf/user_cropped_screenshot_8249c5e7a0074637bb1d89f04005a380_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3734,7 +3764,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>Once you have reviewed the proposed diff and screen preview, type the following approval and send it:</p>
+<p>Once you have reviewed the proposed diff and screen preview, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#2-2-__codelineno-9-1"></a>I approve the display-file change. Save FRS021DF, but do not compile it yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -3767,10 +3797,10 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#2-2-__codelineno-10-1"></a>Update FLGHT400/QRPGSRC(FRS021) to handle Total Flight Hours using the existing Mileage implementation as the pattern. Make the minimum changes needed to: increase the program-described FLIGHTSZ record length for the new packed field; add FHRS to the input specification at the correct record positions; load SFLHRS from FHRS when an existing record is retrieved; move SFLHRS to FHRS during add and update processing; include FHRS in the add and update output specifications; validate the screen value consistently with the existing numeric screen fields. Preserve the existing OPM RPG style and fixed-column positioning. After every successful CHAIN used to load an existing flight for display, explicitly move FHRS to SFLHRS, following the same database-to-screen pattern used for Mileage. Do not assume that the display file maps FHRS to SFLHRS automatically. Do not modify any other programs during this demonstration. Show the proposed diff and explain each change briefly. Do not save or compile anything until I review it.
 </code></pre></div>
-<details class="tip">
+<details class="warning">
 <summary>ALIGNMENT TROUBLE? SPLIT THE RPG CHANGE INTO THREE DIFFS</summary>
 <p><code>FRS021</code> is fixed-form OPM RPG and the most alignment-sensitive member in this change. If Bob's single diff mis-pads a column, or if you prefer smaller approvals, ask for the change in three parts instead and approve each before the next. Do not compile at any of the three steps.</p>
 <p><strong>F-spec and I-spec</strong> (record length plus the packed input field):</p>
@@ -3793,9 +3823,11 @@
 <ol start="2">
 <li>
 <p>Bob produces a <strong>Proposed Diff — FRS021.RPG</strong> with the following changes:</p>
+<div class="admonition quote">
 <p><strong>Change 1 — F-spec: record length 233 → 236</strong>: The F-spec line for <code>FFLIGHTSZUF</code> is updated from 233 to 236. <code>FFHRS</code> is <code>4P 0</code>, which is three bytes, appended after <code>FMILES</code> (bytes 230 to 233). The new total is 236.</p>
 <p><strong>Change 2 — I-spec: add <code>FFHRS P 234–236 0</code> after <code>FMILES</code></strong>: A new I-spec line maps the new packed-decimal bytes 234 to 236 to the RPG field <code>FFHRS</code>, four digits and zero decimals.</p>
 <p><strong>Change 3 — @ERRCK: validate <code>SFLHRS</code> after the <code>SMILES</code> block</strong>: A validation block for <code>SFLHRS</code> using indicator 61 and message <code>FRS0025</code>, following the same <code>SETON</code>/<code>MOVE</code>/<code>EXSR</code>/<code>GOTO</code> pattern.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/83c55a64-7306-44e2-a46e-1300191c660b/user_cropped_screenshot_5f8aeb3b2bcc46d2a5a8a100e390d637_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -3805,11 +3837,13 @@
 <ol start="3">
 <li>
 <p>Scroll down to review the remaining changes:</p>
+<div class="admonition quote">
 <p><strong>Change 4 — ADD branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTADDFLT</code></p>
 <p><strong>Change 5 — ELSE (UPDATE) branch</strong>: <code>Z-ADDFFHRS SFLHRS</code> — database to screen load after <code>CHAIN</code></p>
 <p><strong>Change 6 — UPDATE branch</strong>: <code>Z-ADDSFLHRS FFHRS</code> — screen to file before <code>EXCPTUPDFLT</code></p>
 <p><strong>Change 7 — O-specs</strong>: <code>FFHRS 236P</code> in both the <code>ADDFLT</code> and <code>UPDFLT</code> exception output groups</p>
-<p>Once you have reviewed all proposed changes and are satisfied they are correct, type the following approval and send it:</p>
+</div>
+<p>Once you have reviewed all proposed changes and are satisfied they are correct, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#2-2-__codelineno-14-1"></a>I approve the FRS021 changes. Save the source member, but do not compile yet.
 </code></pre></div>
 <p></p><p align="left">
@@ -3922,7 +3956,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#2-2-__codelineno-15-1"></a>Build only the direct Flight Maintenance path in this order: 1. Apply the updated DDS for FLGHT400/FLIGHTS 2. Rebuild FLGHT400/FLIGHTSZ 3. Compile FLGHT400/FRS021DF 4. Compile FLGHT400/FRS021. Use the correct IBM i command for each source type. Stop if one of these four objects fails — report the compile error briefly and wait for my direction. Do not modify or compile unrelated programs. List additional impacted programs as follow-up work only.
 </code></pre></div>
 <p></p><p align="left">
@@ -3934,12 +3968,15 @@
 <ol start="2">
 <li>
 <p>Bob generates a <strong>Todo List</strong> with four steps and pauses for approval:</p>
+<div class="admonition success">
+<p class="admonition-title">TODO LIST</p>
 <ul>
 <li>Step 1: Apply updated DDS — <code>CHGPF FLGHT400/FLIGHTS</code></li>
 <li>Step 2: Rebuild logical file — <code>CRTLF FLGHT400/FLIGHTSZ</code></li>
 <li>Step 3: Compile display file — <code>CRTDSPF FLGHT400/FRS021DF</code></li>
 <li>Step 4: Compile RPG program — <code>CRTRPGPGM FLGHT400/FRS021</code></li>
 </ul>
+</div>
 <p>Click <strong>Approve todo tools for task</strong> to let Bob execute all four build steps.</p>
 <div class="admonition info">
 <p class="admonition-title">WHY CHGPF RATHER THAN CRTPF</p>
@@ -3990,7 +4027,9 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition quote">
 <p>Bob notes the one fix applied during compilation: on line 529 of <code>FRS021.RPG</code>, <code>Z-ADDFHRS</code> was corrected to <code>Z-ADDFFHRS</code>. The I-spec field is named <code>FFHRS</code>, and the C-spec had the <code>F</code> prefix missing.</p>
+</div>
 <details class="warning">
 <summary>TROUBLESHOOTING: A COMPILE FAILS</summary>
 <p>If one of the four objects fails to compile, keep Bob scoped to the four objects: <em>"Explain the direct cause and propose the smallest correction limited to the four demo objects. Do not modify anything yet."</em> If the cause is an OPM RPG column-alignment issue, remind Bob to copy the model line's exact columns rather than counting by eye. If a program such as <code>FRS003</code>, <code>FRS413</code> or <code>BFLGHT</code> is also affected, record it as follow-up work; do not update or compile it here.</p>
@@ -4009,7 +4048,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#2-2-__codelineno-16-1"></a>Validate the completed Total Flight Hours change for the direct Flight Maintenance path. Confirm: FLHRS exists in FLGHT400/FLIGHTS; FHRS is available through FLGHT400/FLIGHTSZ; SFLHRS appears immediately after Mileage in the FRS021DF DDS Previewer; FRS021 compiled successfully; the display file does not contain the invalid COLHDG keyword. Finish with a short summary of the end-to-end field mapping and list any additional impacted programs as follow-up work. Do not modify anything.
 </code></pre></div>
 <p></p><p align="left">
@@ -4081,7 +4120,11 @@
 <hr>
 <ol>
 <li>
-<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup, then click <strong>Terminals</strong> to open a new terminal session on the LPAR. When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</p>
+<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup.</p>
+<ul>
+<li>Click <strong>Terminals</strong> to open a new terminal session on the LPAR.</li>
+<li>When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4090,7 +4133,7 @@
 <hr>
 <ol start="2">
 <li>
-<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your TechZone reservation details, then press <strong>Enter</strong> to sign on.</p>
+<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your <em>IBM Technology Zone</em> reservation details, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to sign on.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4099,7 +4142,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>At the IBM i Main Menu, type the following command on the command line and press <strong>Enter</strong> to add the <code>FLGHT400</code> library to your session's library list:</p>
+<p>At the <strong>IBM i Main Menu</strong>, type the following command on the command line and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to add the <code>FLGHT400</code> library to your session's library list:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#2-2-__codelineno-17-1"></a>ADDLIBLE FLGHT400
 </code></pre></div>
 <p></p><p align="left">
@@ -4110,7 +4153,7 @@
 <hr>
 <ol start="4">
 <li>
-<p>On the command line, type the following and press <strong>Enter</strong> to launch the Flight Maintenance program directly:</p>
+<p>On the command line, type the following and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to launch the <strong>Flight Maintenance</strong> program directly:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#2-2-__codelineno-18-1"></a>CALL FLGHT400/FRS021
 </code></pre></div>
 <p></p><p align="left">
@@ -4122,7 +4165,8 @@
 <ol start="5">
 <li>
 <p>The <strong>Flight Maintenance System — Flight Schedule</strong> screen appears. Confirm that the new <strong>Flight Hours</strong> field is visible immediately after <em>Mileage</em>, showing <code>0000</code> as the default value for the four-digit numeric field.</p>
-<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>. Press <strong>F3</strong> to exit the program when you are done.</p>
+<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>.</p>
+<p>To <strong>exit</strong>, hit <span class="keys"><kbd class="key-f3">F3</kbd></span> to quit the program.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4166,7 +4210,7 @@
 <h2 id="3-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Database performance on IBM i depends on access paths, and few people understand the optimizer well enough to choose them.</p>
 <div class="admonition note">
-<p>Reviewing and tuning a Db2 for i statement by hand requires engineers to:</p>
+<p><strong>Reviewing and tuning a Db2 for i statement by hand requires practitioners to:</strong></p>
 <ul>
 <li>Map system-generated column names back to the business fields they represent</li>
 <li>Spot statements that are logically incorrect even when they happen to run</li>
@@ -4217,30 +4261,33 @@
 <li>Read the Index Advisor's recommendations and the system's temporary index activity</li>
 <li>Generate <code>CREATE INDEX</code> statements, explain the expected benefit of each and create the ones you approve</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, and the optimizer's advice depends on the statements that have run on your partition. The findings from <code>/review</code>, the bottleneck explanation and the index recommendations you see may differ from those shown here, in wording and in detail.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to review a statement with the slash command, how to run the SQL Index Strategy Advisor workflow and how to read what it recommends. Expect the highest-priority recommendation to involve <code>ORDERS</code> and its date column; the exact column order and index name may differ.</p>
-</div>
+</details>
 <hr>
 <h2 id="3-1-iv-reviewing-a-query-with-review"><strong>iv. Reviewing a query with /review</strong></h2>
 <p>The statement below was written to report ticket sales by flight and agent for a three-day window in February 2004. It joins four files, aggregates by class of service and has been handed to you for review before it goes into a report. It contains at least one logical fault.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Database</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> to start a clean task scoped to <code>QGPL</code>, <code>QTEMP</code> and <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</p>
-<!-- SCREENSHOT: mode selector with IBM i Database selected -->
+<p>In the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Database</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> to start a clean task scoped to <code>QGPL</code>, <code>QTEMP</code> and <code>FLGHT400</code></li>
+<li>Confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>. Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
-<div class="admonition note">
+<p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>.</p>
+<p>Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
+<div class="admonition info">
 <p class="admonition-title">THE COMMAND NAME MAY DIFFER BY RELEASE</p>
 <p>In the documented run the command appeared as <code>/review</code>. Later releases of the Premium Package list it as <code>/review_SQL</code>, alongside a <code>/review_rpg</code> counterpart for RPG source. Either way, type <code>/review</code> and pick the SQL entry from the list; typing the whole command without selecting it from the list leaves it as plain text, and Bob will treat the query as a question rather than a review.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../3-1/_attachments/ppi-review-1.jpeg" data-desc-position="bottom"><img alt="" src="../3-1/_attachments/ppi-review-1.jpeg" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -4285,7 +4332,6 @@
 <p class="admonition-title">THE FAULT TO LOOK FOR</p>
 <p><code>o.DEPAR00001</code> appears in the <code>ORDER BY</code> clause but not in the <code>GROUP BY</code> clause. Ordering an aggregated result by a column that is neither grouped nor aggregated is logically incorrect, and strict SQL engines reject it with <code>SQL0122</code>. Read the review with that in mind and check whether Bob catches it on its own.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../3-1/_attachments/ppi-review-2.jpeg" data-desc-position="bottom"><img alt="" src="../3-1/_attachments/ppi-review-2.jpeg" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -4304,26 +4350,28 @@
 </ul>
 </div>
 <p>The last point has consequences beyond this one statement. <code>FLIGH00001</code> is the system name Db2 for i generated for a field whose DDS name was longer than ten characters; the same column also carries an SQL name (<code>FLIGHT_NUMBER</code>) that matches the business name of the field. Bob's corrected statement uses the SQL names, which is why the index recommendations later in this module name <code>DEPARTURE_DATE</code> and <code>FLIGHT_NUMBER</code> rather than <code>DEPAR00001</code> and <code>FLIGH00001</code>.</p>
-<!-- SCREENSHOT: Bob's /review findings for the ticket sales query -->
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
-<p>The Index Advisor records advice only for statements that the optimizer has processed, and the query above has not yet been executed. Ask Bob to apply its corrections and execute the result:</p>
+<p>The Index Advisor records advice only for statements that the optimizer has processed, and the query above has not yet been executed.</p>
+<p>Ask Bob to apply its corrections and execute the result. Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#3-1-__codelineno-1-1"></a>Apply the corrections you recommended and run the corrected statement against FLGHT400, keeping FETCH FIRST 100 ROWS ONLY. Show me the first few rows of the result and confirm that the statement ran without error.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob rewrites the statement, runs it through its SQL tool and returns the first rows. Approve the tool request when it appears. The run takes a few seconds; it also leaves an entry in the SQL plan cache, which is what the workflow in the next section analyzes.</p>
-<!-- SCREENSHOT: the corrected statement and the first rows of its result -->
+</div>
 </li>
 </ol>
 <hr>
 <ol start="6">
 <li>
-<p>With the statement in context, ask the question a DBA would ask next:</p>
+<p>With the statement in context, ask the question a DBA would ask next. Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#3-1-__codelineno-2-1"></a>Is any table a performance bottleneck in this query, and why?
 </code></pre></div>
-<p>In the documented run, Bob identified four things:</p>
+<div class="admonition quote">
+<p><strong>In the documented run, Bob identified four things:</strong></p>
 <ul>
 <li><code>ORDERS</code> is the largest file in the join</li>
 <li>The query filters it on <code>DEPARTURE_DATE</code></li>
@@ -4331,12 +4379,13 @@
 <li>The date-range predicate is therefore highly selective and a strong candidate for index optimization</li>
 </ul>
 <p>The answer is informational and will vary with the optimizer's statistics on your partition. Its value is in naming the file and the predicate that an index would help.</p>
-<!-- SCREENSHOT: Bob's bottleneck explanation naming ORDERS and the DEPARTURE_DATE predicate -->
+</div>
 </li>
 </ol>
 <hr>
 <h2 id="3-1-v-running-the-sql-index-strategy-advisor-workflow"><strong>v. Running the SQL Index Strategy Advisor workflow</strong></h2>
-<p>Db2 for i records the indexes it would benefit from. Every time the optimizer processes a statement, it notes in the <strong>Index Advisor</strong> the access paths that would have made the statement cheaper, and when the benefit is large enough it builds a <strong>maintained temporary index</strong> (MTI) on its own. The <strong>SQL Index Strategy Advisor</strong> workflow collects that evidence from the plan cache, analyzes it and proposes permanent indexes, which you approve one at a time before Bob creates them.</p>
+<p>Db2 for i records the indexes it would benefit from. Every time the optimizer processes a statement, it notes in the <strong>Index Advisor</strong> the access paths that would have made the statement cheaper, and when the benefit is large enough it builds a <strong>maintained temporary index</strong> (MTI) on its own.</p>
+<p>The <strong>SQL Index Strategy Advisor</strong> workflow collects that evidence from the plan cache, analyzes it and proposes permanent indexes, which you approve one at a time before Bob creates them.</p>
 <div class="admonition info">
 <p class="admonition-title">WHAT THE CAPTURE DOES</p>
 <p>The workflow's <em>Capture New Performance Data</em> option calls the <code>DUMP_PLAN_CACHE_TOPN</code> procedure, which writes the top <em>N</em> statements from the SQL plan cache (ranked by the category you choose) into a database monitor file in an output library. The analysis then runs against that file: the Index Advisor recommendations, the MTI activity and the query statistics for each captured statement. Nothing is created until you approve it.</p>
@@ -4344,8 +4393,8 @@
 <hr>
 <ol>
 <li>
-<p>Still in <strong>IBM i Database</strong> mode, click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>. In the workflow catalog, click <strong>Start</strong> on <strong>SQL Index Strategy Advisor</strong>, then <strong>Get Started</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../3-1/_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="../3-1/_attachments/ppi-workflows-icon.png" width="600"></a></p>
+<p>Still in <strong>IBM i Database</strong> mode, click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>.</p>
+<p>In the workflow catalog, click <strong>Start</strong> on <strong>SQL Index Strategy Advisor</strong>, then <strong>Get Started</strong>.</p>
 </li>
 </ol>
 <hr>
@@ -4386,11 +4435,10 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">WHY THESE VALUES</p>
+<div class="admonition info">
+<p class="admonition-title">EXPLAINING THESE VALUES</p>
 <p>The output library and object name decide where the monitor file lands; keeping it in <code>FLGHT400</code> keeps the lab's objects together. <em>Runtime</em> ranks the plan cache by the statements that have consumed the most time, which is where the ticket sales query sits after its run. Twenty statements is enough to cover everything Bob has executed in this lab without burying the one this module is about.</p>
 </div>
-<!-- SCREENSHOT: the SQL Index Strategy Advisor settings form filled in -->
 </li>
 </ol>
 <hr>
@@ -4433,7 +4481,6 @@
 <p class="admonition-title">CREATE ONE INDEX AT A TIME</p>
 <p>An index speeds up the statements that use it and adds cost to every insert, update and delete on the file it covers. The advisor's list is a set of candidates ranked by evidence from the capture, so approve the one with the clearest benefit and leave the rest as documentation. On a shared partition the same caution applies to scope: create indexes only in your own library.</p>
 </div>
-<!-- SCREENSHOT: Bob's recommended indexes with their expected benefit -->
 </li>
 </ol>
 <hr>
@@ -4442,8 +4489,9 @@
 <p>When Bob asks which recommendations to apply, respond with the following prompt (or select the equivalent option in the workflow):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#3-1-__codelineno-5-1"></a>Apply the highest-priority index only, in FLGHT400.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob runs the <code>CREATE INDEX</code> statement and reports success. The workflow closes with a summary covering the data source, the findings, the index created and the recommended next steps.</p>
-<!-- SCREENSHOT: the CREATE INDEX statement executed and the workflow summary -->
+</div>
 </li>
 </ol>
 <hr>
@@ -4452,8 +4500,9 @@
 <p>Confirm the result from the catalog:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#3-1-__codelineno-6-1"></a>List the indexes that exist on FLGHT400/ORDERS, with their key columns.
 </code></pre></div>
+<div class="admonition quote">
 <p>The new index appears among the keyed access paths over <code>ORDERS</code>. In the Object Browser, refresh the <code>FLGHT400</code> filter: an SQL index is an IBM i file object with the logical-file attribute, so <code>ORDERS_IDX_DEPDT_FLT</code> is listed alongside the application's own logical files. Run the corrected ticket sales query once more and the optimizer will pick the new access path for the date range.</p>
-<!-- SCREENSHOT: the index listed by Bob, and in the Object Browser -->
+</div>
 </li>
 </ol>
 <hr>
@@ -4492,7 +4541,7 @@
 <h2 id="4-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Automated tests make modernization repeatable. Most IBM i estates have none.</p>
 <div class="admonition note">
-<p>Bringing unit tests to an RPG codebase by hand requires engineers to:</p>
+<p><strong>Bringing unit tests to an RPG codebase by hand requires practitioners to:</strong></p>
 <ul>
 <li>Learn the RPGUnit framework, its assertion procedures and its compile commands</li>
 <li>Decide, for every exported procedure, which branches and boundary values deserve a test case</li>
@@ -4543,58 +4592,73 @@
 <li>Generate RPGUnit test source members from the plan, together with a <code>testing.json</code> that the IBM i Testing extension reads</li>
 <li>Run the suites, read the results and correct the tests (or point to a fault in the code under test) until they pass</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the number of test cases it plans, the names it gives them and the order in which the workflow prompts you may differ from those shown here.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how the two workflows divide the work (a plan first, then an implementation that runs until it passes) and how to read the result in the <em>Test Results</em> panel. Whether Bob writes four test cases or six for <code>checkCustomerExists</code> is of less importance than the fact that they run and pass.</p>
-</div>
+</details>
 <hr>
 <h2 id="4-1-iv-installing-rpgunit-on-the-partition"><strong>iv. Installing RPGUnit on the partition</strong></h2>
 <p>RPGUnit is an open-source unit testing framework for ILE RPG. The IBM i Testing extension knows how to install it on a connected partition as a <em>component</em>, and the Premium Package's workflows expect to find it there, in a library named <code>RPGUNIT</code>.</p>
 <hr>
 <ol>
 <li>
-<p>Open the <strong>Extensions</strong> view (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>), search for <strong><code>IBM i Testing</code></strong> and confirm that the extension appears under <em>Installed</em>. It arrived with the IBM i Development Pack during <em>Setup</em>; if it is missing, click <strong>Install</strong> and reload when prompted.</p>
-<!-- SCREENSHOT: Extensions view with IBM i Testing under Installed -->
+<p>Open the <strong>Extensions</strong> view (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span> or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span>), search for <strong><code>IBM i Testing</code></strong> and confirm that the extension appears under <em>Installed</em>. It would normally have been installed as part of the IBM i Development Pack during the <em>Setup</em> module.</p>
+<details class="warning">
+<summary>TROUBLESHOOTING: EXTENSION IS MISSING</summary>
+<p>If the <strong><code>IBM i Testing</code></strong> extension is missing, click <strong>Install</strong> and reload when prompted.</p>
+</details>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>Open the settings for your connection. In the status bar at the bottom of the window, click the gear icon labelled with your connection name (<strong>IBM i Modernization</strong>) and choose the connection settings from the options presented. A <strong>Settings: IBM i Modernization</strong> tab opens in the editor area, with tabs for <em>Mapepire</em>, <em>Features</em>, <em>Source Code</em>, <em>Terminals</em>, <em>Debugger</em>, <em>Temporary Data</em> and <em>Components</em>.</p>
-<div class="admonition note">
+<p>Open the settings for your connection. In the status bar at the bottom of the window, click the gear icon labelled with your connection name (<strong>IBM i Modernization</strong>) and choose the connection settings from the options presented.</p>
+<p>A <strong>Settings: IBM i Modernization</strong> tab opens in the editor area, with tabs for <em>Mapepire</em>, <em>Features</em>, <em>Source Code</em>, <em>Terminals</em>, <em>Debugger</em>, <em>Temporary Data</em> and <em>Components</em>.</p>
+<div class="admonition info">
 <p class="admonition-title">ANOTHER ROUTE TO THE SAME PAGE</p>
 <p>The same settings open from the IBM i sidebar: right-click the connection and choose its settings.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-components-1.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-components-1.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Click the <strong>Components</strong> tab. It lists the components that the installed extensions contribute and whether each is present on the partition. <em>Code for IBM i</em> contributes <strong>mapepire</strong> (installed, required). <em>IBM i Testing</em> contributes <strong>RPGUnit</strong>, shown as <em>NotInstalled (optional)</em>, and <strong>CODECOV</strong> (installed, required).</p>
+<p>Click the <strong>Components</strong> tab. It lists the components that the installed extensions contribute and whether each is present on the partition.</p>
+<div class="admonition quote">
+<ul>
+<li><em>Code for IBM i</em> contributes <strong>mapepire</strong> (installed, required).</li>
+<li><em>IBM i Testing</em> contributes <strong>RPGUnit</strong>, shown as <em>NotInstalled (optional)</em>, and <strong>CODECOV</strong> (installed, required).</li>
+</ul>
+</div>
 <p>Click <strong>Install component</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-components-2.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-components-2.png" width="600"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-components-3.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-components-3.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
-<p>In the <strong>Install component</strong> picker, tick <strong>RPGUnit</strong> and click <strong>OK</strong>. The extension creates the <code>RPGUNIT</code> library on the partition and installs the framework's service program and commands into it. When the <em>Components</em> tab reports RPGUnit as <em>Installed</em>, click <strong>Save settings</strong> and close the tab.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-components-4.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-components-4.png" width="600"></a></p>
+<p>In the <strong>Install component</strong> picker, tick <strong>RPGUnit</strong> and click <strong>OK</strong>.</p>
+<div class="admonition quote">
+<ul>
+<li>The extension creates the <code>RPGUNIT</code> library on the partition and installs the framework's service program and commands into it.</li>
+<li>When the <em>Components</em> tab reports RPGUnit as <em>Installed</em>, click <strong>Save settings</strong> and close the tab.</li>
+</ul>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
-<p>Add the two testing libraries to your library list, the same way you added <code>FLGHT400</code> during <em>Setup</em>. In the IBM i sidebar, hover over <strong>User Library List</strong>, click the <strong>+</strong> (Add library) icon, type <strong><code>RPGUNIT</code></strong> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>. Repeat for <strong><code>QDEVTOOLS</code></strong>.</p>
+<p>Add the two testing libraries to your library list, the same way you added <code>FLGHT400</code> during <em>Setup</em>.</p>
+<ul>
+<li>In the IBM i sidebar, hover over <strong>User Library List</strong>, click the <strong>+</strong> (Add library) icon, type <strong><code>RPGUNIT</code></strong> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</li>
+<li>Repeat for <strong><code>QDEVTOOLS</code></strong>.</li>
+</ul>
 <p>Your list should now read <code>QGPL</code>, <code>QTEMP</code>, <code>FLGHT400</code>, <code>RPGUNIT</code> and <code>QDEVTOOLS</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">WHAT THE TWO LIBRARIES HOLD</p>
 <p><code>RPGUNIT</code> holds the framework: the assertion procedures that your tests call and the commands that compile and run a suite. <code>QDEVTOOLS</code> is the IBM-supplied library that the extension's code-coverage component draws on. The suites compile with both on the library list, which is why the workflows check for them and offer to add them if they are missing.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-testing-libraries.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-testing-libraries.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -4603,21 +4667,21 @@
 <hr>
 <ol>
 <li>
-<p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter and right-click the <strong><code>qrpglesrc</code></strong> source file. Choose <strong>New Member…</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-add-member.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-add-member.png" width="600"></a></p>
+<p>In the <strong>Object Browser</strong>, expand the <code>FLGHT400</code> filter and right-click the <strong><code>qrpglesrc</code></strong> source file.</p>
+<p>Select <strong>New Member…</strong>.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>When prompted for the member name, enter <strong><code>CUSTCHK.SQLRPGLE</code></strong> and confirm. If the extension asks for a description, enter <code>Customer existence check</code>. The new, empty member opens in the editor.</p>
-<!-- SCREENSHOT: New Member prompt with CUSTCHK.SQLRPGLE entered -->
+<p>When prompted for the member name, enter <strong><code>CUSTCHK.SQLRPGLE</code></strong> and confirm.</p>
+<p>If the extension asks for a description, enter <code>Customer existence check</code>. The new, empty member opens in the editor.</p>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Paste the following source into the member and save it with <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>:</p>
+<p>Paste the following source into the member and save it with <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> (or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#4-1-__codelineno-0-1"></a>**free
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#4-1-__codelineno-0-2"></a>ctl-opt nomain;
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#4-1-__codelineno-0-3"></a>
@@ -4641,13 +4705,12 @@
 <p class="admonition-title">WHY A NOMAIN MODULE</p>
 <p>RPGUnit tests exported procedures, and a <code>NOMAIN</code> module with one exported procedure is the smallest unit it can exercise. The procedure gives a test plan three things to work with: a boundary on its input (zero, negative and maximum customer numbers), two outcomes (found and not found) and an embedded SQL statement whose <code>SQLCODE</code> decides the result. The test suite Bob writes binds to this module and calls <code>checkCustomerExists</code> with each case.</p>
 </div>
-<!-- SCREENSHOT: CUSTCHK.SQLRPGLE saved in the editor -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
-<p>The test suite needs a compiled module to bind to. Ask Bob to build it. In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send:</p>
+<p>The test suite needs a compiled module to bind to. Ask Bob to build it. In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#4-1-__codelineno-1-1"></a>Compile FLGHT400/QRPGLESRC/CUSTCHK.SQLRPGLE as an ILE module in FLGHT400 using CRTSQLRPGI with OBJTYPE(*MODULE), and confirm the result.
 </code></pre></div>
 <p>Approve the tool request. Bob runs the compile and reports the module <code>FLGHT400/CUSTCHK</code> created. If you skip this step, the implementation workflow detects the missing module during its environment validation and offers to compile it for you.</p>
@@ -4656,18 +4719,24 @@
 </ol>
 <hr>
 <h2 id="4-1-vi-running-the-rpgunit-test-plan-creation-workflow"><strong>vi. Running the RPGUnit Test Plan Creation workflow</strong></h2>
-<p>The first workflow produces the plan. It runs any existing test suites to learn the current state of testing (there are none yet) and analyzes how the module's exported procedures are used. It then writes four kinds of Markdown document into an IFS project directory:</p>
+<p>The first workflow produces the plan. It runs any existing test suites to learn the current state of testing (there are none yet) and analyzes how the module's exported procedures are used.</p>
+<div class="admonition note">
+<p><strong>IBM Bob will write four kinds of Markdown document into an IFS project directory:</strong></p>
 <ul>
 <li><strong>Template</strong> documents, the reusable blueprints</li>
 <li>A <strong>module</strong> document for <code>CUSTCHK</code> that covers each exported API and its branches</li>
 <li>A <strong>test suite</strong> document that lists the suites and cases to implement</li>
 <li>A single <strong>test utilities</strong> document for shared helper procedures</li>
 </ul>
+</div>
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>. In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>. When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-workflows-icon.png" width="600"></a></p>
+<p>Click the <strong>workflow</strong> icon at the top-right of the Bob panel and choose <strong>Run Workflow in Library List</strong>.</p>
+<ul>
+<li>In the catalog, click <strong>Start</strong> on <strong>RPGUnit Test Plan Creation</strong>, then <strong>Get Started</strong>.</li>
+<li>When the workflow asks which library to plan for, select <strong><code>FLGHT400</code></strong>.</li>
+</ul>
 </li>
 </ol>
 <hr>
@@ -4677,7 +4746,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#4-1-__codelineno-2-1"></a>/home/ITZUSER/flght400
 </code></pre></div>
 <p>This is the directory that received the business-rules report in <em>Module 1</em>. The plan documents land in a subdirectory of it, and the implementation workflow reads them from the same place.</p>
-<!-- SCREENSHOT: the IFS project directory prompt -->
 </li>
 </ol>
 <hr>
@@ -4692,19 +4760,17 @@
 <li>Choose to <strong>validate the environment</strong></li>
 </ul>
 <p>If the validation reports RPGUnit or <code>QDEVTOOLS</code> as missing, accept the offer to install the component and add the library to your library list; you completed both earlier, so in most runs the validation passes without prompting.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">IF BOB OFFERS TO START OVER</p>
 <p>If Bob asks at any point whether to run the <em>RPGUnit Test Plan Creation</em> workflow again, select <strong>No thanks</strong>. The offer appears when the workflow's own summary mentions test planning; a second run would regenerate the same documents.</p>
 </div>
-<!-- SCREENSHOT: the workflow's candidate selection showing CUSTCHK.SQLRPGLE -->
 </li>
 </ol>
 <hr>
 <ol start="4">
 <li>
 <p>Bob writes the test plan documents and stores them in the IFS directory you specified. At the bottom of the chat panel, review the files it created. In the documented run, the module document listed five cases for <code>checkCustomerExists</code>: an existing customer, a customer that does not exist, a zero customer number, the maximum customer number and a negative customer number.</p>
-<p>Open the module document from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
-<!-- SCREENSHOT: the test plan documents listed at the bottom of the chat and open in the IFS Browser -->
+<p><strong>Open the module document</strong> from the IFS Browser (<code>/home/ITZUSER/flght400</code>, then the plan subdirectory) and read it before moving on. It is the specification that the next workflow implements. If you want to add or remove a case, do it in this document before the next workflow writes the RPG.</p>
 </li>
 </ol>
 <hr>
@@ -4713,24 +4779,26 @@
 <hr>
 <ol>
 <li>
-<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>. The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
-<!-- SCREENSHOT: RPGUnit Test Suite Implementation welcome with Proceed -->
+<p>Click the <strong>workflow</strong> icon again, choose <strong>Run Workflow in Library List</strong> and click <strong>Start</strong> on <strong>RPGUnit Test Suite Implementation</strong>.</p>
+<p>The workflow notices that a test plan is already in place; click <strong>Proceed</strong>.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Select <strong><code>FLGHT400</code></strong> as the library, enter the same IFS project directory (<code>/home/ITZUSER/flght400</code>) and confirm the path to the test suites, which Bob pre-fills with the correct default.</p>
-<p>Choose to <strong>validate the environment</strong>. If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</p>
-<!-- SCREENSHOT: the implementation workflow's directory and validation prompts -->
+<ul>
+<li>Choose to <strong>validate the environment</strong>.</li>
+<li>If Bob prompts to download RPGUnit again, click <strong>Install</strong>, then <strong>Cancel</strong> on the follow-up popup that asks to delete the existing version.</li>
+</ul>
 </li>
 </ol>
 <hr>
 <ol start="3">
 <li>
 <p>Bob generates the test source member (<code>CUSTCHKT.SQLRPGLE</code> in the <code>QTESTSRC</code> source file, in the documented run) and compiles it through the IBM i Testing extension. It then runs the suite and iterates until the new tests pass or until it discovers an error in the code under test. Approve the tool requests as they appear.</p>
-<p>The <strong>Test Results</strong> panel at the bottom of the IDE reports the outcome. In the documented run:</p>
 <div class="admonition quote">
+<p><strong>The <em>Test Results</em> panel at the bottom of the IDE reports the outcome. In the documented run:</strong></p>
 <ul>
 <li><strong>Execution</strong>: 0 deployments; 1 compilation, successful</li>
 <li><strong>Results</strong>: 1 test file passed; 5 test cases passed, 0 failed, 0 errored; 5 assertions; <strong>PASS</strong></li>
@@ -4738,7 +4806,6 @@
 </ul>
 </div>
 <p>The <strong>IBM i Testing</strong> view on the right lists the same cases with a check beside each, under the <code>FLGHT400</code> library and the <code>CUSTCHKT.SQLRPGLE</code> suite.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../4-1/_attachments/ppi-tests-pass.png" data-desc-position="bottom"><img alt="" src="../4-1/_attachments/ppi-tests-pass.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -4749,7 +4816,6 @@
 <summary>TROUBLESHOOTING: A TEST FAILS</summary>
 <p>Ask Bob to explain the failure and help fix it: <em>"Explain why test_checkCustomerExists_maxId failed and propose the smallest fix."</em> The fault may be in the test's expectation, in the test data (a customer number that happens to exist in <code>CUSTOMRZ</code>) or in <code>CUSTCHK</code> itself. The workflow distinguishes new failures from pre-existing ones and asks before it changes the code under test.</p>
 </details>
-<!-- SCREENSHOT: CUSTCHKT.SQLRPGLE open in the editor beside the module document -->
 </li>
 </ol>
 <hr>
@@ -4787,7 +4853,7 @@
 <h2 id="5-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Day-to-day IBM i operations require quick, accurate answers to system-level questions.</p>
 <div class="admonition note">
-<p>Getting those answers traditionally requires engineers to:</p>
+<p><strong>Getting those answers traditionally requires practitioners to:</strong></p>
 <ul>
 <li>Know the right CL command or <code>QSYS2</code> table function for each question</li>
 <li>Interpret the difference between cumulative CPU time and elapsed CPU percentage</li>
@@ -4835,18 +4901,21 @@
 <li>Query <code>QSYS2.OBJECT_STATISTICS</code> to identify stale programs by compile date</li>
 <li>Group findings by compiler version and OS release level</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the exact SQL queries, table layouts and analysis text you see may differ from those shown here.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to ask Bob operational questions in plain English and interpret the structured output it returns. The exact job names, CPU figures and program lists will reflect the live state of your LPAR at the time you run the prompts.</p>
-</div>
+</details>
 <hr>
 <h3 id="5-1-prompt-1-active-jobs-and-cpu-consumption"><strong>Prompt 1: Active jobs and CPU consumption</strong></h3>
+<div class="admonition tip">
 <p>The first question gives you a quick health check on your LPAR: which jobs are consuming the most CPU, and whether that consumption is cumulative (over the job's lifetime) or happening right now.</p>
+</div>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list. Confirm that <strong>IBM i Developer</strong> is the active mode.</p>
+<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list.</p>
+<p>Confirm that <strong>IBM i Developer</strong> is the active mode.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/d9cc4d65-1521-4c42-9573-7a0cd23b9f55/user_cropped_screenshot_71bb2d3fe9724c14b9c7daf3f7d258c0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/d9cc4d65-1521-4c42-9573-7a0cd23b9f55/user_cropped_screenshot_71bb2d3fe9724c14b9c7daf3f7d258c0_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4868,20 +4937,24 @@
 <ol start="3">
 <li>
 <p>Bob queries <code>QSYS2.ACTIVE_JOB_INFO</code> and returns a ranked table of active jobs showing job name, type, subsystem, user, function, CPU time (cumulative, in seconds) and elapsed CPU percentage (a real-time snapshot).</p>
-<p>Review the <strong>Key Observations</strong> section that follows the table. Bob explains:</p>
+<div class="admonition quote">
+<p><strong>Review the <em>Key Observations</em> section that follows the table. Bob explains:</strong></p>
 <ul>
 <li><strong>Total CPU (sec)</strong> — the cumulative milliseconds of CPU consumed since the job started, converted to seconds</li>
 <li><strong>Elapsed CPU %</strong> — the job's share of CPU consumed during the last elapsed-time window, a real-time snapshot</li>
 <li>An <strong>Analysis</strong> identifying which jobs dominate (typically the HTTP Server and JVM jobs, QBRMS backup recovery, QTCP mail server threads and system jobs) and whether any of them are currently CPU-bound</li>
 </ul>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/962b63da-ce82-4962-a4e6-f30871e6a75d/user_cropped_screenshot_b463ceb48e26437a93642f37a39464e8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/962b63da-ce82-4962-a4e6-f30871e6a75d/user_cropped_screenshot_b463ceb48e26437a93642f37a39464e8_text_export.jpeg" alt="" width="600"></a>
 </p>
 </li>
 </ol>
 <hr>
-<h3 id="5-1-prompt-2-optional-investigate-the-top-job"><strong>Prompt 2 (optional): Investigate the top job</strong></h3>
-<p>The first prompt identified the jobs consuming CPU. This optional follow-up investigates the top-ranked job: its log, a fresh elapsed CPU measurement and its IFS process information.</p>
+<h3 id="5-1-prompt-2-investigate-the-top-job"><strong>Prompt 2: Investigate the top job</strong></h3>
+<div class="admonition tip">
+<p>The first prompt identified the jobs consuming CPU. This follow-up investigates the top-ranked job: its log, a fresh elapsed CPU measurement and its IFS process information.</p>
+</div>
 <hr>
 <ol start="4">
 <li>
@@ -4898,11 +4971,13 @@
 <ol start="5">
 <li>
 <p>Bob produces a structured <strong>Investigation Report</strong> for the top job. Review the sections:</p>
+<div class="admonition quote">
 <ul>
 <li><strong>Fresh Elapsed CPU Measurement (fact):</strong> A table showing <code>ELAPSED_CPU_PERCENTAGE</code>, <code>ELAPSED_CPU_TIME</code>, <code>CPU_TIME</code> (cumulative lifetime), job status and disk I/O, followed by a verdict on whether the job is currently CPU-bound</li>
 <li><strong>Job Log (fact):</strong> A table of log messages with timestamps, message IDs and text, or a note that the log is empty</li>
 <li><strong>IFS Process Information (fact and inference):</strong> The executable path, PASE PID, PASE user, JVM version, working directory and open file handles, followed by Bob's inference about the application's identity based on the combination of subsystem, user profile, function tag and IFS path</li>
 </ul>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c6a97269-7186-4fe6-bc77-a4d39bee843a/user_cropped_screenshot_4abf9f10ea164fa4b49ebb947f01ad0c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c6a97269-7186-4fe6-bc77-a4d39bee843a/user_cropped_screenshot_4abf9f10ea164fa4b49ebb947f01ad0c_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4912,7 +4987,9 @@
 <ol start="6">
 <li>
 <p>Scroll down to the <strong>Summary</strong> and <strong>Two Recommendations</strong> at the bottom of the investigation report.</p>
+<div class="admonition quote">
 <p>Bob separates facts (what it measured and read from the system) from inferences (what it concluded from those facts), and provides no more than two recommendations: for example, reviewing recent Navigator error logs or mounting <code>/proc</code> for open-file visibility.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/978e1b06-47f5-49db-a8b5-88b94ed1fa7e/user_cropped_screenshot_d21c39c38b6944e8823bc8bdf5ffa1c3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/978e1b06-47f5-49db-a8b5-88b94ed1fa7e/user_cropped_screenshot_d21c39c38b6944e8823bc8bdf5ffa1c3_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4920,7 +4997,9 @@
 </ol>
 <hr>
 <h3 id="5-1-prompt-3-stale-programs"><strong>Prompt 3: Stale programs</strong></h3>
+<div class="admonition tip">
 <p>The final question concerns the modernization backlog: which programs in the <code>FLGHT400</code> library have not been recompiled in the last five years. The answer says a good deal about the state of the codebase.</p>
+</div>
 <hr>
 <ol start="7">
 <li>
@@ -4937,7 +5016,9 @@
 <ol start="8">
 <li>
 <p>Bob queries <code>QSYS2.OBJECT_STATISTICS</code>, filtering on object type <code>*PGM</code> in <code>FLGHT400</code>, compares the compile timestamps against the current date and returns the results grouped by compiler era.</p>
+<div class="admonition quote">
 <p>Review <strong>Group 1 — Original 1997 Compile</strong>. These are OPM RPG/400 and CLP programs compiled on OS/400 V3R2M0, roughly 29 years ago. The table shows program name, type (RPG or CLP), description, source member and compiler version.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd5b6d09-9942-41f5-b482-ae229e310535/user_cropped_screenshot_ad8fc2c6bf13496d8645820fb08b65fe_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd5b6d09-9942-41f5-b482-ae229e310535/user_cropped_screenshot_ad8fc2c6bf13496d8645820fb08b65fe_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4946,7 +5027,10 @@
 <hr>
 <ol start="9">
 <li>
-<p>Scroll down to <strong>Group 2 — 2003–2004 Compile</strong>. These are programs recompiled during an OS upgrade cycle (V5R1M0 to V5R2M0), roughly 22 years ago. This group includes DFU programs, CLP utilities and some RPG programs that were touched during that migration and have not been recompiled since.</p>
+<p>Scroll down to <strong>Group 2 — 2003–2004 Compile</strong>.</p>
+<div class="admonition quote">
+<p>These are programs recompiled during an OS upgrade cycle (V5R1M0 to V5R2M0), roughly 22 years ago. This group includes DFU programs, CLP utilities and some RPG programs that were touched during that migration and have not been recompiled since.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/afe130b3-5896-4c48-b016-75b5da580617/user_cropped_screenshot_69a66a72fd984ca6aa6549af2f68b945_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/afe130b3-5896-4c48-b016-75b5da580617/user_cropped_screenshot_69a66a72fd984ca6aa6549af2f68b945_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -5055,7 +5139,7 @@
 <h2 id="6-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>A modern front end is the most visible modernization outcome. On IBM i it is often handed to an outside team, because the toolchain is unfamiliar to RPG developers.</p>
 <div class="admonition note">
-<p>Building a web front end for a 5250 transaction by hand requires engineers to:</p>
+<p><strong>Building a web front end for a 5250 transaction by hand requires practitioners to:</strong></p>
 <ul>
 <li>Read the display file DDS and the RPG program to learn which fields exist, which are input and which carry lookups</li>
 <li>Know the quirks of running Node.js, npm and a bundler inside PASE on a big-endian POWER system</li>
@@ -5097,15 +5181,19 @@
 </table>
 <hr>
 <h2 id="6-1-iii-extending-flight400-with-ibm-bob"><strong>iii. Extending FLIGHT400 with IBM Bob</strong></h2>
-<p>The work in this module combines three things you have already used (a skill, the <em>IBM i Developer</em> mode and Bob's IFS and PASE tools) with one you author yourself. The skill is the new element. React and Vite run well inside PASE, but only once a handful of platform-specific problems are solved:</p>
+<p>The work in this module combines three things you have already used (a skill, the <em>IBM i Developer</em> mode and Bob's IFS and PASE tools) with one you author yourself. The skill is the new element.</p>
+<div class="admonition failure">
+<p><strong>React and Vite run well inside PASE, but only once a handful of platform-specific problems are solved. There are still issues with:</strong></p>
 <ul>
 <li>The native <code>esbuild</code> binary does not exist for <code>os400</code></li>
 <li><code>npm</code> postinstall scripts hang</li>
 <li>An interactive scaffolding prompt freezes the tool channel</li>
 <li><code>nohup npm run dev &amp;</code> leaves a pipe open that cancels the call</li>
 </ul>
+</div>
 <p>A skill records those solutions so that Bob applies them without being told.</p>
-<p>Using <em>IBM i Developer</em> mode with the helper skill in place, Bob can:</p>
+<div class="admonition success">
+<p><strong>Using <em>IBM i Developer</em> mode with the helper skill in place, Bob can:</strong></p>
 <ul>
 <li>Read <code>FRS001DF.DSPF</code> for the screen layout and field names, and <code>FRS001.RPG</code> for the pricing logic and field definitions</li>
 <li>Scaffold a React 18 and Vite 4 project in the IFS and install its dependencies with <code>npm</code></li>
@@ -5113,39 +5201,40 @@
 <li>Write the launch scripts and start the development server in the background on a port you choose</li>
 <li>Stop the server again when you are done</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+</div>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, and this module asks Bob to design a user interface, which leaves more room for variation than any earlier prompt. The layout, component choices and lookup values you see will differ from the screenshot, and the build may need a second attempt if a step of the skill is skipped.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to capture platform knowledge in a skill, how Bob combines it with the Premium Package's own skills to read a 5250 screen, and how a generated application is built and run on the partition. Whether your page matches the one shown is of less importance than the fact that it renders the <em>Create Order</em> screen in a browser.</p>
-</div>
+</details>
+<hr>
+<h2 id="6-1-iv-preparing-nodejs-on-the-partition"><strong>iv. Preparing Node.js on the partition</strong></h2>
 <div class="admonition success">
 <p class="admonition-title">PREREQUISITES</p>
+<p><strong>Before undertaking this module's tasks, confirm that the following is prepared:</strong></p>
 <ul>
 <li>The SSH private key from <em>Setup</em> is still in your local workspace folder, and an SSH client is available in the Bob IDE's integrated terminal</li>
 <li>Port <code>3001</code> is free on your laptop (the tunnel binds it) and on the partition (the development server binds it)</li>
 <li>The <em>IBM i Modernization</em> connection is active and <code>FLGHT400</code> is on the library list</li>
 </ul>
 </div>
-<hr>
-<h2 id="6-1-iv-preparing-nodejs-on-the-partition"><strong>iv. Preparing Node.js on the partition</strong></h2>
 <p>The Certified PowerVS Base VM ships without Node.js. As with <code>tn5250</code> during <em>Setup</em>, you will have Bob install it rather than doing so by hand. PASE packages come from <code>yum</code>, and the Node.js packages are versioned (<code>nodejs20</code>, <code>nodejs22</code> and so on) rather than published under a generic name.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send the following prompt:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send the following prompt:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#6-1-__codelineno-0-1"></a>Check whether Node.js and npm are installed in PASE on this partition by running /QOpenSys/pkgs/bin/node --version and /QOpenSys/pkgs/bin/npm --version. If Node.js is missing, list the nodejs packages available from yum, install the newest version that is 18 or later (for example yum install nodejs22), and report both versions when done.
 </code></pre></div>
-<p>Approve the PASE command requests as they appear. The install takes a few minutes and ends with Bob reporting a Node.js version of 18 or later and an npm version of 9 or later.</p>
+<p><strong>Approve</strong> the PASE command requests as they appear. The install takes a few minutes and ends with Bob reporting a Node.js version of 18 or later and an npm version of 9 or later.</p>
 <div class="admonition info">
-<p class="admonition-title">WHY THE FULL PATH</p>
+<p class="admonition-title">WHY THE FULL PATH?</p>
 <p>PASE shells do not add <code>/QOpenSys/pkgs/bin</code> to the <code>PATH</code> automatically, so <code>node</code> on its own reports <em>No such file or directory</em> even when Node.js is installed. The helper skill you create next tells Bob to use the fully qualified path everywhere and to export the <code>PATH</code> at the top of every script it writes, which avoids a whole class of confusing failures.</p>
 </div>
-<!-- SCREENSHOT: Bob reporting the installed Node.js and npm versions -->
 </li>
 </ol>
 <hr>
 <h2 id="6-1-v-creating-the-helper-skill"><strong>v. Creating the helper skill</strong></h2>
-<p>A skill is a Markdown file with a short frontmatter (a name and a description that tells Bob when to apply it) followed by the instructions themselves. You met the Premium Package's own skills in <em>Module 1</em>, when <code>understand-app-overview</code> answered a question from the scan. You create this one yourself. Its text is provided with the lab; you will paste it into a chat and ask Bob to turn it into a skill.</p>
+<p>A skill is a Markdown file with a short frontmatter (a name and a description that tells Bob when to apply it) followed by the instructions themselves. You first encountered the Premium Package's own skills in <em>Module 1</em>, when <code>understand-app-overview</code> answered a question from the scan. In this module, you'll create it yourself. The text is provided with the lab; you will paste it into a chat and ask Bob to turn it into a skill.</p>
 <hr>
 <ol>
 <li>
@@ -5168,7 +5257,7 @@
 <hr>
 <ol start="2">
 <li>
-<p>In the Bob chat panel, switch the mode selector to <strong>Agent</strong>. Click <strong>+</strong> and choose <strong>Local Workspace</strong> (your <code>ibmiflight400</code> folder) as the task context. Paste the copied skill text into the prompt, append the following instruction on a new line and send it:</p>
+<p>In the Bob chat panel, switch the mode selector to <strong>Agent</strong>. Click <strong>+</strong> and choose <strong>Local Workspace</strong> (your <code>ibmiflight400</code> folder) as the task context. copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#6-1-__codelineno-1-1"></a>Create a skill from the pasted text.
 </code></pre></div>
 <p>Bob writes the skill file and confirms where it saved it. If Bob asks whether to save the skill globally or in the workspace, choose <strong>global</strong>, so that it is available from the library-list task in the next section.</p>
@@ -5181,25 +5270,30 @@
 <hr>
 <ol>
 <li>
-<p>Save the screenshot of the <em>Create Order</em> screen to your laptop: <strong><a href="../6-1/_attachments/ppi-create-order-screen.png" target="_blank">ppi-create-order-screen.png</a></strong> (right-click the image and save it). If you prefer your own capture, sign on to the 5250 terminal, start the application with <code>GO FLGHT400/FRSMAIN</code> and take a screenshot of the order entry screen.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../6-1/_attachments/ppi-create-order-screen.png" data-desc-position="bottom"><img alt="" src="../6-1/_attachments/ppi-create-order-screen.png" width="600"></a></p>
+<p>Save the screenshot of the <em>Create Order</em> screen to your local machine (right-click the image and save it).</p>
+<p>If you prefer your own capture, sign on to the 5250 terminal, start the application with <code>GO FLGHT400/FRSMAIN</code> and take a screenshot of the order entry screen.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
-<li>Switch the mode selector back to <strong>IBM i Developer</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task is scoped to <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</li>
+<li>
+<p>Switch the mode selector back to <strong>IBM i Developer</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task is scoped to <code>FLGHT400</code></li>
+<li>Confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
+</li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Drag the screenshot into the prompt field (or paste it from the clipboard), then paste the following prompt beneath it and send it:</p>
+<p>Drag the screenshot into the prompt field (or paste it from the clipboard), then copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#6-1-__codelineno-2-1"></a>Given this screenshot of the 5250 flight order screen from the application FLIGHT400 in @FLGHT400, build a single-page React 18 + Vite 4 app on IBM i (PASE) using @carbon/react ^1.x with the g100 dark theme that modernises the IBM i 5250 screen shown in the attached screenshot. Create the app in the IFS at $HOME/flight400-frontend-apps/create-order/. Use the g100 dark theme. All fields should have a list of values to select from. The dev server must run in the background using nohup ... &amp; and write output to /tmp/vite-dev.log. Pin the Vite dev server to port 3001 if available.
 </code></pre></div>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">THE @ MENTION</p>
 <p><code>@FLGHT400</code> attaches the library to the task's context, which is how Bob knows where to find <code>FRS001DF</code> and <code>FRS001</code> without being told their source files. Type the <code>@</code> and pick the library from the list that appears, so that it is highlighted as a mention rather than left as plain text.</p>
 </div>
-<!-- SCREENSHOT: the prompt with the screenshot attached and @FLGHT400 highlighted -->
 </li>
 </ol>
 <hr>
@@ -5211,7 +5305,6 @@
 <summary>TROUBLESHOOTING: THE BUILD FAILS</summary>
 <p>Most failures trace back to a step of the skill being skipped. <em>Unsupported platform: os400 ppc64 BE</em> means the <code>esbuild</code> patch did not run; ask Bob to <em>re-run node patch-esbuild.cjs and build again</em>. A hang during <code>npm install</code> means <code>--ignore-scripts</code> was omitted. A page that renders in the white theme means the theme <code>@use</code> landed after the component styles. In each case, point Bob to the relevant section of the skill instead of describing the fix, since the skill already contains it.</p>
 </details>
-<!-- SCREENSHOT: Bob's to-do list for the React application, with the skills activated -->
 </li>
 </ol>
 <hr>
@@ -5220,8 +5313,9 @@
 <p>When the build completes, ask Bob to start the server:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#6-1-__codelineno-3-1"></a>Please start the dev server for the app you just created.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob runs the <code>start-dev.sh</code> launcher, which detaches the Vite server with <code>nohup</code> and records its process ID. It reports the PID and the port the server is listening on. If port <code>3001</code> was taken, Vite moves to the next free port and Bob tells you which; use that port in the tunnel below.</p>
-<!-- SCREENSHOT: Bob reporting the started dev server, its PID and port -->
+</div>
 </li>
 </ol>
 <hr>
@@ -5233,15 +5327,15 @@
 <p>In the Bob IDE, open a local terminal (<strong>Terminal → New Terminal</strong>) at the root of your workspace, where <code>ssh_private_key.pem</code> lives. Run the following, replacing <code>&lt;public-ip&gt;</code> with the <em>Virtual machine 1 public IP address</em> from your TechZone reservation, and leave the terminal open:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#6-1-__codelineno-4-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>ssh_private_key.pem<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span><span class="m">3001</span>:localhost:3001<span class="w"> </span>ITZUSER@&lt;public-ip&gt;
 </code></pre></div>
-<p><code>-N</code> opens the tunnel without starting a remote shell, so the command appears to hang. The command is holding the tunnel open, which is expected. Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to close it when you are finished.</p>
-<!-- SCREENSHOT: the integrated terminal with the tunnel command running -->
+<div class="admonition quote">
+<p>The <code>-N</code> flag opens the tunnel without starting a remote shell, so the command appears to hang. The command is holding the tunnel open, which is expected. Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to close it when you are finished.</p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Open <strong><code>http://localhost:3001</code></strong> in your browser. The <em>Create Order</em> screen renders as a Carbon page in the g100 dark theme, with the <em>Flight Information</em> and <em>Ticket Order Information</em> panels as tiles. The lookups become dropdowns and the class of service becomes a set of radio buttons. The function keys appear as a row of buttons along the bottom, with <em>F10 – Make Reservation</em> as the primary action.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../6-1/_attachments/ppi-react-app.png" data-desc-position="bottom"><img alt="" src="../6-1/_attachments/ppi-react-app.png" width="600"></a></p>
 <details class="warning">
 <summary>TROUBLESHOOTING: NOTHING SHOWING IN THE BROWSER</summary>
 <p>Check three things in order. The tunnel terminal is still open and reported no error. The port in the tunnel matches the port Bob reported in the previous section; if Vite moved to another port, change both ends of the <code>-L</code> argument. And the server is still running: ask Bob <em>"Is the dev server for the create-order app still running? Show the last lines of its log."</em> The log is at <code>/tmp/vite-create-order.log</code> (the skill names it after the screen) or at <code>/tmp/vite-dev.log</code>.</p>

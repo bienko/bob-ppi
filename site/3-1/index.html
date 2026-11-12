@@ -1050,7 +1050,7 @@
 <h2 id="ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Database performance on IBM i depends on access paths, and few people understand the optimizer well enough to choose them.</p>
 <div class="admonition note">
-<p>Reviewing and tuning a Db2 for i statement by hand requires engineers to:</p>
+<p><strong>Reviewing and tuning a Db2 for i statement by hand requires practitioners to:</strong></p>
 <ul>
 <li>Map system-generated column names back to the business fields they represent</li>
 <li>Spot statements that are logically incorrect even when they happen to run</li>
@@ -1101,30 +1101,33 @@
 <li>Read the Index Advisor's recommendations and the system's temporary index activity</li>
 <li>Generate <code>CREATE INDEX</code> statements, explain the expected benefit of each and create the ones you approve</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, and the optimizer's advice depends on the statements that have run on your partition. The findings from <code>/review</code>, the bottleneck explanation and the index recommendations you see may differ from those shown here, in wording and in detail.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to review a statement with the slash command, how to run the SQL Index Strategy Advisor workflow and how to read what it recommends. Expect the highest-priority recommendation to involve <code>ORDERS</code> and its date column; the exact column order and index name may differ.</p>
-</div>
+</details>
 <hr>
 <h2 id="iv-reviewing-a-query-with-review"><strong>iv. Reviewing a query with /review</strong></h2>
 <p>The statement below was written to report ticket sales by flight and agent for a three-day window in February 2004. It joins four files, aggregates by class of service and has been handed to you for review before it goes into a report. It contains at least one logical fault.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Database</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> to start a clean task scoped to <code>QGPL</code>, <code>QTEMP</code> and <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</p>
-<!-- SCREENSHOT: mode selector with IBM i Database selected -->
+<p>In the Bob chat panel, click the <strong>mode selector</strong> at the bottom and choose <strong>IBM i Database</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> to start a clean task scoped to <code>QGPL</code>, <code>QTEMP</code> and <code>FLGHT400</code></li>
+<li>Confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
-<p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>. Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
-<div class="admonition note">
+<p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>.</p>
+<p>Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
+<div class="admonition info">
 <p class="admonition-title">THE COMMAND NAME MAY DIFFER BY RELEASE</p>
 <p>In the documented run the command appeared as <code>/review</code>. Later releases of the Premium Package list it as <code>/review_SQL</code>, alongside a <code>/review_rpg</code> counterpart for RPG source. Either way, type <code>/review</code> and pick the SQL entry from the list; typing the whole command without selecting it from the list leaves it as plain text, and Bob will treat the query as a question rather than a review.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-review-1.jpeg" data-desc-position="bottom"><img alt="" src="_attachments/ppi-review-1.jpeg" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -1169,7 +1172,6 @@
 <p class="admonition-title">THE FAULT TO LOOK FOR</p>
 <p><code>o.DEPAR00001</code> appears in the <code>ORDER BY</code> clause but not in the <code>GROUP BY</code> clause. Ordering an aggregated result by a column that is neither grouped nor aggregated is logically incorrect, and strict SQL engines reject it with <code>SQL0122</code>. Read the review with that in mind and check whether Bob catches it on its own.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-review-2.jpeg" data-desc-position="bottom"><img alt="" src="_attachments/ppi-review-2.jpeg" width="600"></a></p>
 </li>
 </ol>
 <hr>
@@ -1188,26 +1190,28 @@
 </ul>
 </div>
 <p>The last point has consequences beyond this one statement. <code>FLIGH00001</code> is the system name Db2 for i generated for a field whose DDS name was longer than ten characters; the same column also carries an SQL name (<code>FLIGHT_NUMBER</code>) that matches the business name of the field. Bob's corrected statement uses the SQL names, which is why the index recommendations later in this module name <code>DEPARTURE_DATE</code> and <code>FLIGHT_NUMBER</code> rather than <code>DEPAR00001</code> and <code>FLIGH00001</code>.</p>
-<!-- SCREENSHOT: Bob's /review findings for the ticket sales query -->
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
-<p>The Index Advisor records advice only for statements that the optimizer has processed, and the query above has not yet been executed. Ask Bob to apply its corrections and execute the result:</p>
+<p>The Index Advisor records advice only for statements that the optimizer has processed, and the query above has not yet been executed.</p>
+<p>Ask Bob to apply its corrections and execute the result. Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Apply the corrections you recommended and run the corrected statement against FLGHT400, keeping FETCH FIRST 100 ROWS ONLY. Show me the first few rows of the result and confirm that the statement ran without error.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob rewrites the statement, runs it through its SQL tool and returns the first rows. Approve the tool request when it appears. The run takes a few seconds; it also leaves an entry in the SQL plan cache, which is what the workflow in the next section analyzes.</p>
-<!-- SCREENSHOT: the corrected statement and the first rows of its result -->
+</div>
 </li>
 </ol>
 <hr>
 <ol start="6">
 <li>
-<p>With the statement in context, ask the question a DBA would ask next:</p>
+<p>With the statement in context, ask the question a DBA would ask next. Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Is any table a performance bottleneck in this query, and why?
 </code></pre></div>
-<p>In the documented run, Bob identified four things:</p>
+<div class="admonition quote">
+<p><strong>In the documented run, Bob identified four things:</strong></p>
 <ul>
 <li><code>ORDERS</code> is the largest file in the join</li>
 <li>The query filters it on <code>DEPARTURE_DATE</code></li>
@@ -1215,12 +1219,13 @@
 <li>The date-range predicate is therefore highly selective and a strong candidate for index optimization</li>
 </ul>
 <p>The answer is informational and will vary with the optimizer's statistics on your partition. Its value is in naming the file and the predicate that an index would help.</p>
-<!-- SCREENSHOT: Bob's bottleneck explanation naming ORDERS and the DEPARTURE_DATE predicate -->
+</div>
 </li>
 </ol>
 <hr>
 <h2 id="v-running-the-sql-index-strategy-advisor-workflow"><strong>v. Running the SQL Index Strategy Advisor workflow</strong></h2>
-<p>Db2 for i records the indexes it would benefit from. Every time the optimizer processes a statement, it notes in the <strong>Index Advisor</strong> the access paths that would have made the statement cheaper, and when the benefit is large enough it builds a <strong>maintained temporary index</strong> (MTI) on its own. The <strong>SQL Index Strategy Advisor</strong> workflow collects that evidence from the plan cache, analyzes it and proposes permanent indexes, which you approve one at a time before Bob creates them.</p>
+<p>Db2 for i records the indexes it would benefit from. Every time the optimizer processes a statement, it notes in the <strong>Index Advisor</strong> the access paths that would have made the statement cheaper, and when the benefit is large enough it builds a <strong>maintained temporary index</strong> (MTI) on its own.</p>
+<p>The <strong>SQL Index Strategy Advisor</strong> workflow collects that evidence from the plan cache, analyzes it and proposes permanent indexes, which you approve one at a time before Bob creates them.</p>
 <div class="admonition info">
 <p class="admonition-title">WHAT THE CAPTURE DOES</p>
 <p>The workflow's <em>Capture New Performance Data</em> option calls the <code>DUMP_PLAN_CACHE_TOPN</code> procedure, which writes the top <em>N</em> statements from the SQL plan cache (ranked by the category you choose) into a database monitor file in an output library. The analysis then runs against that file: the Index Advisor recommendations, the MTI activity and the query statistics for each captured statement. Nothing is created until you approve it.</p>
@@ -1228,8 +1233,8 @@
 <hr>
 <ol>
 <li>
-<p>Still in <strong>IBM i Database</strong> mode, click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>. In the workflow catalog, click <strong>Start</strong> on <strong>SQL Index Strategy Advisor</strong>, then <strong>Get Started</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-workflows-icon.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-workflows-icon.png" width="600"></a></p>
+<p>Still in <strong>IBM i Database</strong> mode, click the <strong>workflow</strong> icon (the play button at the top-right of the Bob panel) and choose <strong>Run Workflow in Library List</strong>.</p>
+<p>In the workflow catalog, click <strong>Start</strong> on <strong>SQL Index Strategy Advisor</strong>, then <strong>Get Started</strong>.</p>
 </li>
 </ol>
 <hr>
@@ -1270,11 +1275,10 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">WHY THESE VALUES</p>
+<div class="admonition info">
+<p class="admonition-title">EXPLAINING THESE VALUES</p>
 <p>The output library and object name decide where the monitor file lands; keeping it in <code>FLGHT400</code> keeps the lab's objects together. <em>Runtime</em> ranks the plan cache by the statements that have consumed the most time, which is where the ticket sales query sits after its run. Twenty statements is enough to cover everything Bob has executed in this lab without burying the one this module is about.</p>
 </div>
-<!-- SCREENSHOT: the SQL Index Strategy Advisor settings form filled in -->
 </li>
 </ol>
 <hr>
@@ -1317,7 +1321,6 @@
 <p class="admonition-title">CREATE ONE INDEX AT A TIME</p>
 <p>An index speeds up the statements that use it and adds cost to every insert, update and delete on the file it covers. The advisor's list is a set of candidates ranked by evidence from the capture, so approve the one with the clearest benefit and leave the rest as documentation. On a shared partition the same caution applies to scope: create indexes only in your own library.</p>
 </div>
-<!-- SCREENSHOT: Bob's recommended indexes with their expected benefit -->
 </li>
 </ol>
 <hr>
@@ -1326,8 +1329,9 @@
 <p>When Bob asks which recommendations to apply, respond with the following prompt (or select the equivalent option in the workflow):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Apply the highest-priority index only, in FLGHT400.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob runs the <code>CREATE INDEX</code> statement and reports success. The workflow closes with a summary covering the data source, the findings, the index created and the recommended next steps.</p>
-<!-- SCREENSHOT: the CREATE INDEX statement executed and the workflow summary -->
+</div>
 </li>
 </ol>
 <hr>
@@ -1336,8 +1340,9 @@
 <p>Confirm the result from the catalog:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>List the indexes that exist on FLGHT400/ORDERS, with their key columns.
 </code></pre></div>
+<div class="admonition quote">
 <p>The new index appears among the keyed access paths over <code>ORDERS</code>. In the Object Browser, refresh the <code>FLGHT400</code> filter: an SQL index is an IBM i file object with the logical-file attribute, so <code>ORDERS_IDX_DEPDT_FLT</code> is listed alongside the application's own logical files. Run the corrected ticket sales query once more and the optimizer will pick the new access path for the date range.</p>
-<!-- SCREENSHOT: the index listed by Bob, and in the Object Browser -->
+</div>
 </li>
 </ol>
 <hr>

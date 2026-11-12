@@ -9,7 +9,29 @@
 !!! note ""
     Christopher Bienko *(AI Enablement GTM Product Manager)* provides an overview of the *Registration and Setup* module for the hands-on enablement. **<a href="https://ibm.seismic.com/Link/Content/DCRhBB6FPqR2jGqPHXCJgGXb4243" target="_blank">[1 min]</a>**
 
-Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated **IBM Bob** account entitled to the **IBM Bob Premium Package for i** (PPi), and an IBM i 7.6 partition that holds the *Flight400* demo application used in every module. The work proceeds in six stages:
+Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated **IBM Bob** account entitled to the **IBM Bob Premium Package for i** (PPi), and an IBM i 7.6 partition that holds the *Flight400* demo application used in every module. 
+
+The hands-on work ahead assumes you have completed the core curriculum of the *Climbing the AI Maturity Curve* L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the *Setup* chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.
+
+---
+
+What you ***do*** need:
+
+!!! success "LAB PREREQUISITES"
+    - **IBM Bob** installed and authenticated on your local machine
+    - Your **IBMid** credentials are at hand (IBM regular employees sign in with their w3id)
+    - **IBM regular employees:** access to the **<a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a>** to request the Premium Package for i entitlement
+    - **Business Partners:** access to **IBM Technology Zone** to request the Premium Package for i entitlement
+    - Access to **IBM Technology Zone** to reserve an *IBM i 7.6* virtual machine from the *Certified PowerVS Base VMs* collection, which takes 30 to 60 minutes to provision
+    - The two Flight400 distribution files, **`FLGHT400.FILE`** and **`Install-Flight400.sql`**, downloaded from the links in the *Setup* chapter
+    - A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)
+
+!!! info "MANAGING CONSUMPTION OF *BOBCOINS*"
+    The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The `AGENTS` member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.
+
+---
+
+The work proceeds in six stages:
 
 - Request the **Premium Package for i** entitlement through the route that matches your job role, then confirm it has landed in your Bob account
 - Install the **IBM Bob Premium Package for i** extension and the **IBM i Development Pack** from the Extensions view
@@ -20,12 +42,12 @@ Before you begin the hands-on modules, complete the registration and setup steps
 
 Afterwards, you will be ready to begin <a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank">**Module 1 | Analyze**</a>.
 
-!!! warning "THIS LAB REQUIRES THE PREMIUM PACKAGE FOR i"
-    Without the **IBM Bob Premium Package for i** (PPi) entitlement, IBM Bob can still open and read RPG, CL and DDS source, but the *IBM i Developer* and *IBM i Database* modes and the specifically-trained capabilities that the package provides will be unavailable. If neither mode appears in your Agentic Sidebar by the end of this chapter, the entitlement has **not** been linked to your Bob account.
-
 ---
 
 ## **ii. Request entitlements to Bob Premium Package for i**
+
+!!! warning "THIS LAB REQUIRES THE PREMIUM PACKAGE FOR i"
+    Without the **IBM Bob Premium Package for i** (PPi) entitlement, IBM Bob can still open and read RPG, CL and DDS source, but the *IBM i Developer* and *IBM i Database* modes and the specifically-trained capabilities that the package provides will be unavailable. If neither mode appears in your Agentic Sidebar by the end of this chapter, the entitlement has **not** been linked to your Bob account.
 
 Before Bob can operate against IBM i, you will want to request license entitlements to **IBM Bob Premium Package for i** (PPi). The pathway for doing so differs depending on your role as either an IBM regular employee or a business partner.
 
@@ -72,9 +94,7 @@ Select from one of the two options below, according to your job role, to registe
 
     ---
 
-    4. *Step 2: Business purpose* must be set to **Test** in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again (making sure to only click *Test*). When ready, click **Next** to continue.
-
-        ![](_attachments/partners-IBMi-4.png){ width="600" }
+    4. *Step 2: Business purpose* must be set to **Learning** in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again. When ready, click **Next** to continue.
 
     ---
 
@@ -290,19 +310,15 @@ Before installing the Flight400 demo app, you will need an IBM i environment pro
 
 ---
 
-4. On **Step 2: Business purpose**, select **Test** as the primary use: *"Need to test a specific function, configuration, or customization."*
+4. On **Step 2: Business purpose**, select **Learning** as the primary use.
 
-    Leave the Opportunity fields blank, then press **Next**.
-
-    <p align="left">
-    <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-28/511f7ab5-c174-4792-9aa3-df1bb1676e20/user_cropped_screenshot_8683cc201a5345fa8a8b9e93353769fe_text_export.jpeg" alt="" width="600" />
-    </p>
+    Leave the *Opportunity* fields blank and press **Next** to continue.
 
 ---
 
 5. On **Step 3: Deployment**, confirm the pre-selected geography:
 
-    !!! warning ""
+    !!! note ""
         `itz-shared-power - americas - us-east region - wdc07 datacenter`
 
     Press **Next** to continue.
@@ -371,7 +387,7 @@ Before installing the Flight400 demo app, you will need an IBM i environment pro
 
 ---
 
-11. Once the status changes to **Ready**, return to the request page and click the **expand arrow (++v++)** to the left of the environment name to reveal the connection details.
+11. Once the status changes to **Ready**, return to the request page and click the **expand arrow** (the ++v++ icon) to the left of the environment name to reveal the connection details.
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-30/bd3318bc-9839-4e63-a13d-8b91a974ab30/user_cropped_screenshot_7f00f6c0b5d14255b2bf10d0c607cf98_text_export.jpeg" alt="" width="600" />
@@ -465,7 +481,7 @@ With your IBM i environment provisioned and the Deployment SSH private key downl
     chmod 600 ssh_private_key.pem
     ```
 
-    !!! note "WHY THIS MATTERS"
+    !!! note ""
 
         SSH will refuse to use a private key that is readable by other users on the system. `chmod 600` restricts read and write access to only your user account, satisfying SSH's security check.
 
@@ -558,11 +574,13 @@ Certified PowerVS Base VMs ship without the **`tn5250`** package installed, so a
 
 ---
 
-2. Click into the prompt field and paste the following request (press ++cmd+v++ or ++ctrl+v++):
+2. Click into the prompt field and paste the following request (press ++cmd+v++ or alternatively ++ctrl+v++):
 
     ``` text
     I'm getting the error "5250 terminal is not supported. Please install tn5250 via yum on the remote system." in the Code for IBM i VS Code extension. Please install tn5250 on my remote IBM i system, make sure it's in the default PATH, and set up my user profile so it's available in login shells. After that, tell me to reconnect using "Connect and Reload Server Settings" in VS Code.
     ```
+
+    Press ++return++ to execute the instruction.
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1de8b105-433c-4104-b48a-d4aa7328d893/user_cropped_screenshot_5ff9791826364a6fa0f231065fd74601_text_export.jpeg" alt="" width="600" />
@@ -570,7 +588,7 @@ Certified PowerVS Base VMs ship without the **`tn5250`** package installed, so a
 
 ---
 
-3. Send the prompt and let Bob work. It will `yum install tn5250-0.17.6-1`, then update `/home/ITZUSER/.profile` and `/QOpenSys/etc/profile.local` so `/QOpenSys/pkgs/bin` is on `PATH` for every login shell.
+3. Bob will perform the `yum install tn5250-0.17.6-1` request to update `/home/ITZUSER/.profile` and `/QOpenSys/etc/profile.local` — such that `/QOpenSys/pkgs/bin` is on the `PATH` for every login shell used after the fact.
 
     When Bob finishes, click the **disconnect** button highlighted in the bottom-left status bar to close the current session with your LPAR.
 
@@ -602,7 +620,7 @@ Certified PowerVS Base VMs ship without the **`tn5250`** package installed, so a
 
 6. When prompted **"Select a terminal type"**, choose **5250**.
 
-    !!! warning ""
+    !!! note ""
         The **PASE** option gives you a Unix-style shell on the LPAR — useful for running `yum`, editing files, and inspecting IFS content. The **5250** option gives you the classic green-screen IBM i session used by RPG applications like FLIGHT400. *Module 6* relies on the PASE side as well, since that is where Node.js runs.
 
     <p align="left">
@@ -613,7 +631,7 @@ Certified PowerVS Base VMs ship without the **`tn5250`** package installed, so a
 
 7. A new **IBM i 5250: IBM i Modernization** tab opens, showing the classic **Sign On** screen — *System*, *Subsystem*, *Display*, and *User* fields ready for input.
 
-    You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel. You are ready to sign on and begin the lab.
+    You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel.
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0e049ac4-2b2d-4d01-a4a3-c6d697065f82/user_cropped_screenshot_4baa7195f135419ca0212f26cf6d3a4f_text_export.jpeg" alt="" width="600" />
@@ -627,7 +645,7 @@ Bob is now connected to your LPAR, but the Flight400 save file and install scrip
 
 ---
 
-1. In the Activity Bar on the far left, click the **Explorer** icon to switch back to your local workspace view.
+1. From the Activity Bar tabs along the left side of the Bob IDE, click the **Explorer** icon to switch back to your local workspace view.
 
     You should see `FLGHT400.FILE` and `Install-Flight400.sql` at the top of the tree.
 
@@ -645,9 +663,11 @@ Bob is now connected to your LPAR, but the Flight400 save file and install scrip
 
 ---
 
-3. On the first deploy, a notification will appear in the bottom-right: *"Chosen location … is not configured for deployment."* Click **Set deploy location** to configure the target IFS directory.
+3. On the first deploy, a notification will appear in the bottom-right: *"Chosen location … is not configured for deployment."*
 
-    Accept the suggested path (typically `/home/ITZUSER/builds/ibmiflight400`) — this becomes the IFS directory that mirrors your local workspace.
+    - Click **Set deploy location** to configure the target IFS directory
+    - **Accept** the suggested path (typically `/home/ITZUSER/builds/ibmiflight400`)
+    - This becomes the IFS directory that mirrors your local workspace
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/af006acb-6af4-4827-a89d-8b0fc8e941b3/user_cropped_screenshot_6eec8f53f519403c94be6c23222a6927_text_export.jpeg" alt="" width="600" />
@@ -671,7 +691,9 @@ Bob is now connected to your LPAR, but the Flight400 save file and install scrip
 
 ---
 
-6. Expand `/home/ITZUSER` → **`builds`** → **`ibmiflight400`**. Confirm that both `FLGHT400.FILE` and `Install-Flight400.sql` are now present on the LPAR.
+6. Expand `/home/ITZUSER` → **`builds`** → **`ibmiflight400`**.
+
+    Confirm that both `FLGHT400.FILE` and `Install-Flight400.sql` are now present on the LPAR.
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/caeec2bc-db29-40d2-959f-d48c057dcae7/user_cropped_screenshot_05479f4166de4bd3932b67443d1c035d_text_export.jpeg" alt="" width="600" />
@@ -715,9 +737,11 @@ With the save file staged in the IFS, the next step is to run the SQL install sc
 
 ---
 
-4. Replace the default `v_ifs_path` string with the path you copied in step 1 — it should look like `/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE`. Leave `v_rst_lib` as `FLGHT400` and `v_owner` as `NULL`.
+4. Replace the default `v_ifs_path` string with the path you copied in step 1.
 
-    Save the file (++cmd+s++ / ++ctrl+s++), then close the editor tab.
+    - The new string should look like `/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE`
+    - Leave `v_rst_lib` as `FLGHT400` and `v_owner` as `NULL`
+    - **Save** the file (++cmd+s++ / ++ctrl+s++) and then **close** the editor tab
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/c5ddbfe5-ac88-4389-9c4c-ab196c1badde/user_cropped_screenshot_33aa42dcbc2f46b2bbf51b830c99d0c5_text_export.jpeg" alt="" width="600" />
@@ -727,7 +751,7 @@ With the save file staged in the IFS, the next step is to run the SQL install sc
 
 5. Switch back to the **IBM i** sidebar and locate **`Install-Flight400.sql`** in the IFS Browser under `/home/ITZUSER/builds/ibmiflight400`.
 
-    !!! warning "ATTENTION"
+    !!! warning ""
 
         Because you edited the file locally, redeploy it (right-click → **Deploy Selected Files**) so the LPAR has the updated version before running it. If the IFS copy is out of date, the script will use the wrong path.
 
@@ -755,7 +779,8 @@ With the save file staged in the IFS, the next step is to run the SQL install sc
 
 8. The integrated terminal will open and display the RUNSQLSTM output. Wait for the message summary to show **`0 level severity errors found in source`**, followed by `***** END OF LISTING *****`.
 
-    The **FLGHT400** library — programs, source members, and database files — is now restored on your LPAR.
+    !!! success ""
+        The **FLGHT400** library — programs, source members, and database files — is now restored on your LPAR.
 
     <p align="left">
     <img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/4c3b6afa-1dce-4472-b8a0-c011ef64a3a5/user_cropped_screenshot_481419b1eeb1487395b8729c8a87ffe0_text_export.jpeg" alt="" width="600" />
