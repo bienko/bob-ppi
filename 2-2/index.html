@@ -1930,7 +1930,9 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition quote">
 <p>Bob notes the one fix applied during compilation: on line 529 of <code>FRS021.RPG</code>, <code>Z-ADDFHRS</code> was corrected to <code>Z-ADDFFHRS</code>. The I-spec field is named <code>FFHRS</code>, and the C-spec had the <code>F</code> prefix missing.</p>
+</div>
 <details class="warning">
 <summary>TROUBLESHOOTING: A COMPILE FAILS</summary>
 <p>If one of the four objects fails to compile, keep Bob scoped to the four objects: <em>"Explain the direct cause and propose the smallest correction limited to the four demo objects. Do not modify anything yet."</em> If the cause is an OPM RPG column-alignment issue, remind Bob to copy the model line's exact columns rather than counting by eye. If a program such as <code>FRS003</code>, <code>FRS413</code> or <code>BFLGHT</code> is also affected, record it as follow-up work; do not update or compile it here.</p>
@@ -1949,7 +1951,7 @@
 <hr>
 <ol>
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Validate the completed Total Flight Hours change for the direct Flight Maintenance path. Confirm: FLHRS exists in FLGHT400/FLIGHTS; FHRS is available through FLGHT400/FLIGHTSZ; SFLHRS appears immediately after Mileage in the FRS021DF DDS Previewer; FRS021 compiled successfully; the display file does not contain the invalid COLHDG keyword. Finish with a short summary of the end-to-end field mapping and list any additional impacted programs as follow-up work. Do not modify anything.
 </code></pre></div>
 <p></p><p align="left">
@@ -2021,7 +2023,11 @@
 <hr>
 <ol>
 <li>
-<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup, then click <strong>Terminals</strong> to open a new terminal session on the LPAR. When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</p>
+<p>In the IBM i status bar (bottom of the window), click <strong>IBM i Modernization</strong> to open the connection popup.</p>
+<ul>
+<li>Click <strong>Terminals</strong> to open a new terminal session on the LPAR.</li>
+<li>When prompted <em>"Select a terminal type"</em>, choose <strong>5250</strong>.</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/1c5336d4-b37e-4ce3-a61d-787a0a3b96f6/user_cropped_screenshot_1f57c40fd923463d8a42ca798cbcd29d_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2030,7 +2036,7 @@
 <hr>
 <ol start="2">
 <li>
-<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your TechZone reservation details, then press <strong>Enter</strong> to sign on.</p>
+<p>On the 5250 Sign On screen, enter your user name (<code>ITZUSER</code>) and the password from your <em>IBM Technology Zone</em> reservation details, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to sign on.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/cfa935ae-2093-4e2d-bc7a-eab2aaf3e536/user_cropped_screenshot_e4233ff57bad4309b3b0e8312197115f_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -2039,7 +2045,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>At the IBM i Main Menu, type the following command on the command line and press <strong>Enter</strong> to add the <code>FLGHT400</code> library to your session's library list:</p>
+<p>At the <strong>IBM i Main Menu</strong>, type the following command on the command line and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to add the <code>FLGHT400</code> library to your session's library list:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ADDLIBLE FLGHT400
 </code></pre></div>
 <p></p><p align="left">
@@ -2050,7 +2056,7 @@
 <hr>
 <ol start="4">
 <li>
-<p>On the command line, type the following and press <strong>Enter</strong> to launch the Flight Maintenance program directly:</p>
+<p>On the command line, type the following and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to launch the <strong>Flight Maintenance</strong> program directly:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>CALL FLGHT400/FRS021
 </code></pre></div>
 <p></p><p align="left">
@@ -2062,7 +2068,8 @@
 <ol start="5">
 <li>
 <p>The <strong>Flight Maintenance System — Flight Schedule</strong> screen appears. Confirm that the new <strong>Flight Hours</strong> field is visible immediately after <em>Mileage</em>, showing <code>0000</code> as the default value for the four-digit numeric field.</p>
-<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>. Press <strong>F3</strong> to exit the program when you are done.</p>
+<p>The field is positioned at row 16, column 37, where the DDS Previewer showed it. The label reads <code>Flight Hours . . . . . . .</code> in the same dot-leader style as <code>Mileage</code>, <code>Seats Available</code> and <code>Ticket Price</code>.</p>
+<p>To <strong>exit</strong>, hit <span class="keys"><kbd class="key-f3">F3</kbd></span> to quit the program.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/65ad788d-4b94-4298-b062-e62e3d61bc62/user_cropped_screenshot_7ce2c74f23814980a0bf873a9a7125a0_text_export.jpeg" alt="" width="600"></a>
 </p>
