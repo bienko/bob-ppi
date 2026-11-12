@@ -1487,7 +1487,28 @@
 <div class="admonition note">
 <p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Registration and Setup</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCRhBB6FPqR2jGqPHXCJgGXb4243" target="_blank">[1 min]</a></strong></p>
 </div>
-<p>Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated <strong>IBM Bob</strong> account entitled to the <strong>IBM Bob Premium Package for i</strong> (PPi), and an IBM i 7.6 partition that holds the <em>Flight400</em> demo application used in every module. The work proceeds in six stages:</p>
+<p>Before you begin the hands-on modules, complete the registration and setup steps below. By the end you will have an authenticated <strong>IBM Bob</strong> account entitled to the <strong>IBM Bob Premium Package for i</strong> (PPi), and an IBM i 7.6 partition that holds the <em>Flight400</em> demo application used in every module. </p>
+<p>The hands-on work ahead assumes you have completed the core curriculum of the <em>Climbing the AI Maturity Curve</em> L3 course, or that you hold equivalent familiarity with the Bob IDE and the Agentic Sidebar as well as Rules and AGENTS.md. No prior IBM i experience is required: the <em>Setup</em> chapter provisions the partition for you, and the modules explain each IBM i concept where it first appears.</p>
+<hr>
+<p>What you <strong><em>do</em></strong> need:</p>
+<div class="admonition success">
+<p class="admonition-title">LAB PREREQUISITES</p>
+<ul>
+<li><strong>IBM Bob</strong> installed and authenticated on your local machine</li>
+<li>Your <strong>IBMid</strong> credentials are at hand (IBM regular employees sign in with their w3id)</li>
+<li><strong>IBM regular employees:</strong> access to the <strong><a href="https://w3.ibm.com/w3publisher/bob/addons" target="_blank">w3 add-ons portal</a></strong> to request the Premium Package for i entitlement</li>
+<li><strong>Business Partners:</strong> access to <strong>IBM Technology Zone</strong> to request the Premium Package for i entitlement</li>
+<li>Access to <strong>IBM Technology Zone</strong> to reserve an <em>IBM i 7.6</em> virtual machine from the <em>Certified PowerVS Base VMs</em> collection, which takes 30 to 60 minutes to provision</li>
+<li>The two Flight400 distribution files, <strong><code>FLGHT400.FILE</code></strong> and <strong><code>Install-Flight400.sql</code></strong>, downloaded from the links in the <em>Setup</em> chapter</li>
+<li>A local folder is available to serve as your Bob project workspace, and an SSH client is installed (macOS, Linux and Windows 10 or later include one)</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">MANAGING CONSUMPTION OF <em>BOBCOINS</em></p>
+<p>The Premium Package requires agentic AI capabilities, which consume Bob Resource Units (Bobcoins). The architecture overview in Module 1 and the RPG modernization in Module 2 are the most expensive prompts in this lab. The <code>AGENTS</code> member and the Understand scan exist to lower that cost: once they are in place, Bob answers structural questions from metadata instead of re-reading source members. Finish each module's prompts before you experiment with the optional variations.</p>
+</div>
+<hr>
+<p>The work proceeds in six stages:</p>
 <ul>
 <li>Request the <strong>Premium Package for i</strong> entitlement through the route that matches your job role, then confirm it has landed in your Bob account</li>
 <li>Install the <strong>IBM Bob Premium Package for i</strong> extension and the <strong>IBM i Development Pack</strong> from the Extensions view</li>
@@ -1497,12 +1518,12 @@
 <li>Upload the Flight400 save file to the IFS, restore it into the <code>FLGHT400</code> library and add that library to your library list</li>
 </ul>
 <p>Afterwards, you will be ready to begin <a href="https://bienko.github.io/bob-ppi/1-1/" target="_blank"><strong>Module 1 | Analyze</strong></a>.</p>
+<hr>
+<h2 id="setup-ii-request-entitlements-to-bob-premium-package-for-i"><strong>ii. Request entitlements to Bob Premium Package for i</strong></h2>
 <div class="admonition warning">
 <p class="admonition-title">THIS LAB REQUIRES THE PREMIUM PACKAGE FOR i</p>
 <p>Without the <strong>IBM Bob Premium Package for i</strong> (PPi) entitlement, IBM Bob can still open and read RPG, CL and DDS source, but the <em>IBM i Developer</em> and <em>IBM i Database</em> modes and the specifically-trained capabilities that the package provides will be unavailable. If neither mode appears in your Agentic Sidebar by the end of this chapter, the entitlement has <strong>not</strong> been linked to your Bob account.</p>
 </div>
-<hr>
-<h2 id="setup-ii-request-entitlements-to-bob-premium-package-for-i"><strong>ii. Request entitlements to Bob Premium Package for i</strong></h2>
 <p>Before Bob can operate against IBM i, you will want to request license entitlements to <strong>IBM Bob Premium Package for i</strong> (PPi). The pathway for doing so differs depending on your role as either an IBM regular employee or a business partner.</p>
 <p>Without such entitlements, IBM Bob will still attempt to work with IBM i and RPG application code, though without the specifically-trained models and capabilities that PPi offers. For example, if your Agentic Sidebar shows no <em>IBM i Developer</em> mode in its mode selector, that indicates that your IBM Bob account has <strong>not</strong> been linked to the PPi entitlement.</p>
 <hr>
