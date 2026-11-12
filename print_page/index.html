@@ -4853,7 +4853,7 @@
 <h2 id="5-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>Day-to-day IBM i operations require quick, accurate answers to system-level questions.</p>
 <div class="admonition note">
-<p>Getting those answers traditionally requires engineers to:</p>
+<p><strong>Getting those answers traditionally requires practitioners to:</strong></p>
 <ul>
 <li>Know the right CL command or <code>QSYS2</code> table function for each question</li>
 <li>Interpret the difference between cumulative CPU time and elapsed CPU percentage</li>
@@ -4901,18 +4901,19 @@
 <li>Query <code>QSYS2.OBJECT_STATISTICS</code> to identify stale programs by compile date</li>
 <li>Group findings by compiler version and OS release level</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, so the exact SQL queries, table layouts and analysis text you see may differ from those shown here.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to ask Bob operational questions in plain English and interpret the structured output it returns. The exact job names, CPU figures and program lists will reflect the live state of your LPAR at the time you run the prompts.</p>
-</div>
+</details>
 <hr>
 <h3 id="5-1-prompt-1-active-jobs-and-cpu-consumption"><strong>Prompt 1: Active jobs and CPU consumption</strong></h3>
 <p>The first question gives you a quick health check on your LPAR: which jobs are consuming the most CPU, and whether that consumption is cumulative (over the job's lifetime) or happening right now.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list. Confirm that <strong>IBM i Developer</strong> is the active mode.</p>
+<p>In the Bob chat panel, click the <strong>+</strong> button (top-right) and choose <strong>New task in Library List</strong> to start a fresh task scoped to your library list.</p>
+<p>Confirm that <strong>IBM i Developer</strong> is the active mode.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/d9cc4d65-1521-4c42-9573-7a0cd23b9f55/user_cropped_screenshot_71bb2d3fe9724c14b9c7daf3f7d258c0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/d9cc4d65-1521-4c42-9573-7a0cd23b9f55/user_cropped_screenshot_71bb2d3fe9724c14b9c7daf3f7d258c0_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4934,12 +4935,14 @@
 <ol start="3">
 <li>
 <p>Bob queries <code>QSYS2.ACTIVE_JOB_INFO</code> and returns a ranked table of active jobs showing job name, type, subsystem, user, function, CPU time (cumulative, in seconds) and elapsed CPU percentage (a real-time snapshot).</p>
-<p>Review the <strong>Key Observations</strong> section that follows the table. Bob explains:</p>
+<div class="admonition quote">
+<p><strong>Review the <em>Key Observations</em> section that follows the table. Bob explains:</strong></p>
 <ul>
 <li><strong>Total CPU (sec)</strong> — the cumulative milliseconds of CPU consumed since the job started, converted to seconds</li>
 <li><strong>Elapsed CPU %</strong> — the job's share of CPU consumed during the last elapsed-time window, a real-time snapshot</li>
 <li>An <strong>Analysis</strong> identifying which jobs dominate (typically the HTTP Server and JVM jobs, QBRMS backup recovery, QTCP mail server threads and system jobs) and whether any of them are currently CPU-bound</li>
 </ul>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/962b63da-ce82-4962-a4e6-f30871e6a75d/user_cropped_screenshot_b463ceb48e26437a93642f37a39464e8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/962b63da-ce82-4962-a4e6-f30871e6a75d/user_cropped_screenshot_b463ceb48e26437a93642f37a39464e8_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4964,11 +4967,13 @@
 <ol start="5">
 <li>
 <p>Bob produces a structured <strong>Investigation Report</strong> for the top job. Review the sections:</p>
+<div class="admonition quote">
 <ul>
 <li><strong>Fresh Elapsed CPU Measurement (fact):</strong> A table showing <code>ELAPSED_CPU_PERCENTAGE</code>, <code>ELAPSED_CPU_TIME</code>, <code>CPU_TIME</code> (cumulative lifetime), job status and disk I/O, followed by a verdict on whether the job is currently CPU-bound</li>
 <li><strong>Job Log (fact):</strong> A table of log messages with timestamps, message IDs and text, or a note that the log is empty</li>
 <li><strong>IFS Process Information (fact and inference):</strong> The executable path, PASE PID, PASE user, JVM version, working directory and open file handles, followed by Bob's inference about the application's identity based on the combination of subsystem, user profile, function tag and IFS path</li>
 </ul>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c6a97269-7186-4fe6-bc77-a4d39bee843a/user_cropped_screenshot_4abf9f10ea164fa4b49ebb947f01ad0c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/c6a97269-7186-4fe6-bc77-a4d39bee843a/user_cropped_screenshot_4abf9f10ea164fa4b49ebb947f01ad0c_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -4978,7 +4983,9 @@
 <ol start="6">
 <li>
 <p>Scroll down to the <strong>Summary</strong> and <strong>Two Recommendations</strong> at the bottom of the investigation report.</p>
+<div class="admonition quote">
 <p>Bob separates facts (what it measured and read from the system) from inferences (what it concluded from those facts), and provides no more than two recommendations: for example, reviewing recent Navigator error logs or mounting <code>/proc</code> for open-file visibility.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/978e1b06-47f5-49db-a8b5-88b94ed1fa7e/user_cropped_screenshot_d21c39c38b6944e8823bc8bdf5ffa1c3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/978e1b06-47f5-49db-a8b5-88b94ed1fa7e/user_cropped_screenshot_d21c39c38b6944e8823bc8bdf5ffa1c3_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -5003,7 +5010,9 @@
 <ol start="8">
 <li>
 <p>Bob queries <code>QSYS2.OBJECT_STATISTICS</code>, filtering on object type <code>*PGM</code> in <code>FLGHT400</code>, compares the compile timestamps against the current date and returns the results grouped by compiler era.</p>
+<div class="admonition quote">
 <p>Review <strong>Group 1 — Original 1997 Compile</strong>. These are OPM RPG/400 and CLP programs compiled on OS/400 V3R2M0, roughly 29 years ago. The table shows program name, type (RPG or CLP), description, source member and compiler version.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd5b6d09-9942-41f5-b482-ae229e310535/user_cropped_screenshot_ad8fc2c6bf13496d8645820fb08b65fe_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/bd5b6d09-9942-41f5-b482-ae229e310535/user_cropped_screenshot_ad8fc2c6bf13496d8645820fb08b65fe_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -5012,7 +5021,10 @@
 <hr>
 <ol start="9">
 <li>
-<p>Scroll down to <strong>Group 2 — 2003–2004 Compile</strong>. These are programs recompiled during an OS upgrade cycle (V5R1M0 to V5R2M0), roughly 22 years ago. This group includes DFU programs, CLP utilities and some RPG programs that were touched during that migration and have not been recompiled since.</p>
+<p>Scroll down to <strong>Group 2 — 2003–2004 Compile</strong>.</p>
+<div class="admonition quote">
+<p>These are programs recompiled during an OS upgrade cycle (V5R1M0 to V5R2M0), roughly 22 years ago. This group includes DFU programs, CLP utilities and some RPG programs that were touched during that migration and have not been recompiled since.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/afe130b3-5896-4c48-b016-75b5da580617/user_cropped_screenshot_69a66a72fd984ca6aa6549af2f68b945_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-07/afe130b3-5896-4c48-b016-75b5da580617/user_cropped_screenshot_69a66a72fd984ca6aa6549af2f68b945_text_export.jpeg" alt="" width="600"></a>
 </p>
