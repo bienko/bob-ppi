@@ -1262,7 +1262,6 @@
 <summary>TROUBLESHOOTING: THE BUILD FAILS</summary>
 <p>Most failures trace back to a step of the skill being skipped. <em>Unsupported platform: os400 ppc64 BE</em> means the <code>esbuild</code> patch did not run; ask Bob to <em>re-run node patch-esbuild.cjs and build again</em>. A hang during <code>npm install</code> means <code>--ignore-scripts</code> was omitted. A page that renders in the white theme means the theme <code>@use</code> landed after the component styles. In each case, point Bob to the relevant section of the skill instead of describing the fix, since the skill already contains it.</p>
 </details>
-<!-- SCREENSHOT: Bob's to-do list for the React application, with the skills activated -->
 </li>
 </ol>
 <hr>
@@ -1271,8 +1270,9 @@
 <p>When the build completes, ask Bob to start the server:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Please start the dev server for the app you just created.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob runs the <code>start-dev.sh</code> launcher, which detaches the Vite server with <code>nohup</code> and records its process ID. It reports the PID and the port the server is listening on. If port <code>3001</code> was taken, Vite moves to the next free port and Bob tells you which; use that port in the tunnel below.</p>
-<!-- SCREENSHOT: Bob reporting the started dev server, its PID and port -->
+</div>
 </li>
 </ol>
 <hr>
@@ -1284,15 +1284,15 @@
 <p>In the Bob IDE, open a local terminal (<strong>Terminal → New Terminal</strong>) at the root of your workspace, where <code>ssh_private_key.pem</code> lives. Run the following, replacing <code>&lt;public-ip&gt;</code> with the <em>Virtual machine 1 public IP address</em> from your TechZone reservation, and leave the terminal open:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>ssh_private_key.pem<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span><span class="m">3001</span>:localhost:3001<span class="w"> </span>ITZUSER@&lt;public-ip&gt;
 </code></pre></div>
-<p><code>-N</code> opens the tunnel without starting a remote shell, so the command appears to hang. The command is holding the tunnel open, which is expected. Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to close it when you are finished.</p>
-<!-- SCREENSHOT: the integrated terminal with the tunnel command running -->
+<div class="admonition quote">
+<p>The <code>-N</code> flag opens the tunnel without starting a remote shell, so the command appears to hang. The command is holding the tunnel open, which is expected. Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to close it when you are finished.</p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="2">
 <li>
 <p>Open <strong><code>http://localhost:3001</code></strong> in your browser. The <em>Create Order</em> screen renders as a Carbon page in the g100 dark theme, with the <em>Flight Information</em> and <em>Ticket Order Information</em> panels as tiles. The lookups become dropdowns and the class of service becomes a set of radio buttons. The function keys appear as a row of buttons along the bottom, with <em>F10 – Make Reservation</em> as the primary action.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-react-app.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-react-app.png" width="600"></a></p>
 <details class="warning">
 <summary>TROUBLESHOOTING: NOTHING SHOWING IN THE BROWSER</summary>
 <p>Check three things in order. The tunnel terminal is still open and reported no error. The port in the tunnel matches the port Bob reported in the previous section; if Vite moved to another port, change both ends of the <code>-L</code> argument. And the server is still running: ask Bob <em>"Is the dev server for the create-order app still running? Show the last lines of its log."</em> The log is at <code>/tmp/vite-create-order.log</code> (the skill names it after the screen) or at <code>/tmp/vite-dev.log</code>.</p>
