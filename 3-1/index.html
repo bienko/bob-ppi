@@ -1124,7 +1124,7 @@
 <li>
 <p>Type <strong><code>/review</code></strong> into the prompt field. The command list above the field narrows to the SQL review command, described as <em>"Review a Db2 for i SQL statement for simplification, optimization, security…"</em>.</p>
 <p>Select it so that <code>/review</code> is highlighted as a command chip in the prompt.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">THE COMMAND NAME MAY DIFFER BY RELEASE</p>
 <p>In the documented run the command appeared as <code>/review</code>. Later releases of the Premium Package list it as <code>/review_SQL</code>, alongside a <code>/review_rpg</code> counterpart for RPG source. Either way, type <code>/review</code> and pick the SQL entry from the list; typing the whole command without selecting it from the list leaves it as plain text, and Bob will treat the query as a question rather than a review.</p>
 </div>
@@ -1321,7 +1321,6 @@
 <p class="admonition-title">CREATE ONE INDEX AT A TIME</p>
 <p>An index speeds up the statements that use it and adds cost to every insert, update and delete on the file it covers. The advisor's list is a set of candidates ranked by evidence from the capture, so approve the one with the clearest benefit and leave the rest as documentation. On a shared partition the same caution applies to scope: create indexes only in your own library.</p>
 </div>
-<!-- SCREENSHOT: Bob's recommended indexes with their expected benefit -->
 </li>
 </ol>
 <hr>
@@ -1330,8 +1329,9 @@
 <p>When Bob asks which recommendations to apply, respond with the following prompt (or select the equivalent option in the workflow):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Apply the highest-priority index only, in FLGHT400.
 </code></pre></div>
+<div class="admonition quote">
 <p>Bob runs the <code>CREATE INDEX</code> statement and reports success. The workflow closes with a summary covering the data source, the findings, the index created and the recommended next steps.</p>
-<!-- SCREENSHOT: the CREATE INDEX statement executed and the workflow summary -->
+</div>
 </li>
 </ol>
 <hr>
@@ -1340,8 +1340,9 @@
 <p>Confirm the result from the catalog:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>List the indexes that exist on FLGHT400/ORDERS, with their key columns.
 </code></pre></div>
+<div class="admonition quote">
 <p>The new index appears among the keyed access paths over <code>ORDERS</code>. In the Object Browser, refresh the <code>FLGHT400</code> filter: an SQL index is an IBM i file object with the logical-file attribute, so <code>ORDERS_IDX_DEPDT_FLT</code> is listed alongside the application's own logical files. Run the corrected ticket sales query once more and the optimizer will pick the new access path for the date range.</p>
-<!-- SCREENSHOT: the index listed by Bob, and in the Object Browser -->
+</div>
 </li>
 </ol>
 <hr>
