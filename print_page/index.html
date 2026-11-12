@@ -5139,7 +5139,7 @@
 <h2 id="6-1-ii-why-this-matters"><strong>ii. Why this matters</strong></h2>
 <p>A modern front end is the most visible modernization outcome. On IBM i it is often handed to an outside team, because the toolchain is unfamiliar to RPG developers.</p>
 <div class="admonition note">
-<p>Building a web front end for a 5250 transaction by hand requires engineers to:</p>
+<p><strong>Building a web front end for a 5250 transaction by hand requires practitioners to:</strong></p>
 <ul>
 <li>Read the display file DDS and the RPG program to learn which fields exist, which are input and which carry lookups</li>
 <li>Know the quirks of running Node.js, npm and a bundler inside PASE on a big-endian POWER system</li>
@@ -5181,15 +5181,19 @@
 </table>
 <hr>
 <h2 id="6-1-iii-extending-flight400-with-ibm-bob"><strong>iii. Extending FLIGHT400 with IBM Bob</strong></h2>
-<p>The work in this module combines three things you have already used (a skill, the <em>IBM i Developer</em> mode and Bob's IFS and PASE tools) with one you author yourself. The skill is the new element. React and Vite run well inside PASE, but only once a handful of platform-specific problems are solved:</p>
+<p>The work in this module combines three things you have already used (a skill, the <em>IBM i Developer</em> mode and Bob's IFS and PASE tools) with one you author yourself. The skill is the new element.</p>
+<div class="admonition failure">
+<p><strong>React and Vite run well inside PASE, but only once a handful of platform-specific problems are solved. There are still issues with:</strong></p>
 <ul>
 <li>The native <code>esbuild</code> binary does not exist for <code>os400</code></li>
 <li><code>npm</code> postinstall scripts hang</li>
 <li>An interactive scaffolding prompt freezes the tool channel</li>
 <li><code>nohup npm run dev &amp;</code> leaves a pipe open that cancels the call</li>
 </ul>
+</div>
 <p>A skill records those solutions so that Bob applies them without being told.</p>
-<p>Using <em>IBM i Developer</em> mode with the helper skill in place, Bob can:</p>
+<div class="admonition success">
+<p><strong>Using <em>IBM i Developer</em> mode with the helper skill in place, Bob can:</strong></p>
 <ul>
 <li>Read <code>FRS001DF.DSPF</code> for the screen layout and field names, and <code>FRS001.RPG</code> for the pricing logic and field definitions</li>
 <li>Scaffold a React 18 and Vite 4 project in the IFS and install its dependencies with <code>npm</code></li>
@@ -5197,39 +5201,40 @@
 <li>Write the launch scripts and start the development server in the background on a port you choose</li>
 <li>Stop the server again when you are done</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+</div>
+<details class="warning">
+<summary>ATTENTION: NON-DETERMINISTIC WORK AHEAD</summary>
 <p>Bob's responses are non-deterministic, and this module asks Bob to design a user interface, which leaves more room for variation than any earlier prompt. The layout, component choices and lookup values you see will differ from the screenshot, and the build may need a second attempt if a step of the skill is skipped.</p>
 <p><strong>All this is to say:</strong> Your results ahead may vary. The key takeaway is that you understand how to capture platform knowledge in a skill, how Bob combines it with the Premium Package's own skills to read a 5250 screen, and how a generated application is built and run on the partition. Whether your page matches the one shown is of less importance than the fact that it renders the <em>Create Order</em> screen in a browser.</p>
-</div>
+</details>
+<hr>
+<h2 id="6-1-iv-preparing-nodejs-on-the-partition"><strong>iv. Preparing Node.js on the partition</strong></h2>
 <div class="admonition success">
 <p class="admonition-title">PREREQUISITES</p>
+<p><strong>Before undertaking this module's tasks, confirm that the following is prepared:</strong></p>
 <ul>
 <li>The SSH private key from <em>Setup</em> is still in your local workspace folder, and an SSH client is available in the Bob IDE's integrated terminal</li>
 <li>Port <code>3001</code> is free on your laptop (the tunnel binds it) and on the partition (the development server binds it)</li>
 <li>The <em>IBM i Modernization</em> connection is active and <code>FLGHT400</code> is on the library list</li>
 </ul>
 </div>
-<hr>
-<h2 id="6-1-iv-preparing-nodejs-on-the-partition"><strong>iv. Preparing Node.js on the partition</strong></h2>
 <p>The Certified PowerVS Base VM ships without Node.js. As with <code>tn5250</code> during <em>Setup</em>, you will have Bob install it rather than doing so by hand. PASE packages come from <code>yum</code>, and the Node.js packages are versioned (<code>nodejs20</code>, <code>nodejs22</code> and so on) rather than published under a generic name.</p>
 <hr>
 <ol>
 <li>
-<p>In the Bob chat panel, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send the following prompt:</p>
+<p>Within the <strong>Agentic Sidebar</strong> chat, confirm that <strong>IBM i Developer</strong> is the active mode, click <strong>+</strong> › <strong>New task in Library List</strong> and send the following prompt:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#6-1-__codelineno-0-1"></a>Check whether Node.js and npm are installed in PASE on this partition by running /QOpenSys/pkgs/bin/node --version and /QOpenSys/pkgs/bin/npm --version. If Node.js is missing, list the nodejs packages available from yum, install the newest version that is 18 or later (for example yum install nodejs22), and report both versions when done.
 </code></pre></div>
-<p>Approve the PASE command requests as they appear. The install takes a few minutes and ends with Bob reporting a Node.js version of 18 or later and an npm version of 9 or later.</p>
+<p><strong>Approve</strong> the PASE command requests as they appear. The install takes a few minutes and ends with Bob reporting a Node.js version of 18 or later and an npm version of 9 or later.</p>
 <div class="admonition info">
-<p class="admonition-title">WHY THE FULL PATH</p>
+<p class="admonition-title">WHY THE FULL PATH?</p>
 <p>PASE shells do not add <code>/QOpenSys/pkgs/bin</code> to the <code>PATH</code> automatically, so <code>node</code> on its own reports <em>No such file or directory</em> even when Node.js is installed. The helper skill you create next tells Bob to use the fully qualified path everywhere and to export the <code>PATH</code> at the top of every script it writes, which avoids a whole class of confusing failures.</p>
 </div>
-<!-- SCREENSHOT: Bob reporting the installed Node.js and npm versions -->
 </li>
 </ol>
 <hr>
 <h2 id="6-1-v-creating-the-helper-skill"><strong>v. Creating the helper skill</strong></h2>
-<p>A skill is a Markdown file with a short frontmatter (a name and a description that tells Bob when to apply it) followed by the instructions themselves. You met the Premium Package's own skills in <em>Module 1</em>, when <code>understand-app-overview</code> answered a question from the scan. You create this one yourself. Its text is provided with the lab; you will paste it into a chat and ask Bob to turn it into a skill.</p>
+<p>A skill is a Markdown file with a short frontmatter (a name and a description that tells Bob when to apply it) followed by the instructions themselves. You first encountered the Premium Package's own skills in <em>Module 1</em>, when <code>understand-app-overview</code> answered a question from the scan. In this module, you'll create it yourself. The text is provided with the lab; you will paste it into a chat and ask Bob to turn it into a skill.</p>
 <hr>
 <ol>
 <li>
@@ -5252,7 +5257,7 @@
 <hr>
 <ol start="2">
 <li>
-<p>In the Bob chat panel, switch the mode selector to <strong>Agent</strong>. Click <strong>+</strong> and choose <strong>Local Workspace</strong> (your <code>ibmiflight400</code> folder) as the task context. Paste the copied skill text into the prompt, append the following instruction on a new line and send it:</p>
+<p>In the Bob chat panel, switch the mode selector to <strong>Agent</strong>. Click <strong>+</strong> and choose <strong>Local Workspace</strong> (your <code>ibmiflight400</code> folder) as the task context. copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#6-1-__codelineno-1-1"></a>Create a skill from the pasted text.
 </code></pre></div>
 <p>Bob writes the skill file and confirms where it saved it. If Bob asks whether to save the skill globally or in the workspace, choose <strong>global</strong>, so that it is available from the library-list task in the next section.</p>
@@ -5265,25 +5270,30 @@
 <hr>
 <ol>
 <li>
-<p>Save the screenshot of the <em>Create Order</em> screen to your laptop: <strong><a href="../6-1/_attachments/ppi-create-order-screen.png" target="_blank">ppi-create-order-screen.png</a></strong> (right-click the image and save it). If you prefer your own capture, sign on to the 5250 terminal, start the application with <code>GO FLGHT400/FRSMAIN</code> and take a screenshot of the order entry screen.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../6-1/_attachments/ppi-create-order-screen.png" data-desc-position="bottom"><img alt="" src="../6-1/_attachments/ppi-create-order-screen.png" width="600"></a></p>
+<p>Save the screenshot of the <em>Create Order</em> screen to your local machine (right-click the image and save it).</p>
+<p>If you prefer your own capture, sign on to the 5250 terminal, start the application with <code>GO FLGHT400/FRSMAIN</code> and take a screenshot of the order entry screen.</p>
 </li>
 </ol>
 <hr>
 <ol start="2">
-<li>Switch the mode selector back to <strong>IBM i Developer</strong>. Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task is scoped to <code>FLGHT400</code>, and confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled.</li>
+<li>
+<p>Switch the mode selector back to <strong>IBM i Developer</strong>.</p>
+<ul>
+<li>Click <strong>+</strong> › <strong>New task in Library List</strong> so that the task is scoped to <code>FLGHT400</code></li>
+<li>Confirm in the <strong>Permissions</strong> menu that <em>Documentation</em> and <em>Understand</em> are enabled</li>
+</ul>
+</li>
 </ol>
 <hr>
 <ol start="3">
 <li>
-<p>Drag the screenshot into the prompt field (or paste it from the clipboard), then paste the following prompt beneath it and send it:</p>
+<p>Drag the screenshot into the prompt field (or paste it from the clipboard), then copy &amp; paste the following instruction. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the task.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#6-1-__codelineno-2-1"></a>Given this screenshot of the 5250 flight order screen from the application FLIGHT400 in @FLGHT400, build a single-page React 18 + Vite 4 app on IBM i (PASE) using @carbon/react ^1.x with the g100 dark theme that modernises the IBM i 5250 screen shown in the attached screenshot. Create the app in the IFS at $HOME/flight400-frontend-apps/create-order/. Use the g100 dark theme. All fields should have a list of values to select from. The dev server must run in the background using nohup ... &amp; and write output to /tmp/vite-dev.log. Pin the Vite dev server to port 3001 if available.
 </code></pre></div>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">THE @ MENTION</p>
 <p><code>@FLGHT400</code> attaches the library to the task's context, which is how Bob knows where to find <code>FRS001DF</code> and <code>FRS001</code> without being told their source files. Type the <code>@</code> and pick the library from the list that appears, so that it is highlighted as a mention rather than left as plain text.</p>
 </div>
-<!-- SCREENSHOT: the prompt with the screenshot attached and @FLGHT400 highlighted -->
 </li>
 </ol>
 <hr>
