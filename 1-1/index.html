@@ -1405,7 +1405,7 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
+<div class="admonition note">
 <p>In the documented run, <code>FLGHT400</code> scanned to roughly <strong>42 programs</strong> (39 OPM and 3 ILE), <strong>15 physical files</strong>, <strong>6 ILE service programs</strong> (the REST API layer) and <strong>no</strong> objects using dynamic SQL. Those numbers confirm what the 1997 timestamp suggested: <em>a classic OPM RPG application with a modern REST layer added on top.</em></p>
 </div>
 </li>
@@ -1414,38 +1414,41 @@
 <ol start="6">
 <li>
 <p>Scroll down to <strong>Most referenced objects</strong>. The list ranks objects by inbound dependencies — the number of other objects that use them — which shows where a change would have the widest effect.</p>
+<div class="admonition note">
 <p>In the documented run, the physical files <code>ORDERS</code> (17 references), <code>CUSTOMERS</code> (13), <code>TOCITY</code> (11) and <code>FRCITY</code> (11) led the list. Database files dominate the top of the ranking, which tells you that the application's core dependencies run through its data rather than through program-to-program calls. Note how the dependency chart above the list breaks the relationships down by type: file opens, program calls, bound modules, data area references and command processing programs.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-understand-4.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-understand-4.png" width="600"></a></p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="7">
 <li>
 <p>Open the <strong>Objects</strong> tab, search for <strong><code>FRS021</code></strong> and select the program. The panel shows its <strong>outbound</strong> dependencies (the files and programs it uses) and its <strong>inbound</strong> dependencies (what uses it), together with the related file information and a <em>Last Used</em> column.</p>
-<p>Note this view. <code>FRS021</code> is the <em>Flight Maintenance</em> program you will extend in <em>Module 2</em>, and the files listed under its outbound dependencies are the ones that change will touch.</p>
-<!-- SCREENSHOT: Objects tab with FRS021 selected, showing outbound and inbound dependencies -->
+<div class="admonition note">
+<p><code>FRS021</code> is the <em>Flight Maintenance</em> program you will extend in <em>Module 2</em>, and the files listed under its outbound dependencies are the ones that change will touch.</p>
+</div>
 </li>
 </ol>
 <hr>
 <ol start="8">
 <li>
 <p>With the scan in place, Bob gains six Understand tools and three Understand skills in the <em>IBM i Developer</em> and <em>IBM i Database</em> modes. Whether it may use them in a given task is controlled by the <strong>Understand</strong> permission group, so enable it before asking.</p>
-<p>In the Bob chat panel, click <strong>+</strong> › <strong>New task in Library List</strong> and confirm that <strong>IBM i Developer</strong> is the active mode. Then open the <strong>Permissions</strong> menu beside the mode selector and switch on both <strong>Documentation</strong> and <strong>Understand</strong>.</p>
-<div class="admonition tip">
+<ul>
+<li>In the Bob chat panel, click <strong>+</strong> › <strong>New task in Library List</strong> and confirm that <strong>IBM i Developer</strong> is the active mode.</li>
+<li>Then open the <strong>Permissions</strong> menu beside the mode selector and switch <em>on</em> both <strong>Documentation</strong> and <strong>Understand</strong>.</li>
+</ul>
+<div class="admonition warning">
 <p class="admonition-title">ENABLE BOTH PERMISSIONS FOR EVERY TASK THAT FOLLOWS</p>
 <p><em>Documentation</em> lets Bob retrieve passages from the official IBM i documentation (a RAG-based tool) and <em>Understand</em> lets it query the scan. Both apply across the remaining modules — documentation, refactoring, database tuning and testing all benefit — so check the <em>Permissions</em> menu each time you start a new task.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_attachments/ppi-permissions.png" data-desc-position="bottom"><img alt="" src="_attachments/ppi-permissions.png" width="600"></a></p>
 </li>
 </ol>
 <hr>
 <ol start="9">
 <li>
-<p>Copy and paste the following prompt into the Bob chat and send it:</p>
+<p>Copy and paste the following prompt into the Agentic Sidebar chat and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>What are the high-level functional areas of FLGHT400?
 </code></pre></div>
 <p>Bob activates the <strong>understand-app-overview</strong> skill and answers from the scan data: the functional areas of the application, the key programs within each and an architecture diagram, produced from the scan data alone. Compare the response with what you saw in the Insights tab; the two should agree on which files sit at the center of the application.</p>
-<!-- SCREENSHOT: Bob's application overview produced from the understand-app-overview skill -->
 </li>
 </ol>
 <hr>
