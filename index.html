@@ -1088,6 +1088,10 @@
 </ul>
 </div>
 <p>As a result, IBM i organizations increasingly seek ways to modernize their applications while preserving the business logic that has been trusted and refined for years. That is the challenge IBM Bob was designed to address.</p>
+<details class="info">
+<summary>WHAT IS IBM i?</summary>
+<p><strong>IBM i</strong> is the integrated operating system of IBM Power servers. Programs and files live as objects inside <strong>libraries</strong> (<code>FLGHT400</code> is one), and a job finds objects by searching its <strong>library list</strong> in order. Source code is stored as <strong>members</strong> of source physical files such as <code>QRPGSRC</code> and <code>QDDSSRCF</code>, while the <strong>IFS</strong> (Integrated File System) holds stream files in Unix-style directories. <strong>DDS</strong> (Data Description Specifications) describes database files and 5250 display files in fixed columns; <strong>RPG</strong> comes in the older fixed-format <strong>OPM</strong> flavor and the modern <strong>ILE</strong> free-format flavor; <strong>CL</strong> is the control language. <strong>Db2 for i</strong> is the integrated database, and <strong>PASE</strong> is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.</p>
+</details>
 <hr>
 <h2 id="ii-what-is-ibm-bob"><strong>ii. What is IBM Bob?</strong></h2>
 <div class="admonition note">
@@ -1133,7 +1137,7 @@
 <tr>
 <td><strong>Specialized modes</strong></td>
 <td>Purpose-built AI personas for IBM i work. <strong>IBM i Developer</strong> explains, generates, compiles and tests RPG, CL and DDS; <strong>IBM i Database</strong> generates, modernizes, tunes and reviews Db2 for i SQL. Their presence in the mode selector is the visible proof that your entitlement is live</td>
-<td>Modules 1, 2, 4, 5 and 6 run in IBM i Developer; Module 3 runs in IBM i Database</td>
+<td>Modules 1, 2, 4, 5 and 6 run in <em>IBM i Developer</em>; Module 3 runs in <em>IBM i Database</em></td>
 </tr>
 <tr>
 <td><strong><code>/init</code> and the AGENTS member</strong></td>
@@ -1237,10 +1241,6 @@
 <li>Field naming conventions such as the <code>S</code>-prefix used for screen fields</li>
 </ul>
 <p>Although FLIGHT400 is intentionally focused, it contains many of the same patterns found in real IBM i systems running today in airlines, distribution, manufacturing and financial services. Because the lab uses one application from start to finish, you see Bob work the way it would in a client's modernization project.</p>
-<div class="admonition info">
-<p class="admonition-title">WHAT IS IBM i?</p>
-<p><strong>IBM i</strong> is the integrated operating system of IBM Power servers. Programs and files live as objects inside <strong>libraries</strong> (<code>FLGHT400</code> is one), and a job finds objects by searching its <strong>library list</strong> in order. Source code is stored as <strong>members</strong> of source physical files such as <code>QRPGSRC</code> and <code>QDDSSRCF</code>, while the <strong>IFS</strong> (Integrated File System) holds stream files in Unix-style directories. <strong>DDS</strong> (Data Description Specifications) describes database files and 5250 display files in fixed columns; <strong>RPG</strong> comes in the older fixed-format <strong>OPM</strong> flavor and the modern <strong>ILE</strong> free-format flavor; <strong>CL</strong> is the control language. <strong>Db2 for i</strong> is the integrated database, and <strong>PASE</strong> is the AIX-compatible runtime in which open-source tools such as Node.js run. Each of these terms comes up in the modules that follow.</p>
-</div>
 <hr>
 <h2 id="v-lab-objectives"><strong>v. Lab objectives</strong></h2>
 <div class="admonition note">
