@@ -1280,10 +1280,7 @@
 </ol>
 <hr>
 <ol start="4">
-<li>
-<p><em>Step 2: Business purpose</em> must be set to <strong>Test</strong> in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again (making sure to only click <em>Test</em>). When ready, click <strong>Next</strong> to continue.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/partners-IBMi-4.png" data-desc-position="bottom"><img alt="" src="../_attachments/partners-IBMi-4.png" width="600"></a></p>
-</li>
+<li><em>Step 2: Business purpose</em> must be set to <strong>Learning</strong> in order to bypass the need for an opportunity number. If you mistakenly click the wrong option, or if the reservation system does not allow you to continue without an opportunity number, exit out from this page and try again. When ready, click <strong>Next</strong> to continue.</li>
 </ol>
 <hr>
 <ol start="5">
@@ -1501,18 +1498,15 @@
 <hr>
 <ol start="4">
 <li>
-<p>On <strong>Step 2: Business purpose</strong>, select <strong>Test</strong> as the primary use: <em>"Need to test a specific function, configuration, or customization."</em></p>
-<p>Leave the Opportunity fields blank, then press <strong>Next</strong>.</p>
-<p></p><p align="left">
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-28/511f7ab5-c174-4792-9aa3-df1bb1676e20/user_cropped_screenshot_8683cc201a5345fa8a8b9e93353769fe_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-28/511f7ab5-c174-4792-9aa3-df1bb1676e20/user_cropped_screenshot_8683cc201a5345fa8a8b9e93353769fe_text_export.jpeg" alt="" width="600"></a>
-</p>
+<p>On <strong>Step 2: Business purpose</strong>, select <strong>Learning</strong> as the primary use.</p>
+<p>Leave the <em>Opportunity</em> fields blank and press <strong>Next</strong> to continue.</p>
 </li>
 </ol>
 <hr>
 <ol start="5">
 <li>
 <p>On <strong>Step 3: Deployment</strong>, confirm the pre-selected geography:</p>
-<div class="admonition warning">
+<div class="admonition note">
 <p><code>itz-shared-power - americas - us-east region - wdc07 datacenter</code></p>
 </div>
 <p>Press <strong>Next</strong> to continue.</p>
@@ -1604,7 +1598,7 @@
 <hr>
 <ol start="11">
 <li>
-<p>Once the status changes to <strong>Ready</strong>, return to the request page and click the <strong>expand arrow (<span class="keys"><kbd class="key-v">V</kbd></span>)</strong> to the left of the environment name to reveal the connection details.</p>
+<p>Once the status changes to <strong>Ready</strong>, return to the request page and click the <strong>expand arrow</strong> (the <span class="keys"><kbd class="key-v">V</kbd></span> icon) to the left of the environment name to reveal the connection details.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-07-30/bd3318bc-9839-4e63-a13d-8b91a974ab30/user_cropped_screenshot_7f00f6c0b5d14255b2bf10d0c607cf98_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-30/bd3318bc-9839-4e63-a13d-8b91a974ab30/user_cropped_screenshot_7f00f6c0b5d14255b2bf10d0c607cf98_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1700,7 +1694,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>ssh_private_key.pem
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">WHY THIS MATTERS</p>
 <p>SSH will refuse to use a private key that is readable by other users on the system. <code>chmod 600</code> restricts read and write access to only your user account, satisfying SSH's security check.</p>
 </div>
 <p></p><p align="left">
@@ -1791,9 +1784,10 @@
 <hr>
 <ol start="2">
 <li>
-<p>Click into the prompt field and paste the following request (press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span> or <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>):</p>
+<p>Click into the prompt field and paste the following request (press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-v">V</kbd></span> or alternatively <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>I'm getting the error "5250 terminal is not supported. Please install tn5250 via yum on the remote system." in the Code for IBM i VS Code extension. Please install tn5250 on my remote IBM i system, make sure it's in the default PATH, and set up my user profile so it's available in login shells. After that, tell me to reconnect using "Connect and Reload Server Settings" in VS Code.
 </code></pre></div>
+<p>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the instruction.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1de8b105-433c-4104-b48a-d4aa7328d893/user_cropped_screenshot_5ff9791826364a6fa0f231065fd74601_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/1de8b105-433c-4104-b48a-d4aa7328d893/user_cropped_screenshot_5ff9791826364a6fa0f231065fd74601_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1802,7 +1796,7 @@
 <hr>
 <ol start="3">
 <li>
-<p>Send the prompt and let Bob work. It will <code>yum install tn5250-0.17.6-1</code>, then update <code>/home/ITZUSER/.profile</code> and <code>/QOpenSys/etc/profile.local</code> so <code>/QOpenSys/pkgs/bin</code> is on <code>PATH</code> for every login shell.</p>
+<p>Bob will perform the <code>yum install tn5250-0.17.6-1</code> request to update <code>/home/ITZUSER/.profile</code> and <code>/QOpenSys/etc/profile.local</code> — such that <code>/QOpenSys/pkgs/bin</code> is on the <code>PATH</code> for every login shell used after the fact.</p>
 <p>When Bob finishes, click the <strong>disconnect</strong> button highlighted in the bottom-left status bar to close the current session with your LPAR.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4e6b95f4-969d-4a31-9c8a-bfaca3c22fc8/user_cropped_screenshot_e6a3445950ce4eb5863d7d2bccbf02c2_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/4e6b95f4-969d-4a31-9c8a-bfaca3c22fc8/user_cropped_screenshot_e6a3445950ce4eb5863d7d2bccbf02c2_text_export.jpeg" alt="" width="600"></a>
@@ -1833,7 +1827,7 @@
 <ol start="6">
 <li>
 <p>When prompted <strong>"Select a terminal type"</strong>, choose <strong>5250</strong>.</p>
-<div class="admonition warning">
+<div class="admonition note">
 <p>The <strong>PASE</strong> option gives you a Unix-style shell on the LPAR — useful for running <code>yum</code>, editing files, and inspecting IFS content. The <strong>5250</strong> option gives you the classic green-screen IBM i session used by RPG applications like FLIGHT400. <em>Module 6</em> relies on the PASE side as well, since that is where Node.js runs.</p>
 </div>
 <p></p><p align="left">
@@ -1845,7 +1839,7 @@
 <ol start="7">
 <li>
 <p>A new <strong>IBM i 5250: IBM i Modernization</strong> tab opens, showing the classic <strong>Sign On</strong> screen — <em>System</em>, <em>Subsystem</em>, <em>Display</em>, and <em>User</em> fields ready for input.</p>
-<p>You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel. You are ready to sign on and begin the lab.</p>
+<p>You now have a working 5250 terminal directly inside Bob IDE, alongside a PASE shell in the bottom panel.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0e049ac4-2b2d-4d01-a4a3-c6d697065f82/user_cropped_screenshot_4baa7195f135419ca0212f26cf6d3a4f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-04/0e049ac4-2b2d-4d01-a4a3-c6d697065f82/user_cropped_screenshot_4baa7195f135419ca0212f26cf6d3a4f_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1857,7 +1851,7 @@
 <hr>
 <ol>
 <li>
-<p>In the Activity Bar on the far left, click the <strong>Explorer</strong> icon to switch back to your local workspace view.</p>
+<p>From the Activity Bar tabs along the left side of the Bob IDE, click the <strong>Explorer</strong> icon to switch back to your local workspace view.</p>
 <p>You should see <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> at the top of the tree.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/9ccbed55-433d-47b9-808b-e96d779d6a25/user_cropped_screenshot_7ccefe628865472ba0954bfeb033ca68_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/9ccbed55-433d-47b9-808b-e96d779d6a25/user_cropped_screenshot_7ccefe628865472ba0954bfeb033ca68_text_export.jpeg" alt="" width="600"></a>
@@ -1876,8 +1870,12 @@
 <hr>
 <ol start="3">
 <li>
-<p>On the first deploy, a notification will appear in the bottom-right: <em>"Chosen location … is not configured for deployment."</em> Click <strong>Set deploy location</strong> to configure the target IFS directory.</p>
-<p>Accept the suggested path (typically <code>/home/ITZUSER/builds/ibmiflight400</code>) — this becomes the IFS directory that mirrors your local workspace.</p>
+<p>On the first deploy, a notification will appear in the bottom-right: <em>"Chosen location … is not configured for deployment."</em></p>
+<ul>
+<li>Click <strong>Set deploy location</strong> to configure the target IFS directory</li>
+<li><strong>Accept</strong> the suggested path (typically <code>/home/ITZUSER/builds/ibmiflight400</code>)</li>
+<li>This becomes the IFS directory that mirrors your local workspace</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/af006acb-6af4-4827-a89d-8b0fc8e941b3/user_cropped_screenshot_6eec8f53f519403c94be6c23222a6927_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/af006acb-6af4-4827-a89d-8b0fc8e941b3/user_cropped_screenshot_6eec8f53f519403c94be6c23222a6927_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1904,7 +1902,8 @@
 <hr>
 <ol start="6">
 <li>
-<p>Expand <code>/home/ITZUSER</code> → <strong><code>builds</code></strong> → <strong><code>ibmiflight400</code></strong>. Confirm that both <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> are now present on the LPAR.</p>
+<p>Expand <code>/home/ITZUSER</code> → <strong><code>builds</code></strong> → <strong><code>ibmiflight400</code></strong>.</p>
+<p>Confirm that both <code>FLGHT400.FILE</code> and <code>Install-Flight400.sql</code> are now present on the LPAR.</p>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/caeec2bc-db29-40d2-959f-d48c057dcae7/user_cropped_screenshot_05479f4166de4bd3932b67443d1c035d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/caeec2bc-db29-40d2-959f-d48c057dcae7/user_cropped_screenshot_05479f4166de4bd3932b67443d1c035d_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1947,8 +1946,12 @@
 <hr>
 <ol start="4">
 <li>
-<p>Replace the default <code>v_ifs_path</code> string with the path you copied in step 1 — it should look like <code>/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE</code>. Leave <code>v_rst_lib</code> as <code>FLGHT400</code> and <code>v_owner</code> as <code>NULL</code>.</p>
-<p>Save the file (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>), then close the editor tab.</p>
+<p>Replace the default <code>v_ifs_path</code> string with the path you copied in step 1.</p>
+<ul>
+<li>The new string should look like <code>/home/ITZUSER/builds/ibmiflight400/FLGHT400.FILE</code></li>
+<li>Leave <code>v_rst_lib</code> as <code>FLGHT400</code> and <code>v_owner</code> as <code>NULL</code></li>
+<li><strong>Save</strong> the file (<span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span>) and then <strong>close</strong> the editor tab</li>
+</ul>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/c5ddbfe5-ac88-4389-9c4c-ab196c1badde/user_cropped_screenshot_33aa42dcbc2f46b2bbf51b830c99d0c5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/c5ddbfe5-ac88-4389-9c4c-ab196c1badde/user_cropped_screenshot_33aa42dcbc2f46b2bbf51b830c99d0c5_text_export.jpeg" alt="" width="600"></a>
 </p>
@@ -1959,7 +1962,6 @@
 <li>
 <p>Switch back to the <strong>IBM i</strong> sidebar and locate <strong><code>Install-Flight400.sql</code></strong> in the IFS Browser under <code>/home/ITZUSER/builds/ibmiflight400</code>.</p>
 <div class="admonition warning">
-<p class="admonition-title">ATTENTION</p>
 <p>Because you edited the file locally, redeploy it (right-click → <strong>Deploy Selected Files</strong>) so the LPAR has the updated version before running it. If the IFS copy is out of date, the script will use the wrong path.</p>
 </div>
 <p></p><p align="left">
@@ -1989,7 +1991,9 @@
 <ol start="8">
 <li>
 <p>The integrated terminal will open and display the RUNSQLSTM output. Wait for the message summary to show <strong><code>0 level severity errors found in source</code></strong>, followed by <code>***** END OF LISTING *****</code>.</p>
+<div class="admonition success">
 <p>The <strong>FLGHT400</strong> library — programs, source members, and database files — is now restored on your LPAR.</p>
+</div>
 <p></p><p align="left">
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/4c3b6afa-1dce-4472-b8a0-c011ef64a3a5/user_cropped_screenshot_481419b1eeb1487395b8729c8a87ffe0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.amazonaws.com/files/2026-08-05/4c3b6afa-1dce-4472-b8a0-c011ef64a3a5/user_cropped_screenshot_481419b1eeb1487395b8729c8a87ffe0_text_export.jpeg" alt="" width="600"></a>
 </p>
